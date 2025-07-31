@@ -3,7 +3,6 @@ const input = document.getElementById('input');
 let currentDir = '~'; // Start in home, like a digital nomad's lair
 let repos = []; // Vessel for your GitHub souls
 
-// AI-generated summaries from live GitHub pages (pinned repos, divined July 31, 2025)— arcane essence distilled
 const summaries = {
     'hennesmuaritz_recc_app_tensorbuild': `AI-generated summary from live GitHub page:\nThe project "HennesMuaritz_recc_app_tensorBuild" is a recommendation application designed for PC use, with mobile interfaces explicitly not supported. Its specific purpose revolves around tensor-based recommendations, though details are sparse. Key features include a Streamlit app deployment for interactive use, accessible via https://prithvivasireddy-recc-app-streamlit-app-awjlwd.streamlit.app. Technologies used: Primarily Python, with contributions from 2 developers. README excerpt: Emphasizes PC-only access and provides the app link; no releases or packages published.\n`,
     'hennesmauritz-bert-transformer': `AI-generated summary from live GitHub page:\nThe "HennesMauritz-BeRt-Transformer" project delves into natural language processing challenges, particularly BERT tokenizer performance bottlenecks on CPU environments, leading to a reversion to a Tensor + vector methodology. Key features encompass experiments with MobileBERT and DistilBERT models, which suffered from hallucination problems, prompting the methodological pivot for efficiency. Technologies used: BERT family models, tensor operations, vector embeddings, implemented in Jupyter Notebook. README summary: Highlights CPU-related performance issues with BERT and the shift to alternative approaches, lacking deeper usage or installation details.\n`,
@@ -13,7 +12,6 @@ const summaries = {
     'sf_firedept_nosql_tableau': `AI-generated summary from live GitHub page:\n"SF_FireDept_NOSQL_Tableau" involves data engineering on the San Francisco Fire Department dataset using NoSQL graph database Neo4j, followed by Tableau visualizations. Key features: Pandas-based data exploration, Neo4j graph management with Cypher queries and APOC procedures, multi-tool visualization (Matplotlib, Tableau). Technologies used: Jupyter Notebook, Pandas, Neo4j, Cypher, Matplotlib, Tableau. README summary: Lists tools for data engineering and viz on the SF Fire Dept dataset, emphasizing Neo4j graph DB integration.\n`
 };
 
-// Summon repos from the API abyss— no auth needed, public plunder
 fetch('https://api.github.com/users/prithvivasireddy/repos')
     .then(response => response.json())
     .then(data => {
@@ -22,7 +20,6 @@ fetch('https://api.github.com/users/prithvivasireddy/repos')
     })
     .catch(err => appendOutput('Ether storm: Failed to summon repos. ' + err + '\n'));
 
-// Command oracle— cat now claws with AI summaries for pinned, README for others
 const commands = {
     help: () => `
 Available incantations:
@@ -105,7 +102,6 @@ Echo into the void:
     }
 };
 
-// Append to output— etch into the terminal's soul
 function appendOutput(text) {
     const div = document.createElement('div');
     div.innerHTML = text; // Raw HTML for bulletins, unholy but powerful
@@ -113,7 +109,6 @@ function appendOutput(text) {
     output.scrollTop = output.scrollHeight;
 }
 
-// Input sorcery— capture enter, process like lightning
 input.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
         const cmd = input.value.trim();
@@ -123,7 +118,6 @@ input.addEventListener('keydown', (e) => {
     }
 });
 
-// Command processor— async-aware for cat's fetch rituals
 async function processCommand(cmd) {
     const [base, ...args] = cmd.split(' ');
     const func = commands[base.toLowerCase()];
@@ -135,9 +129,7 @@ async function processCommand(cmd) {
     }
 }
 
-// Initial invocation— greet the intruder
 appendOutput(`Welcome to Prithvi's Macintosh Terminal Portfolio v1.1 - Enhanced with AI summaries from live GitHub.
 Type 'help' to begin the ritual.\n`);
 
-// Focus eternal— keep the input possessed
 document.addEventListener('click', () => input.focus());
