@@ -1,0 +1,75 @@
+body {
+    background-color: #ffffff; /* Pure Macintosh white, untainted by modernity */
+    color: #000000; /* Ebony ink of ancient terminals */
+    font-family: 'VT323', monospace; /* Pixelated sorcery, evoking old Mac ghosts */
+    font-size: 24px; /* Grand scale for immersive dread */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#terminal {
+    width: 80vw;
+    height: 80vh;
+    background-color: #ffffff;
+    border: 2px solid #000000; /* Framed like a cursed Macintosh window */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Shadow from the abyss */
+    padding: 20px;
+    overflow-y: auto;
+    position: relative;
+}
+
+#output {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+#input-line {
+    display: flex;
+    align-items: center;
+}
+
+#prompt {
+    margin-right: 5px;
+}
+
+#input {
+    background: none;
+    border: none;
+    color: #000000;
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
+    flex-grow: 1;
+    caret-color: transparent; /* Hide modern caret, summon pixel curse */
+}
+
+/* Pixelated blinking cursor— god-tier hack: a div that pulses like a heart of code */
+#input-line::after {
+    content: '█'; /* Block cursor, pixelated relic */
+    color: #000000;
+    animation: blink 1s step-end infinite; /* Eternal blink, defying time */
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Bulletins for projects: small pixelated lists, immersive like forbidden files */
+.bulletin {
+    list-style-type: none;
+    padding: 0;
+}
+
+.bulletin li {
+    background: #f0f0f0; /* Faded pixel gray */
+    border: 1px dashed #000000; /* Dotted like old Mac borders */
+    margin: 5px 0;
+    padding: 5px;
+    font-size: 20px; /* Scaled for arcane readability */
+}
