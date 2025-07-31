@@ -1,24 +1,33 @@
 const output = document.getElementById('output');
 const input = document.getElementById('input');
-let currentDir = '~'; // Start in home, like a digital nomad's lair
-let repos = []; // Vessel for your GitHub souls
-
-const summaries = {
-    'hennesmuaritz_recc_app_tensorbuild': `AI-generated summary from live GitHub page:\nThe project "HennesMuaritz_recc_app_tensorBuild" is a recommendation application designed for PC use, with mobile interfaces explicitly not supported. Its specific purpose revolves around tensor-based recommendations, though details are sparse. Key features include a Streamlit app deployment for interactive use, accessible via https://prithvivasireddy-recc-app-streamlit-app-awjlwd.streamlit.app. Technologies used: Primarily Python, with contributions from 2 developers. README excerpt: Emphasizes PC-only access and provides the app link; no releases or packages published.\n`,
-    'hennesmauritz-bert-transformer': `AI-generated summary from live GitHub page:\nThe "HennesMauritz-BeRt-Transformer" project delves into natural language processing challenges, particularly BERT tokenizer performance bottlenecks on CPU environments, leading to a reversion to a Tensor + vector methodology. Key features encompass experiments with MobileBERT and DistilBERT models, which suffered from hallucination problems, prompting the methodological pivot for efficiency. Technologies used: BERT family models, tensor operations, vector embeddings, implemented in Jupyter Notebook. README summary: Highlights CPU-related performance issues with BERT and the shift to alternative approaches, lacking deeper usage or installation details.\n`,
-    'r_nba_data_eda_storage_viz': `AI-generated summary from live GitHub page:\n"R_NBA_data_EDA_Storage_ViZ" is dedicated to exploratory data analysis (EDA), storage, and visualization of NBA player data to aid scouting efforts. Key features include data processing pipelines for JSON to CSV conversion, cleaning, and insightful visualizations for player performance metrics. Technologies used: R for analysis, SQL for querying, Alteryx for workflow automation. README excerpt: Focuses on the tools (R, SQL, Alteryx) and purpose of handling NBA scouting data through exploration, storage, and viz, with files like initial JSON data and cleaned CSVs included.\n`,
-    'transactadhere': `AI-generated summary from live GitHub page:\nThe "TransactAdhere" project, aka TAP (Transaction Adherence Protocol), facilitates bridges between banks and gateway providers, ensuring transactional integrity across DEV, QA, SUPP environments, plus admin layers. Key features support protocol adherence in financial transactions for seamless integration and compliance. Technologies used: PLSQL for database operations (though not explicitly detailed further). README summary: Describes the protocol's role in bank/gateway bridges and its coherence across environments, with minimal additional info on setup or features.\n`,
-    'sqlalchemy-tpcds-clv': `AI-generated summary from live GitHub page:\n"SQLAlchemy-TPCDS-CLV" implements Snowflake SQLAlchemy to run TPC-DS benchmark queries, coupled with a Streamlit interface for user interaction and Customer Lifetime Value (CLV) modeling. Key features: Streamlit frontend with input validation for query parameters (e.g., dates), CLV computation models with MAPE metrics for train/test sets, benchmark query execution. Technologies used: Python, Snowflake SQLAlchemy, Streamlit. README excerpt: Outlines building the interface and model, references Snowflake docs (https://docs.snowflake.com/en/user-guide/sqlalchemy, https://github.com/snowflakedb/snowflake-sqlalchemy), TPC-DS specs[](https://www.tpc.org/tpc_documents_current_versions/pdf/tpc-ds_v2.5.0.pdf), a Snowpark demo[](https://github.com/Snowflake-Labs/snowpark-python-demos/tree/main/tpcds-customer-lifetime-value), and query sources[](https://github.com/IBM/spark-tpc-ds-performance-test/tree/master/src/queries).\n`,
-    'sf_firedept_nosql_tableau': `AI-generated summary from live GitHub page:\n"SF_FireDept_NOSQL_Tableau" involves data engineering on the San Francisco Fire Department dataset using NoSQL graph database Neo4j, followed by Tableau visualizations. Key features: Pandas-based data exploration, Neo4j graph management with Cypher queries and APOC procedures, multi-tool visualization (Matplotlib, Tableau). Technologies used: Jupyter Notebook, Pandas, Neo4j, Cypher, Matplotlib, Tableau. README summary: Lists tools for data engineering and viz on the SF Fire Dept dataset, emphasizing Neo4j graph DB integration.\n`
-};
+let currentDir = '~'; // Start 
+let repos = []; 
 
 fetch('https://api.github.com/users/prithvivasireddy/repos')
     .then(response => response.json())
     .then(data => {
-        repos = data; // Imprison the repos in this array
+        repos = data; 
         appendOutput('Arcane fetch complete: ' + repos.length + ' repositories bound to my will.\n');
     })
     .catch(err => appendOutput('Ether storm: Failed to summon repos. ' + err + '\n'));
+
+function summarizeText(text, maxSentences = 5) {
+    text = text.replace(/\s+/g, ' ').trim(); // Purge whitespace demons
+    const sentences = text.match(/[^.!?]+[.!?]+/g) || [text]; // Cleave into sentence shards
+    const wordFreq = {};
+    sentences.forEach(sent => {
+        const words = sent.toLowerCase().replace(/[^a-z ]/g, '').split(' ').filter(w => w);
+        words.forEach(word => wordFreq[word] = (wordFreq[word] || 0) + 1);
+    });
+    const sentenceScores = sentences.map(sent => {
+        const words = sent.toLowerCase().replace(/[^a-z ]/g, '').split(' ').filter(w => w);
+        const score = words.length ? words.reduce((s, w) => s + (wordFreq[w] || 0), 0) / words.length : 0;
+        return { sent, score };
+    });
+    sentenceScores.sort((a, b) => b.score - a.score); // Descend from score Olympus
+    const summary = sentenceScores.slice(0, maxSentences).map(s => s.sent.trim()).join(' ');
+    return summary || text.substring(0, 500) + '...'; // Fallback to truncated lore
+}
 
 const commands = {
     help: () => `
@@ -29,7 +38,7 @@ Available incantations:
 - contact: Summon communication runes
 - ls: Peek at current dir contents
 - cd [dir]: Traverse the void (e.g., cd projects)
-- cat [project]: In projects dir, expand with AI summary (for pinned) or raw README from live GitHub
+- cat [project]: In projects dir, AI-summarize a repo's README (expanded with arcane intelligence!)
 - clear: Purge the terminal ghosts
 - echo [text]: Mirror your madness
     `,
@@ -79,12 +88,6 @@ Echo into the void:
         if (currentDir !== 'projects') return 'Cat prowls only in projects realm. cd there first, mortal.\n';
         if (!arg) return 'Cat needs prey: cat [project_name]\n';
         
-        const lowerArg = arg.toLowerCase().replace(/-/g, '').replace(/_/g, ''); // Normalize for matching (handle case, dashes)
-        const summaryKey = Object.keys(summaries).find(key => key === lowerArg);
-        if (summaryKey) {
-            return summaries[summaryKey]; // Unleash pre-divined AI summary for pinned
-        }
-        
         const repo = repos.find(r => r.name.toLowerCase() === arg.toLowerCase());
         if (!repo) return `No such beast: ${arg}. ls for victims.\n`;
         
@@ -95,7 +98,8 @@ Echo into the void:
             if (!response.ok) throw new Error('README ghost evades: ' + response.status);
             
             const text = await response.text();
-            return `Raw README of ${repo.name} clawed from the void (no AI summary for non-pinned):\n\n${text}\n`;
+            const summary = summarizeText(text);
+            return `AI-Summary of README for ${repo.name} (distilled from the void):\n\n${summary}\n`; // AI essence, not raw chaos
         } catch (err) {
             return `Ether curse on ${arg}: ${err.message}. Perhaps no README inscribed?\n`;
         }
@@ -122,14 +126,14 @@ async function processCommand(cmd) {
     const [base, ...args] = cmd.split(' ');
     const func = commands[base.toLowerCase()];
     if (func) {
-        const result = await func(args.join(' ')); // Await the promise, ride the storm
+        const result = await func(args.join(' '));
         appendOutput(result);
     } else {
         appendOutput(`Command '${base}' rejected by the gods. Type 'help' to submit.\n`);
     }
 }
 
-appendOutput(`Welcome to Prithvi's Macintosh Terminal Portfolio v1.1 - Enhanced with AI summaries from live GitHub.
+appendOutput(`Welcome to Prithvi's Macintosh Terminal Portfolio v1.1 - AI-enhanced, shadows-inspired, superior to feeble sites.
 Type 'help' to begin the ritual.\n`);
 
 document.addEventListener('click', () => input.focus());
