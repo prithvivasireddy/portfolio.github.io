@@ -7,14 +7,14 @@ fetch('https://api.github.com/users/prithvivasireddy/repos')
     .then(response => response.json())
     .then(data => {
         repos = data.sort((a, b) => b.stargazers_count - a.stargazers_count); // Sort for highlights
-        appendOutput('Retro fetch initiated: ' + repos.length + ' repositories summoned from the digital abyss.\n');
+        appendOutput('fetch initiated: ' + repos.length + ' repositories found.\n');
     })
-    .catch(err => appendOutput('Digital glitch: Failed to load repos. ' + err + '\n'));
+    .catch(err => appendOutput('glitch: Failed to load repos. ' + err + '\n'));
 
 const resumeData = {
     about: `
 Prithvi Vasireddy
-Data alchemist, code warlock, and eternal seeker of data truths.
+Data alchemist, code warlock, a seeker of truth.
 Intelligence is artificial.
 Location: United States
 Email: prithvi.vasireddy@gmail.com
@@ -167,7 +167,7 @@ Directories: highlights (GitHub repo highlights), resume (interactive resume ins
 
 function appendOutput(text) {
     const div = document.createElement('div');
-    div.innerHTML = text.replace(/\n/g, '<br>'); // Better line handling for retro feel
+    div.innerHTML = text.replace(/\n/g, '<br>'); 
     output.appendChild(div);
     output.scrollTop = output.scrollHeight;
 }
