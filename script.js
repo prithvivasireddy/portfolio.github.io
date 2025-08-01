@@ -3,7 +3,6 @@ const input = document.getElementById('input');
 let currentDir = '/'; 
 let repos = []; 
 
-// Fetch repos from GitHub API and sort by stars (highlights)
 fetch('https://api.github.com/users/prithvivasireddy/repos')
     .then(response => response.json())
     .then(data => {
@@ -12,7 +11,6 @@ fetch('https://api.github.com/users/prithvivasireddy/repos')
     })
     .catch(err => appendOutput('Digital glitch: Failed to load repos. ' + err + '\n'));
 
-// Structured resume data from PDF and LinkedIn (combined and cleaned as of 2025)
 const resumeData = {
     about: `
 Prithvi Vasireddy
@@ -194,8 +192,7 @@ async function processCommand(cmd) {
     }
 }
 
-// Welcome message with retro flair
-appendOutput(`Welcome to Prithvi's Retro Video Game Terminal Portfolio - Black CRT edition, god-tier JS powered.
-Type 'help' to navigate the digital abyss.\n`);
+appendOutput(`Welcome to my Portfolio.
+Type 'help' to navigate.\n`);
 
 document.addEventListener('click', () => input.focus());
