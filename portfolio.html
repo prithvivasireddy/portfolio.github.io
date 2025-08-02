@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prithvi Vasireddy - Professional Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-900 text-white py-6">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold">Prithvi Vasireddy</h1>
+            <p class="text-lg mt-2">Data Alchemist | Full-Stack Developer | AI Innovator</p>
+            <nav class="mt-4">
+                <a href="#about" class="text-blue-200 hover:text-white mx-4">About</a>
+                <a href="#experience" class="text-blue-200 hover:text-white mx-4">Experience</a>
+                <a href="#projects" class="text-blue-200 hover:text-white mx-4">Projects</a>
+                <a href="#contact" class="text-blue-200 hover:text-white mx-4">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <section id="about" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">About Me</h2>
+            <p class="text-lg text-gray-700">
+                I'm a passionate data architect and full-stack developer with a knack for building scalable, intelligent solutions. With experience in AI, cloud computing, and modern web technologies, I transform complex problems into actionable insights and seamless user experiences. Based in the United States, I'm always exploring new ways to push the boundaries of technology.
+            </p>
+        </section>
+
+        <section id="experience" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">Experience</h2>
+            <div class="grid gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold">Full-Stack Developer, Genuine Parts Company</h3>
+                    <p class="text-gray-600">Jun 2024 - Jun 2025 | Dallas, TX</p>
+                    <ul class="list-disc ml-6 mt-2 text-gray-700">
+                        <li>Architected deployment pipelines for NAPAOnline™, reducing processing time by 70%.</li>
+                        <li>Developed RESTful APIs with Python/FastAPI for RE-Ops™ backend.</li>
+                        <li>Led development of Chat-GPC, a proprietary LLM-based AI solution using LangChain and RAG.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold">Systems Engineer/RPA Developer, GlaxoSmithKline</h3>
+                    <p class="text-gray-600">May 2020 - May 2022 | Remote</p>
+                    <ul class="list-disc ml-6 mt-2 text-gray-700">
+                        <li>Developed multi-functional bots for logistics and clinical research.</li>
+                        <li>Optimized SQL/NoSQL queries, improving response rates by 30-45%.</li>
+                        <li>Mentored 6+ developers in TCS' life sciences unit.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">Projects</h2>
+            <div class="grid gap-6 md:grid-cols-2">
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold">TalentConnect</h3>
+                    <p class="text-gray-600">A MERN-based platform for creative professionals, combining LinkedIn's networking with Instagram's engagement. Hosted on AWS EC2.</p>
+                    <a href="https://github.com/prithvivasireddy" class="text-blue-600 hover:underline mt-2 inline-block">View on GitHub</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold">Autonomous Diet Recommendation Bot</h3>
+                    <p class="text-gray-600">A scalable RPA bot redesigned into a SaaS prototype, published in IEEE, and runner-up at WSIS Forum.</p>
+                    <a href="https://ieeexplore.ieee.org/document/9121120" class="text-blue-600 hover:underline mt-2 inline-block">View Publication</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">Contact</h2>
+            <p class="text-lg text-gray-700">
+                Email: <a href="mailto:prithvi.vasireddy@gmail.com" class="text-blue-600 hover:underline">prithvi.vasireddy@gmail.com</a><br>
+                Phone: <a href="tel:+18576938909" class="text-blue-600 hover:underline">+1-(857) 693-8909</a><br>
+                LinkedIn: <a href="https://www.linkedin.com/in/prithvi-vasireddy" class="text-blue-600 hover:underline">prithvi-vasireddy</a><br>
+                GitHub: <a href="https://github.com/prithvivasireddy" class="text-blue-600 hover:underline">prithvivasireddy</a>
+            </p>
+        </section>
+    </main>
+
+    <footer class="bg-blue-900 text-white py-4 text-center">
+        <p>&copy; 2025 Prithvi Vasireddy. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
