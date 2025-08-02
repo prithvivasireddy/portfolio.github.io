@@ -14,11 +14,10 @@ fetch('https://api.github.com/users/prithvivasireddy/repos')
 const resumeData = {
     about: `
 Prithvi Vasireddy
-Data alchemist, code warlock, a seeker of truth.
-Intelligence is artificial.
+Data alchemist, code warlock. Intelligence is artificial.
 Location: United States
 Email: prithvi.vasireddy@gmail.com
-Phone: +1-(857) 693-8909
+Phone: +1-(xxx) xcx-xxxx
 LinkedIn: https://www.linkedin.com/in/prithvi-vasireddy
 GitHub: https://github.com/prithvivasireddy
     `,
@@ -93,10 +92,9 @@ Description: Combines LinkedIn's professional networking with Instagram's social
 Contributions:
 - Orchestrated the development of a responsive MERN platform for creative professionals, utilizing React's dynamic features. Improved user experience with efficient navigation and infinite scrolling. Engineered React's state management for seamless, real-time interactions, empowering employers in job posting and recruitment.
 - Hosted the responsive MERN platform on Amazon EC2, ensuring reliable and scalable performance for users. Leveraged Amazon EC2's capabilities to enhance the platform's availability and responsiveness.
-Other Creators: Yash Nahata, Anshika Khandelwal
 
 Autonomous Diet Recommendation Bot
-Description: Scalable RPA bot redesigned into a SaaS prototype using intelligent automation. Published in IEEE and runner-up at WSIS Forum.
+Description: Scalable RPA bot redesigned into a SaaS prototype using intelligent automation. Published in IEEE, runner-up at WSIS (World Summit on Information Society) Forum.
     `,
     contact: `
 Email: prithvi.vasireddy@gmail.com
@@ -110,7 +108,7 @@ Twitter/X: Not available
 const commands = {
     help: () => `
 Available commands in this retro terminal:
-- help: Display this help menu
+- help: help menu
 - about: Quick bio overview
 - contact: Contact details
 - ls: List contents of current directory
