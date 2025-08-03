@@ -58,6 +58,7 @@
         }
         .nav-link:hover {
             color: #0EAC5D;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -186,7 +187,7 @@
                     card.innerHTML = `
                         <div class="flex">
                             <div class="w-1/4 pr-4">
-                                <div class="bg-gray-300 h-20 rounded" style="background-image: url('https://via.placeholder.com/80x80');"></div>
+                                <div class="bg-gray-300 w-20 h-20 rounded" style="background-image: url('https://opengraph.githubassets.com/1/${repo.full_name}'); background-size: cover; background-position: center;"></div>
                             </div>
                             <div class="w-3/4">
                                 <h4 class="text-lg font-semibold text-gray-900">${repo.name}</h4>
