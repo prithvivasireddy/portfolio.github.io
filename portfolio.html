@@ -72,12 +72,11 @@
                 <a href="#education" class="nav-link">Education</a>
                 <a href="#publications" class="nav-link">Publications</a>
                 <a href="#certifications" class="nav-link">Certifications</a>
-                <a href="#github" class="nav-link">Trending Projects</a>
+                <a href="#github" class="nav-link">Latest Projects</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
         </div>
     </header>
-
     <main class="container mx-auto px-4 py-12">
         <section id="about" class="mb-12">
             <h3 class="h3-custom mb-4">About Me</h3>
@@ -85,7 +84,6 @@
                 <p class="body-text">Full-Stack Developer and Systems Engineer with 5+ years of experience modernizing platforms, architecting scalable microservices, and implementing AI-driven solutions at Genuine Parts Company and GlaxoSmithKline. Proficient in streamlining CI/CD pipelines, optimizing data infrastructure (SnowFlake/OracleFusion), and developing advanced analytics and automation tools, including proprietary LLM-based systems and RPA bots. Skilled in Python, Go, JS, SQL, and BI tools, delivering actionable insights and enhancing operational efficiency across retail, logistics, and pharmaceutical domains.</p>
             </div>
         </section>
-
         <section id="experience" class="mb-12">
             <h3 class="h3-custom mb-6">Experience</h3>
             <div class="space-y-6">
@@ -108,7 +106,6 @@
                 </div>
             </div>
         </section>
-
         <section id="education" class="mb-12">
             <h3 class="h3-custom mb-6">Education</h3>
             <div class="space-y-6">
@@ -125,7 +122,6 @@
                 </div>
             </div>
         </section>
-
         <section id="publications" class="mb-12">
             <h3 class="h3-custom mb-6">Publications & Achievements</h3>
             <div class="space-y-6">
@@ -146,7 +142,6 @@
                 </div>
             </div>
         </section>
-
         <section id="certifications" class="mb-12">
             <h3 class="h3-custom mb-6">Certifications</h3>
             <div class="trending-card p-6 rounded-lg card-hover">
@@ -156,14 +151,12 @@
                 </ul>
             </div>
         </section>
-
         <section id="github" class="mb-12">
-            <h3 class="h3-custom mb-6">Trending Projects</h3>
-            <div id="trending-projects" class="space-y-6">
+            <h3 class="h3-custom mb-6">Latest Projects</h3>
+            <div id="latest-projects" class="space-y-6">
                 <!-- Populated dynamically by JavaScript -->
             </div>
         </section>
-
         <section id="contact" class="mb-12">
             <h3 class="h3-custom mb-6">Contact</h3>
             <div class="trending-card p-6 rounded-lg card-hover">
@@ -176,20 +169,17 @@
             </div>
         </section>
     </main>
-
     <footer class="bg-gray-800 text-white py-6 text-center">
         <p class="body-text">© 2025 Prithvi Vasireddy. All rights reserved.</p>
     </footer>
-
     <script>
-        // Fetch and display trending projects from GitHub
-        const trendingProjectsDiv = document.getElementById('trending-projects');
+        // Fetch and display latest projects from GitHub
+        const latestProjectsDiv = document.getElementById('latest-projects');
         let repos = [];
-
-        fetch('https://api.github.com/users/prithvivasireddy/repos')
+        fetch('https://api.github.com/users/prithvivasireddy/repos?sort=pushed&direction=desc')
             .then(response => response.json())
             .then(data => {
-                repos = data.sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0, 3); // Top 3 repos
+                repos = data.slice(0, 3); // Latest 3 repos based on last push
                 repos.forEach(repo => {
                     const card = document.createElement('div');
                     card.className = 'trending-card p-6 rounded-lg card-hover';
@@ -205,16 +195,15 @@
                             </div>
                         </div>
                     `;
-                    trendingProjectsDiv.appendChild(card);
+                    latestProjectsDiv.appendChild(card);
                 });
             })
             .catch(err => {
                 const errorCard = document.createElement('div');
                 errorCard.className = 'trending-card p-6 rounded-lg';
                 errorCard.innerHTML = `<p class="text-red-500 text-sm">Error loading projects: ${err.message}</p>`;
-                trendingProjectsDiv.appendChild(errorCard);
+                latestProjectsDiv.appendChild(errorCard);
             });
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
