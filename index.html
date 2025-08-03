@@ -38,7 +38,9 @@
         }
         .buttons {
             display: flex;
+            flex-direction: column;
             gap: 20px;
+            align-items: center;
         }
         button {
             background-color: #000000;
@@ -50,6 +52,7 @@
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            width: 200px; /* Fixed width for consistent button size */
         }
         button:hover {
             background-color: #00ff00;
@@ -76,7 +79,7 @@
         <div class="buttons">
             <button onclick="window.location.href='portfolio.html'">Continue</button>
             <button onclick="window.location.href='terminal.html'">Terminal</button>
-            <button onclick="window.location.href='pacman.html'">Its Program & Control Man!!</button>
+            <button onclick="window.location.href='pacman.html'">Program and Control Man</button>
         </div>
     </div>
 </body>
