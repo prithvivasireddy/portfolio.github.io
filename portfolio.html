@@ -3,59 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prithvi Vasireddy - Professional Portfolio</title>
+    <title>Prithvi Vasireddy - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            background-color: #F9FAFB;
+        }
+        .green-accent {
+            color: #0EAC5D;
+        }
         .card-hover {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .h1-custom {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 2.25rem; /* ~36px */
+            font-weight: 700;
+            line-height: 1.25;
+            color: #1F2937;
+        }
+        .h3-custom {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.5rem; /* ~24px */
+            font-weight: 600;
+            line-height: 1.375;
+            color: #1F2937;
+        }
+        .body-text {
+            font-size: 1rem; /* ~16px */
+            font-weight: 400;
+            line-height: 1.5;
+            color: #4B5563;
+        }
+        .trending-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E5E7EB;
+        }
+        .trending-card:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .nav-link {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 500;
+            font-size: 1rem;
+            color: #4B5563;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #0EAC5D;
         }
     </style>
 </head>
-<body class="bg-gray-100 font-sans">
-    <header class="bg-blue-900 text-white py-6">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl font-bold">Prithvi Vasireddy</h1>
-            <p class="text-lg mt-2">Data Engineer | Full-Stack Developer</p>
-            <nav class="mt-4">
-                <a href="#about" class="text-blue-200 hover:text-white mx-4">About</a>
-                <a href="#experience" class="text-blue-200 hover:text-white mx-4">Experience</a>
-                <a href="#education" class="text-blue-200 hover:text-white mx-4">Education</a>
-                <a href="#publications" class="text-blue-200 hover:text-white mx-4">Publications</a>
-                <a href="#certifications" class="text-blue-200 hover:text-white mx-4">Certifications</a>
-                <a href="#github" class="text-blue-200 hover:text-white mx-4">GitHub</a>
-                <a href="#contact" class="text-blue-200 hover:text-white mx-4">Contact</a>
+<body class="bg-gray-50 text-gray-800">
+    <header class="bg-white py-6 border-b border-gray-200">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="h1-custom text-green-accent">Prithvi Vasireddy</h1>
+            <p class="body-text text-gray-600 mt-2">Data Engineer | Full-Stack Developer</p>
+            <nav class="mt-4 flex justify-center space-x-6">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#publications" class="nav-link">Publications</a>
+                <a href="#certifications" class="nav-link">Certifications</a>
+                <a href="#github" class="nav-link">Trending Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </nav>
         </div>
     </header>
 
-    <main class="container mx-auto px-4 py-8">
+    <main class="container mx-auto px-4 py-12">
         <section id="about" class="mb-12">
-            <h2 class="text-3xl font-bold mb-4">About Me</h2>
-            <p class="text-lg text-gray-700">
-                Full-Stack Developer and Systems Engineer with 5+ years of experience modernizing platforms, architecting scalable microservices, and implementing AI-driven solutions at Genuine Parts Company and GlaxoSmithKline. Proficient in streamlining CI/CD pipelines, optimizing data infrastructure (SnowFlake/OracleFusion), and developing advanced analytics and automation tools, including proprietary LLM-based systems and RPA bots. Skilled in Python, Go, JS, SQL, and BI tools, delivering actionable insights and enhancing operational efficiency across retail, logistics, and pharmaceutical domains.
-            </p>
+            <h3 class="h3-custom mb-4">About Me</h3>
+            <div class="trending-card p-6 rounded-lg">
+                <p class="body-text">Full-Stack Developer and Systems Engineer with 5+ years of experience modernizing platforms, architecting scalable microservices, and implementing AI-driven solutions at Genuine Parts Company and GlaxoSmithKline. Proficient in streamlining CI/CD pipelines, optimizing data infrastructure (SnowFlake/OracleFusion), and developing advanced analytics and automation tools, including proprietary LLM-based systems and RPA bots. Skilled in Python, Go, JS, SQL, and BI tools, delivering actionable insights and enhancing operational efficiency across retail, logistics, and pharmaceutical domains.</p>
+            </div>
         </section>
 
         <section id="experience" class="mb-12">
-            <h2 class="text-3xl font-bold mb-4">Experience</h2>
-            <div class="grid gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <h3 class="text-xl font-semibold">Full-Stack Developer, Genuine Parts Company</h3>
-                    <p class="text-gray-600">Jun 2024 - Jun 2025 | Dallas, TX</p>
-                    <ul class="list-disc ml-6 mt-2 text-gray-700">
+            <h3 class="h3-custom mb-6">Experience</h3>
+            <div class="space-y-6">
+                <div class="trending-card p-6 rounded-lg card-hover">
+                    <h4 class="text-lg font-semibold mb-2 text-gray-900">Full-Stack Developer, Genuine Parts Company</h4>
+                    <p class="text-sm text-gray-500 mb-2">Jun 2024 - Jun 2025 | Dallas, TX</p>
+                    <ul class="list-disc ml-5 text-gray-600 space-y-1 body-text">
                         <li>Contributed to the platform and technology vision for modernization, reliability, Gen-AI, cloud and edge computing scenarios at Motion Industries and NAPA Auto Parts.</li>
                         <li>Configured custom build-agents and architected the new deployment/data pipelines for NAPAOnline™, PROLink™, and PartsProSE™’s (B2B/B2C applications) restructuring monolithic CI/CD to non-monolithic triggers where applicable, reducing processing time by 70%.</li>
                         <li>Spearheaded initiatives and contributed significantly to development of Chat-GPC, a proprietary LLM-based AI solution using LangChain and RAG.</li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <h3 class="text-xl font-semibold">Systems Engineer/RPA Developer, GlaxoSmithKline</h3>
-                    <p class="text-gray-600">May 2020 - May 2022 | Remote</p>
-                    <ul class="list-disc ml-6 mt-2 text-gray-700">
+                <div class="trending-card p-6 rounded-lg card-hover">
+                    <h4 class="text-lg font-semibold mb-2 text-gray-900">Systems Engineer/RPA Developer, GlaxoSmithKline</h4>
+                    <p class="text-sm text-gray-500 mb-2">May 2020 - May 2022 | Remote</p>
+                    <ul class="list-disc ml-5 text-gray-600 space-y-1 body-text">
                         <li>Worked for the EIA/AI (Enterprise Intelligent Automation/Artificial Intelligence) unit of TCS in the GlaxoSmithKline X UNICEF initiative developing multi-functional bots and ETL/ELT pipelines for logistics, finance, HR, clinical research, supply chain, and pharma inventory management.</li>
                         <li>Mentored 6+ devs/trainees and contributed significantly to R&D in TCS' life sciences unit, aiding in the development of TCS’ advanced AI and analytics solutions - Cognix™ and MFDM™.</li>
                     </ul>
@@ -64,49 +110,47 @@
         </section>
 
         <section id="education" class="mb-12">
-            <h2 class="text-3xl font-bold mb-4">Education</h2>
-            <div class="grid gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <h3 class="text-xl font-semibold">Northeastern University, Boston, MA</h3>
-                    <p class="text-gray-600">2022 - 2024</p>
-                    <p class="text-gray-700">MS, Data Architecture and Management</p>
-                    <p class="text-gray-700 mt-2">
-                        <strong>Courses:</strong> DAMG7370 Designing Advanced Data Architectures for Business Intelligence, DAMG7250 Big Data Architecture & Governance, DAMG6210 Database Management & Database Design, INFO7374 Algorithmic Marketing, DAMG6105 Data Science Engineering with Python, CSYE6200 Concepts of Object-Oriented Programming & Design, INFO6150 Web Design and User Experience, CSYE7280 User Experience Design and Testing
-                    </p>
+            <h3 class="h3-custom mb-6">Education</h3>
+            <div class="space-y-6">
+                <div class="trending-card p-6 rounded-lg card-hover">
+                    <h4 class="text-lg font-semibold mb-2 text-gray-900">Northeastern University, Boston, MA</h4>
+                    <p class="text-sm text-gray-500 mb-2">2022 - 2024</p>
+                    <p class="text-gray-600 mb-2 body-text">MS, Data Architecture and Management</p>
+                    <p class="text-gray-600 body-text"><strong>Courses:</strong> DAMG7370 Designing Advanced Data Architectures for Business Intelligence, DAMG7250 Big Data Architecture & Governance, DAMG6210 Database Management & Database Design, INFO7374 Algorithmic Marketing, DAMG6105 Data Science Engineering with Python, CSYE6200 Concepts of Object-Oriented Programming & Design, INFO6150 Web Design and User Experience, CSYE7280 User Experience Design and Testing</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <h3 class="text-xl font-semibold">Jawaharlal Nehru Technological University, India</h3>
-                    <p class="text-gray-600">2016 - 2020</p>
-                    <p class="text-gray-700">B.Tech, Computer Science</p>
+                <div class="trending-card p-6 rounded-lg card-hover">
+                    <h4 class="text-lg font-semibold mb-2 text-gray-900">Jawaharlal Nehru Technological University, India</h4>
+                    <p class="text-sm text-gray-500 mb-2">2016 - 2020</p>
+                    <p class="text-gray-600 body-text">B.Tech, Computer Science</p>
                 </div>
             </div>
         </section>
 
         <section id="publications" class="mb-12">
-            <h2 class="text-3xl font-bold mb-4">Publications & Achievements</h2>
-            <div class="grid gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <h3 class="text-xl font-semibold">An Autonomous Diet Recommendation Bot Using Intelligent Automation</h3>
-                    <p class="text-gray-600">Publisher: IEEE</p>
-                    <p class="text-gray-700 mt-2">
+            <h3 class="h3-custom mb-6">Publications & Achievements</h3>
+            <div class="space-y-6">
+                <div class="trending-card p-6 rounded-lg card-hover">
+                    <h4 class="text-lg font-semibold mb-2 text-gray-900">An Autonomous Diet Recommendation Bot Using Intelligent Automation</h4>
+                    <p class="text-sm text-gray-500 mb-2">Publisher: IEEE</p>
+                    <p class="text-gray-600 body-text mb-2">
                         INSPEC Accession Number: 19711237<br>
-                        DOI: <a href="https://doi.org/10.1109/ICICCS48265.2020.9121120" class="text-blue-600 hover:underline">10.1109/ICICCS48265.2020.9121120</a>
+                        DOI: <a href="https://doi.org/10.1109/ICICCS48265.2020.9121120" class="text-green-600 hover:underline">10.1109/ICICCS48265.2020.9121120</a>
                     </p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <h3 class="text-xl font-semibold">Runner-up at WSIS Forum</h3>
-                    <p class="text-gray-600">World Summit on the Information Society | Challenge Area: Bone Frailty</p>
-                    <p class="text-gray-700 mt-2">
-                        Certificate: <a href="https://drive.google.com/file/d/1TM1Xb7YrPd8MOWnD0q2OD8D3m3BSm63B/view" class="text-blue-600 hover:underline">View Certificate</a>
+                <div class="trending-card p-6 rounded-lg card-hover">
+                    <h4 class="text-lg font-semibold mb-2 text-gray-900">Runner-up at WSIS Forum</h4>
+                    <p class="text-sm text-gray-500 mb-2">World Summit on the Information Society | Challenge Area: Bone Frailty</p>
+                    <p class="text-gray-600 body-text mb-2">
+                        Certificate: <a href="https://drive.google.com/file/d/1TM1Xb7YrPd8MOWnD0q2OD8D3m3BSm63B/view" class="text-green-600 hover:underline">View Certificate</a>
                     </p>
                 </div>
             </div>
         </section>
 
         <section id="certifications" class="mb-12">
-            <h2 class="text-3xl font-bold mb-4">Certifications</h2>
-            <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                <ul class="list-disc ml-6 text-gray-700">
+            <h3 class="h3-custom mb-6">Certifications</h3>
+            <div class="trending-card p-6 rounded-lg card-hover">
+                <ul class="list-disc ml-5 text-gray-600 space-y-1 body-text">
                     <li>Automation Anywhere Certified Advanced RPA Professional - Blockchain ID: 622102</li>
                     <li>Automation Anywhere Certified RPA Master - Blockchain ID: 661894</li>
                 </ul>
@@ -114,34 +158,65 @@
         </section>
 
         <section id="github" class="mb-12">
-            <h2 class="text-3xl font-bold mb-4">GitHub</h2>
-            <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                <p class="text-gray-700">
-                    Explore my projects and contributions on GitHub: <a href="https://www.github.com/prithvivasireddy" class="text-blue-600 hover:underline">www.github.com/prithvivasireddy</a>
-                </p>
+            <h3 class="h3-custom mb-6">Trending Projects</h3>
+            <div id="trending-projects" class="space-y-6">
+                <!-- Populated dynamically by JavaScript -->
             </div>
         </section>
 
         <section id="contact" class="mb-12">
-            <h2 class="text-3xl font-bold mb-4">Contact</h2>
-            <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                <p class="text-lg text-gray-700">
-                    Email: <a href="mailto:prithvi.vasireddy@gmail.com" class="text-blue-600 hover:underline">prithvi.vasireddy@gmail.com</a><br>
-                    Phone: <a href="tel:+18576938909" class="text-blue-600 hover:underline">+1-(xxx) xcx-xxx</a><br>
-                    LinkedIn: <a href="https://www.linkedin.com/in/prithvi-vasireddy" class="text-blue-600 hover:underline">prithvi-vasireddy</a><br>
-                    GitHub: <a href="https://github.com/prithvivasireddy" class="text-blue-600 hover:underline">prithvivasireddy</a>
+            <h3 class="h3-custom mb-6">Contact</h3>
+            <div class="trending-card p-6 rounded-lg card-hover">
+                <p class="text-gray-600 body-text space-y-2">
+                    Email: <a href="mailto:prithvi.vasireddy@gmail.com" class="text-green-600 hover:underline">prithvi.vasireddy@gmail.com</a><br>
+                    Phone: <a href="tel:+18576938909" class="text-green-600 hover:underline">+1-(xxx) xcx-xxx</a><br>
+                    LinkedIn: <a href="https://www.linkedin.com/in/prithvi-vasireddy" class="text-green-600 hover:underline">prithvi-vasireddy</a><br>
+                    GitHub: <a href="https://github.com/prithvivasireddy" class="text-green-600 hover:underline">prithvivasireddy</a>
                 </p>
             </div>
         </section>
     </main>
 
-    <footer class="bg-blue-900 text-white py-4 text-center">
-        <p>&copy; 2025 Prithvi Vasireddy. All rights reserved.</p>
+    <footer class="bg-gray-800 text-white py-6 text-center">
+        <p class="body-text">© 2025 Prithvi Vasireddy. All rights reserved.</p>
     </footer>
 
     <script>
+        // Fetch and display trending projects from GitHub
+        const trendingProjectsDiv = document.getElementById('trending-projects');
+        let repos = [];
+
+        fetch('https://api.github.com/users/prithvivasireddy/repos')
+            .then(response => response.json())
+            .then(data => {
+                repos = data.sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0, 3); // Top 3 repos
+                repos.forEach(repo => {
+                    const card = document.createElement('div');
+                    card.className = 'trending-card p-6 rounded-lg card-hover';
+                    card.innerHTML = `
+                        <div class="flex">
+                            <div class="w-1/4 pr-4">
+                                <div class="bg-gray-300 h-20 rounded" style="background-image: url('https://via.placeholder.com/80x80');"></div>
+                            </div>
+                            <div class="w-3/4">
+                                <h4 class="text-lg font-semibold text-gray-900">${repo.name}</h4>
+                                <p class="text-sm text-gray-500">Stars: ${repo.stargazers_count} | Updated: ${new Date(repo.updated_at).toLocaleDateString()}</p>
+                                <a href="${repo.html_url}" class="text-green-600 hover:underline text-sm">View Project</a>
+                            </div>
+                        </div>
+                    `;
+                    trendingProjectsDiv.appendChild(card);
+                });
+            })
+            .catch(err => {
+                const errorCard = document.createElement('div');
+                errorCard.className = 'trending-card p-6 rounded-lg';
+                errorCard.innerHTML = `<p class="text-red-500 text-sm">Error loading projects: ${err.message}</p>`;
+                trendingProjectsDiv.appendChild(errorCard);
+            });
+
         // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
