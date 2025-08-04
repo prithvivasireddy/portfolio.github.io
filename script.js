@@ -14,7 +14,7 @@ fetch('https://api.github.com/users/prithvivasireddy/repos')
 const resumeData = {
     about: `
 Prithvi Vasireddy
-Data alchemist, code warlock. Intelligence is artificial.
+Data alchemist, code warlock. Intelligence is artificial. Happy coding 🏳️‍🌈
 Location: United States
 Email: prithvi.vasireddy@gmail.com
 Phone: +1-(xxx) xcx-xxxx
@@ -44,7 +44,7 @@ Jun 2024 - Jun 2025
 - Leveraged R/Python, SQL, and BI tools (Power BI, Tableau) to deliver actionable recommendations, enhancing efficiency and customer experience in retail analytics.
 - Developed RESTful APIs in Python/FastAPI (transitioning from Golang prototypes) for RE-Ops™ backend, enabling secure data exchange, traffic management, and seamless integration with GCP services via service accounts.
 - Designed a custom Python logger in RE-Ops with four information levels to track user actions and critical alerts, promoting high-autonomy operations and product-led improvements by enabling real-time feedback loops for end-users.
-- Spearheaded initiatives and contributed significantly to the development and deployment of Chat-GPC, a proprietary LLM-based AI solution at GPC, implementing advanced agentic workflows utilizing LangChain, vector databases (such as Pinecone), Retrieval-Augmented Generation (RAG), and prompt chaining to support intelligent automation and customer interactions.
+- Spearheaded initiatives and contributed to the development of Chat-GPC, a proprietary LLM-based AI solution at GPC, implementing advanced agentic workflows utilizing LangChain, vector databases (such as Pinecone), Retrieval-Augmented Generation (RAG), and prompt chaining to support intelligent automation and customer interactions.
 * RE-Ops is a proprietary Ops console for managing cloud and reliability at scale (e.g., directing traffic between services and revisions, auto-resource provisioning to cut SRE oversight, automated JIRA workflows) through an intuitive interface. Powered by Golang backend, IaC Terraform, and NodeJS/React.
 
 GlaxoSmithKline Pharmaceuticals (GSK), Brussels, Belgium | Remote
