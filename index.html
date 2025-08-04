@@ -3,84 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prithvi Vasireddy - Portfolio Intro</title>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <title>Prithvi Vasireddy - Professional Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <style>
-        body {
-            background-color: #000000;
-            color: #00ff00;
-            font-family: 'VT323', monospace;
-            font-size: 24px;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            overflow: hidden;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', sans-serif;
         }
-        .container {
-            max-width: 800px;
-            padding: 20px;
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .pixel-art {
-            image-rendering: pixelated;
-            width: 200px;
-            height: auto;
-            margin-bottom: 20px;
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        h1 {
-            font-size: 48px;
-            text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
-            margin-bottom: 20px;
+        .loading-text {
+            animation: pulse 1.5s infinite;
+            color: #0EAC5D;
         }
-        .buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: center;
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
         }
-        button {
-            background-color: #000000;
-            border: 2px solid #00ff00;
-            color: #00ff00;
-            font-family: 'VT323', monospace;
-            font-size: 28px;
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-            width: 200px; /* Fixed width for consistent button size */
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #0EAC5D;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-left: 10px;
         }
-        button:hover {
-            background-color: #00ff00;
-            color: #000000;
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
-        }
-        .scanlines::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2) 1px, transparent 1px, transparent 2px);
-            pointer-events: none;
-            z-index: 1;
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
-<body>
-    <div class="scanlines"></div>
-    <div class="container">
-        <h1>Hello World</h1>
-        <div class="buttons">
-            <button onclick="window.location.href='portfolio.html'">Continue</button>
-            <button onclick="window.location.href='terminal.html'">$terminal</button>
-            <button onclick="window.location.href='pacman.html'">program & control man</button>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-900 text-white py-6">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold">Prithvi Vasireddy</h1>
+            <p class="text-lg mt-2">Data Engineer | Full-Stack Developer</p>
+            <nav class="mt-4">
+                <a href="#about" class="text-blue-200 hover:text-white mx-4">About</a>
+                <a href="#experience" class="text-blue-200 hover:text-white mx-4">Experience</a>
+                <a href="#education" class="text-blue-200 hover:text-white mx-4">Education</a>
+                <a href="#publications" class="text-blue-200 hover:text-white mx-4">Publications</a>
+                <a href="#certifications" class="text-blue-200 hover:text-white mx-4">Certifications</a>
+                <a href="#github" class="text-blue-200 hover:text-white mx-4">GitHub</a>
+                <a href="#contact" class="text-blue-200 hover:text-white mx-4">Contact</a>
+            </nav>
         </div>
-    </div>
+    </header>
+    <main class="container mx-auto px-4 py-8">
+        <section id="about" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">About Me</h2>
+            <p class="text-lg text-gray-700">
+                Full-Stack Developer and Systems Engineer with 5+ years of experience modernizing platforms, architecting scalable microservices, and implementing AI-driven solutions at Genuine Parts Company and GlaxoSmithKline. Proficient in streamlining CI/CD pipelines, optimizing data infrastructure (SnowFlake/OracleFusion), and developing advanced analytics and automation tools, including proprietary LLM-based systems and RPA bots. Skilled in Python, Go, JS, SQL, and BI tools, delivering actionable insights and enhancing operational efficiency across retail, logistics, and pharmaceutical domains.
+            </p>
+        </section>
+        <section id="experience" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">Experience</h2>
+            <div class="grid gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold">Full-Stack Developer, Genuine Parts Company</h3>
+                    <p class="text-gray-600">Jun 2024 - Jun 2025 | Dallas, TX</p>
+                    <ul class="list-disc ml-6 mt-2 text-gray-700">
+                        <li>Contributed to the platform and technology vision for modernization, reliability, Gen-AI, cloud and edge computing scenarios at Motion Industries and NAPA Auto Parts.</li>
+                        <li>Configured custom build-agents and architected the new deployment/data pipelines for NAPAOnline™, PROLink™, and PartsProSE™’s (B2B/B2C applications) restructuring monolithic CI/CD to non-monolithic triggers where applicable, reducing processing time by 70%.</li>
+                        <li>Spearheaded initiatives and contributed to development of Chat-GPC, a proprietary LLM-based AI solution using LangChain and RAG.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold">Systems Engineer/RPA Developer, GlaxoSmithKline</h3>
+                    <p class="text-gray-600">May 2020 - May 2022 | Remote</p>
+                    <ul class="list-disc ml-6 mt-2 text-gray-700">
+                        <li>Worked for the EIA/AI (Enterprise Intelligent Automation/Artificial Intelligence) unit of TCS in the GlaxoSmithKline X UNICEF initiative developing multi-functional bots and ETL/ELT pipelines for logistics, finance, HR, clinical research, supply chain, and pharma inventory management.</li>
+                        <li>Mentored 6+ devs/trainees and contributed significantly to R&D in TCS' life sciences unit, aiding in the development of TCS’ advanced AI and analytics solutions - Cognix™ and MFDM™.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="education" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">Education</h2>
+            <div class="grid gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold">Northeastern University, Boston, MA</h3>
+                    <p class="text-gray-600">2022 - 2024</p>
+                    <p class="text-gray-700">MS, Data Architecture and Management</p>
+                    <p class="text-gray-700 mt-2">
+                        <strong>Courses:</strong> DAMG7370 Designing Advanced Data Architectures for Business Intelligence, DAMG7250 Big Data Architecture & Governance, DAMG6210 Database Management & Database Design, INFO7374 Algorithmic Marketing, DAMG6105 Data Science Engineering with Python, CSYE6200 Concepts of Object-Oriented Programming & Design, INFO6150 Web Design and User Experience, CSYE7280 User Experience Design and Testing
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold">Jawaharlal Nehru Technological University, India</h3>
+                    <p class="text-gray-600">2016 - 2020</p>
+                    <p class="text-gray-700">B.Tech, Computer Science</p>
+                </div>
+            </div>
+        </section>
+        <section id="publications" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">Publications & Achievements</h2>
+            <div class="grid gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold">An Autonomous Diet Recommendation Bot Using Intelligent Automation</h3>
+                    <p class="text-gray-600">Publisher: IEEE</p>
+                    <p class="text-gray-700 mt-2">
+                        INSPEC Accession Number: 19711237<br>
+                        DOI: <a href="https://doi.org/10.1109/ICICCS48265.2020.9121120" class="text-blue-600 hover:underline">10.1109/ICICCS48265.2020.9121120</a>
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold">Runner-up at WSIS Forum</h3>
+                    <p class="text-gray-600">World Summit on the Information Society | Challenge Area: Bone Frailty</p>
+                    <p class="text-gray-700 mt-2">
+                        Certificate: <a href="https://drive.google.com/file/d/1TM1Xb7YrPd8MOWnD0q2OD8D3m3BSm63B/view" class="text-blue-600 hover:underline">View Certificate</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="certifications" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">Certifications</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                <ul class="list-disc ml-6 text-gray-700">
+                    <li>Automation Anywhere Certified Advanced RPA Professional - Blockchain ID: 622102</li>
+                    <li>Automation Anywhere Certified RPA Master - Blockchain ID: 661894</li>
+                </ul>
+            </div>
+        </section>
+        <section id="github" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">GitHub</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                <div id="github-loading" class="text-gray-700 mb-4 loading-text">
+                    <span id="loading-message">Loading repositories by latest...</span>
+                    <span class="spinner"></span>
+                </div>
+                <p id="fetched-message" class="text-gray-700 mb-4 hidden">
+                    Latest GitHub projects fetched from: <span id="fetched-date"></span>
+                </p>
+                <div id="github-projects" class="grid gap-4 hidden">
+                    <!-- GitHub projects will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">Contact</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                <p class="text-lg text-gray-700">
+                    Email: <a href="mailto:prithvi.vasireddy@gmail.com" class="text-blue-600 hover:underline">prithvi.vasireddy@gmail.com</a><br>
+                    Phone: <a href="tel:+18576938909" class="text-blue-600 hover:underline">+1-(xxx) xcx-xxx</a><br>
+                    LinkedIn: <a href="https://www.linkedin.com/in/prithvi-vasireddy" class="text-blue-600 hover:underline">prithvi-vasireddy</a><br>
+                    GitHub: <a href="https://github.com/prithvivasireddy" class="text-blue-600 hover:underline">prithvivasireddy</a>
+                </p>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-blue-900 text-white py-4 text-center">
+        <p>&copy; 2025 Prithvi Vasireddy. All rights reserved.</p>
+    </footer>
+    <script>
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        const loadingMessages = [
+            'Loading repositories by latest commits...',
+            'Sorting uploads by user actions...',
+            'Loading...'
+        ];
+        let messageIndex = 0;
+        const loadingMessageElement = document.getElementById('loading-message');
+        const loadingInterval = setInterval(() => {
+            messageIndex = (messageIndex + 1) % loadingMessages.length;
+            loadingMessageElement.textContent = loadingMessages[messageIndex];
+        }, 2000); // Change message every 2 seconds
+
+        setTimeout(async () => {
+            clearInterval(loadingInterval);
+            document.getElementById('github-loading').classList.add('hidden');
+            document.getElementById('github-projects').classList.remove('hidden');
+            document.getElementById('fetched-message').classList.remove('hidden');
+            const fetchedDate = new Date().toLocaleDateString();
+            document.getElementById('fetched-date').textContent = fetchedDate;
+
+            try {
+                const response = await fetch('https://api.github.com/search/repositories?q=user:prithvivasireddy&sort=pushed&order=desc&per_page=6');
+                const data = await response.json();
+                const repos = data.items || []; // Handle case where items might not exist
+                const projectsContainer = document.getElementById('github-projects');
+               
+                repos.forEach(repo => {
+                    const projectCard = document.createElement('div');
+                    projectCard.className = 'bg-gray-50 p-4 rounded-lg shadow-sm card-hover';
+                    projectCard.innerHTML = `
+                        <h3 class="text-lg font-semibold">${repo.name}</h3>
+                        <p class="text-gray-600 mt-2">${repo.description || 'No description available'}</p>
+                        <a href="${repo.html_url}" class="text-blue-600 hover:underline mt-2 inline-block">View on GitHub</a>
+                    `;
+                    projectsContainer.appendChild(projectCard);
+                });
+            } catch (error) {
+                console.error('Error fetching GitHub projects:', error);
+                const projectsContainer = document.getElementById('github-projects');
+                projectsContainer.innerHTML = '<p class="text-red-600">Unable to load GitHub projects at this time.</p>';
+            }
+        }, 9000); // 9 seconds delay
+    </script>
 </body>
 </html>
