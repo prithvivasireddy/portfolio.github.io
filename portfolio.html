@@ -39,14 +39,55 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        @media (max-width: 767px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #1e3a8a; /* Matches bg-blue-900 */
+                padding: 1rem;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-menu a {
+                margin: 0.5rem 0;
+                font-size: 1.25rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-100 font-sans">
     <header class="bg-blue-900 text-white py-6">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl font-bold">Prithvi Vasireddy</h1>
-            <p class="text-lg mt-2">Data Engineer | Full-Stack Developer</p>
-            <nav class="mt-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div>
+                <h1 class="text-4xl font-bold">Prithvi Vasireddy</h1>
+                <p class="text-lg mt-2">Data Engineer | Full-Stack Developer</p>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <nav class="nav-menu mt-4 md:flex md:space-x-4" id="nav-menu">
                 <a href="#about" class="text-blue-200 hover:text-white mx-4">About</a>
                 <a href="#experience" class="text-blue-200 hover:text-white mx-4">Experience</a>
                 <a href="#education" class="text-blue-200 hover:text-white mx-4">Education</a>
@@ -348,7 +389,7 @@
                             Retail (e.g., NAPA Auto Parts, Motion Industries)
                         </li>
                         <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 22" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             Logistics & Supply Chain
                         </li>
                         <li class="flex items-center">
@@ -452,8 +493,8 @@
             <h2 class="text-3xl font-bold mb-4">Contact</h2>
             <div class="bg-white p-6 rounded-lg shadow-md card-hover">
                 <p class="text-lg text-gray-700">
-                    Email: <a href="mailto:prithvivasireddy@gmail.com" class="text-blue-600 hover:underline">prithvivasireddy@gmail.com</a><br>
-                    Phone: <a href="tel:+1**********" class="text-blue-600 hover:underline">+1-***-***-****</a><br>
+                    Email: <a href="mailto:prithvi.vasireddy@gmail.com" class="text-blue-600 hover:underline">prithvi.vasireddy@gmail.com</a><br>
+                    Phone: <a href="tel:+18576938909" class="text-blue-600 hover:underline">+1-857-693-8909</a><br>
                     LinkedIn: <a href="https://www.linkedin.com/in/prithvi-vasireddy" class="text-blue-600 hover:underline">prithvi-vasireddy</a><br>
                     GitHub: <a href="https://github.com/prithvivasireddy" class="text-blue-600 hover:underline">prithvivasireddy</a>
                 </p>
@@ -464,14 +505,24 @@
         <p>&copy; 2025 Prithvi Vasireddy. All rights reserved.</p>
     </footer>
     <script>
+        // Hamburger menu toggle
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('nav-menu').classList.toggle('active');
+        });
+
+        // Smooth scrolling for nav links
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
                 targetElement.scrollIntoView({ behavior: 'smooth' });
+                // Close menu on mobile after clicking a link
+                document.getElementById('nav-menu').classList.remove('active');
             });
         });
+
+        // GitHub projects loading
         const loadingMessages = [
             'Loading repositories by latest commits...',
             'Sorting uploads by user actions...',
