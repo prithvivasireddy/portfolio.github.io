@@ -14,9 +14,9 @@ fetch('https://api.github.com/users/prithvivasireddy/repos')
 const resumeData = {
     about: `
 Prithvi Vasireddy
-Data alchemist, code warlock. Intelligence is artificial. Happy coding 🏳️‍🌈
+Data alchemist, code warlock. Intelligence is artificial. :)
 Location: United States
-Email: prithvi.vasireddy@gmail.com
+Email: prithvivasireddy@gmail.com
 Phone: +1-(xxx) xcx-xxxx
 LinkedIn: https://www.linkedin.com/in/prithvi-vasireddy
 GitHub: https://github.com/prithvivasireddy
