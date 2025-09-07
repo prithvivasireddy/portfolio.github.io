@@ -34,7 +34,7 @@ B.Tech in Computer Science
     experience: `
 Genuine Parts Company (GPC), Dallas, TX
 Full-Stack Developer, Contract
-Jun 2024 - Jun 2025
+Jun 2024 - Present
 - Contributed to the platform and technology vision for modernization, reliability, Gen-AI, cloud and edge computing scenarios at Motion Industries and NAPA Auto Parts.
 - Architected new deployment/data pipelines for NAPAOnline™, PROLink™, and PartsPROSE™, restructured monolithic CI/CD architectures to non-monolithic (Groovy) triggers, reducing processing time by 70%.
 - Collaborated with Search, Discovery, and One-UI teams to drive analytics modernization, delivering actionable insights for loyalty and marketing initiatives.
