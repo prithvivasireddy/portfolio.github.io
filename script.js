@@ -97,11 +97,11 @@ Autonomous Diet Recommendation Bot
 Description: Scalable RPA bot redesigned into a SaaS prototype using intelligent automation. Published in IEEE, runner-up at WSIS (World Summit on Information Society) Forum.
     `,
     contact: `
-Email: prithvi.vasireddy@gmail.com
-Phone: +1-(857) 693-8909
+Email: --@gmail.com
+Phone: +1-(***) ***-*&**
 LinkedIn: https://www.linkedin.com/in/prithvi-vasireddy
 GitHub: https://github.com/prithvivasireddy
-Twitter/X: Not available
+Twitter/X: Nan
     `
 };
 
