@@ -553,8 +553,8 @@
             <h2 class="text-3xl font-bold mb-4">Contact</h2>
             <div class="bg-white p-6 rounded-lg shadow-md card-hover">
                 <p class="text-lg text-gray-700">
-                    Email: <a href="mailto:prithvi.vasireddy@gmail.com" class="text-blue-600 hover:underline">prithvi.vasireddy@gmail.com</a><br>
-                    Phone: <a href="tel:+1-857-693-8909" class="text-blue-600 hover:underline">+1-857-693-8909</a><br>
+                    Email: <a href="mailto:xxxxxxxxxxxxxxxx@gmail.com" class="text-blue-600 hover:underline">xxxxxxxy@gmail.com</a><br>
+                    Phone: <a href="tel:+1-xxx-xxx-xxxx" class="text-blue-600 hover:underline">+1-xxxxxxx</a><br>
                     LinkedIn: <a href="https://www.linkedin.com/in/prithvi-vasireddy" class="text-blue-600 hover:underline">prithvi-vasireddy</a><br>
                     GitHub: <a href="https://github.com/prithvivasireddy" class="text-blue-600 hover:underline">prithvivasireddy</a>
                 </p>
@@ -595,8 +595,6 @@
             loadingMessageElement.textContent = loadingMessages[messageIndex];
         }, 2000);
 
-        const githubToken = 'P_A_T'; 
-
         setTimeout(async () => {
             clearInterval(loadingInterval);
             document.getElementById('github-loading').classList.add('hidden');
@@ -605,43 +603,16 @@
             const fetchedDate = new Date().toLocaleDateString();
             document.getElementById('fetched-date').textContent = fetchedDate;
             try {
-                const response = await fetch('https://api.github.com/graphql', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${githubToken}`,
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        query: `
-                            query {
-                                user(login: "prithvivasireddy") {
-                                    pinnedItems(first: 6, types: REPOSITORY) {
-                                        nodes {
-                                            ... on Repository {
-                                                name
-                                                description
-                                                url
-                                                primaryLanguage {
-                                                    name
-                                                    color
-                                                }
-                                                stargazerCount
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        `
-                    })
+                const response = await fetch('https://api.github.com/users/prithvivasireddy/repos?sort=updated&per_page=6', {
+                    headers: { 'Accept': 'application/vnd.github.v3+json' }
                 });
-                const data = await response.json();
-                if (data.errors) {
-                    throw new Error(data.errors.map(e => e.message).join(', '));
+                if (!response.ok) {
+                    throw new Error(`GitHub API error: ${response.status}`);
                 }
-                const repos = data.data.user.pinnedItems.nodes || [];
+                const repos = await response.json();
                 const projectsContainer = document.getElementById('github-projects');
                 if (repos.length === 0) {
-                    projectsContainer.innerHTML = '<p class="text-red-300">No pinned repositories found.</p>';
+                    projectsContainer.innerHTML = '<p class="text-red-300">No repositories found.</p>';
                     return;
                 }
                 repos.forEach(repo => {
@@ -650,27 +621,44 @@
                     projectCard.innerHTML = `
                         <h3 class="text-lg font-semibold text-gray-800">${repo.name}</h3>
                         <p class="text-gray-600 mt-2">${repo.description || 'No description available'}</p>
-                        ${repo.primaryLanguage ? `
-                            <span class="language-tag" style="background-color: ${repo.primaryLanguage.color || '#e0e0e0'}; color: #fff;">
-                                ${repo.primaryLanguage.name}
+                        ${repo.language ? `
+                            <span class="language-tag" style="background-color: ${getLanguageColor(repo.language)}; color: #fff;">
+                                ${repo.language}
                             </span>
                         ` : ''}
                         <div class="star-icon">
-                            <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.97a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.39 2.46a1 1 0 00-.364 1.118l1.286 3.97c.3.921-.755 1.688-1.54 1.118l-3.39-2.46a1 1 0 00-1.175 0l-3.39 2.46c-.784.57-1.838-.197-1.54-1.118l1.286-3.97a1 1 0 00-.364-1.118l-3.39-2.46c-.783-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.97z"/>
+                            <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M12 2.25c-.66 0-1.26.38-1.55.94l-2.68 5.37-5.99.82c-.64.09-1.15.55-1.35 1.16-.2.61-.03 1.27.44 1.73l4.34 4.23-1.02 5.97c-.11.64.16 1.29.71 1.67.55.38 1.25.42 1.84.1l5.36-2.82 5.36 2.82c.59.32 1.29.28 1.84-.1.55-.38.82-1.03.71-1.67l-1.02-5.97 4.34-4.23c.47-.46.64-1.12.44-1.73-.2-.61-.71-1.07-1.35-1.16l-5.99-.82-2.68-5.37c-.29-.56-.89-.94-1.55-.94z"/>
                             </svg>
-                            ${repo.stargazerCount}
+                            ${repo.stargazers_count}
                         </div>
-                        <a href="${repo.url}" class="text-blue-600 hover:underline mt-2 inline-block">View on GitHub</a>
+                        <a href="${repo.html_url}" class="text-blue-600 hover:underline mt-2 inline-block">View on GitHub</a>
                     `;
                     projectsContainer.appendChild(projectCard);
                 });
             } catch (error) {
                 console.error('Error fetching GitHub projects:', error);
                 const projectsContainer = document.getElementById('github-projects');
-                projectsContainer.innerHTML = '<p class="text-red-300">Unable to load GitHub projects at this time. Please check your token or try again later.</p>';
+                projectsContainer.innerHTML = '<p class="text-red-300">Unable to load GitHub projects at this time. Please try again later.</p>';
             }
-        }, 7000);
+        }, 3000);
+
+        // Function to map languages to colors (approximating GitHub's color scheme)
+        function getLanguageColor(language) {
+            const colors = {
+                'Python': '#3572A5',
+                'JavaScript': '#f1e05a',
+                'Java': '#b07219',
+                'Go': '#00ADD8',
+                'SQL': '#e38d13',
+                'NodeJS': '#68a063',
+                'HTML': '#e34c26',
+                'CSS': '#563d7c',
+                'TypeScript': '#2b7489',
+                'Default': '#e0e0e0'
+            };
+            return colors[language] || colors['Default'];
+        }
     </script>
 </body>
 </html>
