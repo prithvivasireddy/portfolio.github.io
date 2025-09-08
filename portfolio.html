@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prithvi Vasireddy - Professional Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <style>
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', sans-serif;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .loading-text {
+            animation: pulse 1.5s infinite;
+            color: #0EAC5D;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #0EAC5D;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        @media (max-width: 767px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #1e3a8a; /* Matches bg-blue-900 */
+                padding: 1rem;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-menu a {
+                margin: 0.5rem 0;
+                font-size: 1.25rem;
+            }
+        }
+        /* Immersive GitHub Section Styles */
+        #github {
+            position: relative;
+            overflow: hidden;
+        }
+        .github-bg {
+            background: linear-gradient(135deg, #1e3a8a, #0EAC5D, #4b0082);
+            background-size: 200% 200%;
+            animation: gradientShift 15s ease infinite;
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .project-card {
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+            animation: slideIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+        .project-card:nth-child(6) { animation-delay: 0.6s; }
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .project-card:hover {
+            transform: perspective(1000px) rotateX(2deg) rotateY(2deg);
+            box-shadow: 0 0 20px rgba(14, 172, 93, 0.5);
+        }
+        .language-tag {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+        .star-icon {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 0.5rem;
+            color: #eab308;
+        }
+        .star-icon svg {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.25rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-900 text-white py-6">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div>
+                <h1 class="text-4xl font-bold">Prithvi Vasireddy</h1>
+                <p class="text-lg mt-2">Data Engineer | Full-Stack Developer</p>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <nav class="nav-menu mt-4 md:flex md:space-x-4" id="nav-menu">
+                <a href="#about" class="text-blue-200 hover:text-white mx-4">About</a>
+                <a href="#experience" class="text-blue-200 hover:text-white mx-4">Experience</a>
+                <a href="#education" class="text-blue-200 hover:text-white mx-4">Education</a>
+                <a href="#publications" class="text-blue-200 hover:text-white mx-4">Publications</a>
+                <a href="#certifications" class="text-blue-200 hover:text-white mx-4">Certifications</a>
+                <a href="#github" class="text-blue-200 hover:text-white mx-4">GitHub</a>
+                <a href="#skills" class="text-blue-200 hover:text-white mx-4">Skills</a>
+                <a href="#contact" class="text-blue-200 hover:text-white mx-4">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container mx-auto px-4 py-8">
+        <section id="about" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">About Me</h2>
+            <p class="text-lg text-gray-700">
+                Full-Stack Developer and Systems Engineer with 5+ years of experience in the industry modernizing platforms, architecting scalable microservices, and implementing AI-driven solutions at Genuine Parts Company and GlaxoSmithKline. Proficient in streamlining CI/CD pipelines, optimizing data infrastructure (SnowFlake/OracleFusion), and developing advanced analytics and automation tools, including proprietary LLM-based systems and RPA bots. Skilled in Python, Go, JS, SQL, and BI tools, delivering actionable insights and enhancing operational efficiency across retail, logistics, and pharmaceutical domains.
+            </p>
+        </section>
+        <section id="experience" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">Experience</h2>
+            <div class="grid gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold">Full-Stack Developer, Genuine Parts Company</h3>
+                    <p class="text-gray-600">Jun 2024 - Jun 2025 | Dallas, TX</p>
+                    <ul class="list-disc ml-6 mt-2 text-gray-700">
+                        <li>Contributed to the platform and technology vision for modernization, reliability, Gen-AI, cloud and edge computing scenarios at Motion Industries and NAPA Auto Parts.</li>
+                        <li>Configured custom build-agents and architected the new deployment/data pipelines for NAPAOnline™, PROLink™, and PartsProSE™’s (B2B/B2C applications) restructuring monolithic CI/CD to non-monolithic triggers where applicable, reducing processing time by 70% working 20+ microservices.</li>
+                        <li>Spearheaded initiatives and contributed to development of Chat-GPC, a proprietary LLM-based AI solution using LangChain and RAG.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold">Systems Engineer/RPA Developer, GlaxoSmithKline</h3>
+                    <p class="text-gray-600">May 2020 - May 2022 | Remote</p>
+                    <ul class="list-disc ml-6 mt-2 text-gray-700">
+                        <li>Worked for the EIA/AI (Enterprise Intelligent Automation/Artificial Intelligence) unit of TCS in the GlaxoSmithKline X UNICEF initiative developing multi-functional bots and ETL/ELT pipelines for logistics, finance, HR, clinical research, supply chain, and pharma inventory management.</li>
+                        <li>Mentored 6+ devs/trainees and contributed significantly to R&D in TCS' life sciences unit, aiding in the development of TCS’ advanced AI and analytics solutions - Cognix™ and MFDM™.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="education" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">Education</h2>
+            <div class="grid gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold">Northeastern University, Boston, MA</h3>
+                    <p class="text-gray-600">2022 - 2024</p>
+                    <p class="text-gray-700">MS, Data Architecture and Management</p>
+                    <p class="text-gray-700 mt-2">
+                        <strong>Courses:</strong> DAMG7370 Designing Advanced Data Architectures for Business Intelligence, DAMG7250 Big Data Architecture & Governance, DAMG6210 Database Management & Database Design, INFO7374 Algorithmic Marketing, DAMG6105 Data Science Engineering with Python, CSYE6200 Concepts of Object-Oriented Programming & Design, INFO6150 Web Design and User Experience, CSYE7280 User Experience Design and Testing
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold">Jawaharlal Nehru Technological University, India</h3>
+                    <p class="text-gray-600">2016 - 2020</p>
+                    <p class="text-gray-700">B.Tech, Computer Science</p>
+                </div>
+            </div>
+        </section>
+        <section id="publications" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">Publications & Achievements</h2>
+            <div class="grid gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold">An Autonomous Diet Recommendation Bot Using Intelligent Automation</h3>
+                    <p class="text-gray-600">Publisher: IEEE</p>
+                    <p class="text-gray-700 mt-2">
+                        INSPEC Accession Number: 19711237<br>
+                        DOI: <a href="https://doi.org/10.1109/ICICCS48265.2020.9121120" class="text-blue-600 hover:underline">10.1109/ICICCS48265.2020.9121120</a>
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <h3 class="text-xl font-semibold">Runner-up at WSIS Forum</h3>
+                    <p class="text-gray-600">World Summit on the Information Society | Challenge Area: Bone Frailty</p>
+                    <p class="text-gray-700 mt-2">
+                        Certificate: <a href="https://drive.google.com/file/d/1TM1Xb7YrPd8MOWnD0q2OD8D3m3BSm63B/view" class="text-blue-600 hover:underline">View Certificate</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="certifications" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">Certifications</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                <ul class="list-disc ml-6 text-gray-700">
+                    <li>Automation Anywhere Certified Advanced RPA Professional - Blockchain ID: 622102</li>
+                    <li>Automation Anywhere Certified RPA Master - Blockchain ID: 661894</li>
+                </ul>
+            </div>
+        </section>
+        <section id="github" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">GitHub</h2>
+            <div class="github-bg p-6 rounded-lg shadow-md">
+                <div id="github-loading" class="text-white mb-4 loading-text">
+                    <span id="loading-message">Loading repositories by latest commits...</span>
+                    <span class="spinner"></span>
+                </div>
+                <p id="fetched-message" class="text-white mb-4 hidden">
+                    Pinned GitHub projects fetched: <span id="fetched-date"></span>
+                </p>
+                <div id="github-projects" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 hidden">
+                    <!-- GitHub projects will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+        <section id="skills" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">Skills</h2>
+            <div class="space-y-4">
+                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
+                        Programming Languages
+                    </summary>
+                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Python
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Go (Golang)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Java
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            JavaScript (JS)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            SQL (SQL Server/NoSQL)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            NodeJS
+                        </li>
+                    </ul>
+                </details>
+                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
+                        Data Management & Analytics
+                    </summary>
+                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Database Design & Management (SQL/NoSQL)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            ETL/ELT Pipelines
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Data Cleansing & Version Control
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Big Data Architecture & Governance
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Snowflake (Query Optimization, TPC-DS Standards)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Oracle Fusion
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            BI Tools: Tableau, Power BI (PBI)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Advanced Analytics: Trend Analysis, Patient Response Profiling, Predictive Modeling
+                        </li>
+                    </ul>
+                </details>
+                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
+                        DevOps & Infrastructure
+                    </summary>
+                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            CI/CD Pipelines (Streamlining from Monolithic to Non-Monolithic)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Infrastructure as Code (IaC) with Terraform
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Cloud Services: GCP (Service Accounts, Integration)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Deployment Pipelines for B2B/B2C Applications
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Azure DevOps, GitLab, Jenkins
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Custom Self-Hosted Build-Agents
+                        </li>
+                    </ul>
+                </details>
+                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
+                        AI & Automation
+                    </summary>
+                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Generative AI (Gen-AI) Solutions
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            LLM-Based Systems
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Agentic Workflows /LangChain/
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Vector Databases (Pinecone)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Retrieval-Augmented Generation (RAG)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Prompt Chaining
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            RPA (Robotic Process Automation) Bots (Multi-Functional for Logistics, Finance, HR, etc.)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Intelligent Automation & AI Tools
+                        </li>
+                    </ul>
+                </details>
+                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
+                        Web & Application Development
+                    </summary>
+                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Full-Stack Development
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            RESTful APIs (in Golang)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Microservices Architecture
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Web Design & User Experience (UX)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            UX Design and Testing
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Object-Oriented Programming (OOP) & Design
+                        </li>
+                    </ul>
+                </details>
+                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
+                        Other Tools & Frameworks
+                    </summary>
+                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            LangChain
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Pinecone
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Automation Anywhere (Certified Advanced RPA Professional & RPA Master)
+                        </li>
+                    </ul>
+                </details>
+                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
+                        Domain Expertise
+                    </summary>
+                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Retail (e.g., NAPA Auto Parts, Motion Industries, Advanced Auto Parts)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 22" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Logistics & Supply-Chain
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Pharmacy (e.g., Clinical Research, Inventory Management)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Finance & HR
+                        </li>
+                    </ul>
+                </details>
+                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
+                        Soft Skills & Professional Experience
+                    </summary>
+                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Platform Modernization & Technology Vision
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Collaboration with Cross-Functional Teams (e.g., Search, Discovery, UI)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Mentoring & Training (Mentored 6+ Developers/Trainees)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            R&D Contributions in AI and Analytics
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Document Overhaul & Authoring (FDDs/TDDs)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Actionable Insights Delivery for Loyalty & Marketing
+                        </li>
+                    </ul>
+                </details>
+                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
+                        Certifications
+                    </summary>
+                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Automation Anywhere Certified Advanced RPA Professional (Blockchain ID: 622102)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Automation Anywhere Certified RPA Master (Blockchain ID: 661894)
+                        </li>
+                    </ul>
+                </details>
+                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
+                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
+                        Education-Relevant Skills
+                    </summary>
+                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            DAMG7370 Designing Advanced Data Architectures for BI
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            DAMG7250 Big Data Architecture & Governance
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            DAMG6210 Database Management & Database Design
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            INFO7374 Algorithmic Marketing
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            DAMG6105 Data Science Engineering with Python
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            CSYE6200 Object-Oriented Programming & Design
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            INFO6150 Web Design and User Experience
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            CSYE7280 User Experience Design and Testing
+                        </li>
+                    </ul>
+                </details>
+            </div>
+        </section>
+        <section id="contact" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">Contact</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                <p class="text-lg text-gray-700">
+                    Email: <a href="mailto:prithvi.vasireddy@gmail.com" class="text-blue-600 hover:underline">prithvi.vasireddy@gmail.com</a><br>
+                    Phone: <a href="tel:+1-857-693-8909" class="text-blue-600 hover:underline">+1-857-693-8909</a><br>
+                    LinkedIn: <a href="https://www.linkedin.com/in/prithvi-vasireddy" class="text-blue-600 hover:underline">prithvi-vasireddy</a><br>
+                    GitHub: <a href="https://github.com/prithvivasireddy" class="text-blue-600 hover:underline">prithvivasireddy</a>
+                </p>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-blue-900 text-white py-4 text-center">
+        <p>&copy; 2025 Prithvi Vasireddy. All rights reserved.</p>
+    </footer>
+    <script>
+        // Hamburger menu toggle
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('nav-menu').classList.toggle('active');
+        });
+
+        // Smooth scrolling for nav links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+                // Close menu on mobile after clicking a link
+                document.getElementById('nav-menu').classList.remove('active');
+            });
+        });
+
+        // GitHub projects loading
+        const loadingMessages = [
+            'Loading repositories by latest commits...',
+            'Sorting uploads by user actions...',
+            'Loading...'
+        ];
+        let messageIndex = 0;
+        const loadingMessageElement = document.getElementById('loading-message');
+        const loadingInterval = setInterval(() => {
+            messageIndex = (messageIndex + 1) % loadingMessages.length;
+            loadingMessageElement.textContent = loadingMessages[messageIndex];
+        }, 2000);
+
+        const githubToken = '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'; 
+
+        setTimeout(async () => {
+            clearInterval(loadingInterval);
+            document.getElementById('github-loading').classList.add('hidden');
+            document.getElementById('github-projects').classList.remove('hidden');
+            document.getElementById('fetched-message').classList.remove('hidden');
+            const fetchedDate = new Date().toLocaleDateString();
+            document.getElementById('fetched-date').textContent = fetchedDate;
+            try {
+                const response = await fetch('https://api.github.com/graphql', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${githubToken}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        query: `
+                            query {
+                                user(login: "prithvivasireddy") {
+                                    pinnedItems(first: 6, types: REPOSITORY) {
+                                        nodes {
+                                            ... on Repository {
+                                                name
+                                                description
+                                                url
+                                                primaryLanguage {
+                                                    name
+                                                    color
+                                                }
+                                                stargazerCount
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        `
+                    })
+                });
+                const data = await response.json();
+                if (data.errors) {
+                    throw new Error(data.errors.map(e => e.message).join(', '));
+                }
+                const repos = data.data.user.pinnedItems.nodes || [];
+                const projectsContainer = document.getElementById('github-projects');
+                if (repos.length === 0) {
+                    projectsContainer.innerHTML = '<p class="text-red-300">No pinned repositories found.</p>';
+                    return;
+                }
+                repos.forEach(repo => {
+                    const projectCard = document.createElement('div');
+                    projectCard.className = 'project-card bg-white p-4 rounded-lg shadow-md';
+                    projectCard.innerHTML = `
+                        <h3 class="text-lg font-semibold text-gray-800">${repo.name}</h3>
+                        <p class="text-gray-600 mt-2">${repo.description || 'No description available'}</p>
+                        ${repo.primaryLanguage ? `
+                            <span class="language-tag" style="background-color: ${repo.primaryLanguage.color || '#e0e0e0'}; color: #fff;">
+                                ${repo.primaryLanguage.name}
+                            </span>
+                        ` : ''}
+                        <div class="star-icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.97a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.39 2.46a1 1 0 00-.364 1.118l1.286 3.97c.3.921-.755 1.688-1.54 1.118l-3.39-2.46a1 1 0 00-1.175 0l-3.39 2.46c-.784.57-1.838-.197-1.54-1.118l1.286-3.97a1 1 0 00-.364-1.118l-3.39-2.46c-.783-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.97z"/>
+                            </svg>
+                            ${repo.stargazerCount}
+                        </div>
+                        <a href="${repo.url}" class="text-blue-600 hover:underline mt-2 inline-block">View on GitHub</a>
+                    `;
+                    projectsContainer.appendChild(projectCard);
+                });
+            } catch (error) {
+                console.error('Error fetching GitHub projects:', error);
+                const projectsContainer = document.getElementById('github-projects');
+                projectsContainer.innerHTML = '<p class="text-red-300">Unable to load GitHub projects at this time. Please check your token or try again later.</p>';
+            }
+        }, 7000);
+    </script>
+</body>
+</html>

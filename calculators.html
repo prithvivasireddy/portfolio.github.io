@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculators</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .meter {
+            height: 20px;
+            position: relative;
+            background: #f3f3f3;
+            border-radius: 25px;
+            padding: 10px;
+            box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+        }
+        .meter > span {
+            display: block;
+            height: 100%;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            background-color: rgb(43,194,83);
+            background-image: linear-gradient(center bottom, rgb(43,194,83) 37%, rgb(84,240,84) 69%);
+            box-shadow: inset 0 2px 9px rgba(255,255,255,0.3), inset 0 -2px 6px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+            transition: width 1s ease-in-out;
+        }
+        .red > span {
+            background-color: rgb(194,43,83);
+            background-image: linear-gradient(center bottom, rgb(194,43,83) 37%, rgb(240,84,84) 69%);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans p-8">
+    <header class="text-center mb-8">
+        <h1 class="text-4xl font-bold">Sentiment Calculators</h1>
+        <p class="text-lg text-gray-600 mt-2">Tracking Retail & Institutional Vibes for Bitcoin</p>
+    </header>
+
+    <section class="max-w-2xl mx-auto">
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">Retail Trader Sentiment (Reddit & X Chaos)</h2>
+            <div id="retail-meter" class="meter"><span style="width: 0%"></span></div>
+            <p id="retail-score" class="text-center mt-2 text-gray-700">Loading sentiment...</p>
+        </div>
+
+        <div>
+            <h2 class="text-2xl font-bold mb-4">Institutional Sentiment (News & API Whispers)</h2>
+            <div id="institutional-meter" class="meter"><span style="width: 0%"></span></div>
+            <p id="institutional-score" class="text-center mt-2 text-gray-700">Loading sentiment...</p>
+        </div>
+    </section>
+
+    <script>
+        async function fetchSentiment(stock) {
+            try {
+                const response = await fetch('https://your-render-backend-url.onrender.com/sentiment?stock=' + stock); // Replace with your deployed backend URL
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching sentiment:', error);
+                return { retail: 0, institutional: 0 };
+            }
+        }
+
+        async function updateMeters() {
+            const sentiment = await fetchSentiment('bitcoin');
+            const retailPercent = Math.round(sentiment.retail * 100);
+            const institutionalPercent = Math.round(sentiment.institutional * 100);
+
+            const retailMeter = document.querySelector('#retail-meter > span');
+            retailMeter.style.width = `${retailPercent}%`;
+            if (retailPercent < 50) retailMeter.parentElement.classList.add('red');
+            document.getElementById('retail-score').textContent = `Retail Sentiment: ${retailPercent}% Bullish`;
+
+            const institutionalMeter = document.querySelector('#institutional-meter > span');
+            institutionalMeter.style.width = `${institutionalPercent}%`;
+            if (institutionalPercent < 50) institutionalMeter.parentElement.classList.add('red');
+            document.getElementById('institutional-score').textContent = `Institutional Sentiment: ${institutionalPercent}% Bullish`;
+        }
+
+        updateMeters();
+    </script>
+</body>
+</html>
