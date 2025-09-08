@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prithvi Vasireddy - Professional Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <style>
         h1, h2, h3, h4, h5, h6 {
@@ -79,23 +78,12 @@
             position: relative;
             overflow: hidden;
         }
-        #particles-js {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            opacity: 0.3;
-        }
         .github-bg {
             background: linear-gradient(135deg, #1e3a8a, #0EAC5D, #4b0082);
             background-size: 200% 200%;
             animation: gradientShift 15s ease infinite;
             padding: 2rem;
             border-radius: 1rem;
-            position: relative;
-            z-index: 1;
         }
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
@@ -245,19 +233,16 @@
         </section>
         <section id="github" class="mb-12">
             <h2 class="text-3xl font-bold mb-4">GitHub</h2>
-            <div class="relative">
-                <div id="particles-js"></div>
-                <div class="github-bg p-6 rounded-lg shadow-md">
-                    <div id="github-loading" class="text-white mb-4 loading-text">
-                        <span id="loading-message">Loading repositories by latest commits...</span>
-                        <span class="spinner"></span>
-                    </div>
-                    <p id="fetched-message" class="text-white mb-4 hidden">
-                        Pinned GitHub projects fetched: <span id="fetched-date"></span>
-                    </p>
-                    <div id="github-projects" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 hidden">
-                        <!-- GitHub projects will be dynamically loaded here -->
-                    </div>
+            <div class="github-bg p-6 rounded-lg shadow-md">
+                <div id="github-loading" class="text-white mb-4 loading-text">
+                    <span id="loading-message">Loading repositories by latest commits...</span>
+                    <span class="spinner"></span>
+                </div>
+                <p id="fetched-message" class="text-white mb-4 hidden">
+                    Pinned GitHub projects fetched: <span id="fetched-date"></span>
+                </p>
+                <div id="github-projects" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 hidden">
+                    <!-- GitHub projects will be dynamically loaded here -->
                 </div>
             </div>
         </section>
@@ -580,46 +565,6 @@
         <p>&copy; 2025 Prithvi Vasireddy. All rights reserved.</p>
     </footer>
     <script>
-        // Initialize particles.js
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 50, density: { enable: true, value_area: 800 } },
-                color: { value: '#ffffff' },
-                shape: { type: 'circle' },
-                opacity: { value: 0.5, random: true },
-                size: { value: 3, random: true },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: '#0EAC5D',
-                    opacity: 0.4,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: 'none',
-                    random: false,
-                    straight: false,
-                    out_mode: 'out',
-                    bounce: false
-                }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: { enable: true, mode: 'grab' },
-                    onclick: { enable: true, mode: 'push' },
-                    resize: true
-                },
-                modes: {
-                    grab: { distance: 200, line_linked: { opacity: 0.7 } },
-                    push: { particles_nb: 4 }
-                }
-            },
-            retina_detect: true
-        });
-
         // Hamburger menu toggle
         document.getElementById('hamburger').addEventListener('click', () => {
             document.getElementById('nav-menu').classList.toggle('active');
@@ -650,7 +595,8 @@
             loadingMessageElement.textContent = loadingMessages[messageIndex];
         }, 2000);
 
-        const githubToken = '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';
+        // WARNING: Do not hardcode your token in production. Use a backend proxy or environment variables.
+        const githubToken = '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'; // Replace with your GitHub Personal Access Token
 
         setTimeout(async () => {
             clearInterval(loadingInterval);
