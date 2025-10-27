@@ -10,12 +10,13 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Inter', sans-serif;
         }
-        .card-hover {
+        /* UPDATED: Consistent card hover effect for the whole site */
+        .section-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .card-hover:hover {
+        .section-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         .loading-text {
             animation: pulse 1.5s infinite;
@@ -129,6 +130,25 @@
             height: 1rem;
             margin-right: 0.25rem;
         }
+
+        /* === NEW SKILLS SECTION STYLES === */
+        .skill-pill {
+            display: inline-block;
+            background-color: #eef2ff; /* Tailwind 'indigo-50' */
+            color: #3730a3; /* Tailwind 'indigo-800' */
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px; /* 'rounded-full' */
+            font-size: 0.875rem; /* 'text-sm' */
+            font-weight: 500; /* 'font-medium' */
+            margin: 0.25rem;
+            transition: all 0.2s ease;
+        }
+        .skill-pill:hover {
+            background-color: #c7d2fe; /* Tailwind 'indigo-200' */
+            color: #312e81; /* Tailwind 'indigo-900' */
+        }
+        /* === END SKILLS SECTION STYLES === */
+
     </style>
 </head>
 <body class="bg-gray-100 font-sans">
@@ -150,6 +170,7 @@
                 <a href="#publications" class="text-blue-200 hover:text-white mx-4">Publications</a>
                 <a href="#certifications" class="text-blue-200 hover:text-white mx-4">Certifications</a>
                 <a href="#github" class="text-blue-200 hover:text-white mx-4">GitHub</a>
+                <a href="#orcid" class="text-blue-200 hover:text-white mx-4">ORCID</a>
                 <a href="#skills" class="text-blue-200 hover:text-white mx-4">Skills</a>
                 <a href="#contact" class="text-blue-200 hover:text-white mx-4">Contact</a>
             </nav>
@@ -179,10 +200,45 @@
             </div>
         </section>
         
+        <section id="orcid" class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">My Research Profile</h2>
+            <a href="https://orcid.org/0009-0000-1779-5573" target="_blank" rel="noopener noreferrer" 
+               class="group block relative p-1 rounded-2xl overflow-hidden transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#a6ce39]/30">
+                
+                <!-- Animated spinning gradient background. Blends ORCID green (#a6ce39) with your site's green (#0EAC5D) -->
+                <span class="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(#a6ce39_20%,#0EAC5D_50%,#a6ce39_80%)]"></span>
+
+                <!-- Content container -->
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between rounded-xl bg-gray-900 p-6 md:p-8">
+                    
+                    <!-- Left Side: Logo and Title -->
+                    <div class="flex items-center gap-4 mb-4 md:mb-0">
+                        <!-- ORCID iD SVG Logo -->
+                        <svg class="w-12 h-12" fill="#a6ce39" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM7.72 18.288c-1.152 0-2.088-.936-2.088-2.088s.936-2.088 2.088-2.088 2.088.936 2.088 2.088-.936 2.088-2.088 2.088zm0-5.424c-1.152 0-2.088-.936-2.088-2.088s.936-2.088 2.088-2.088 2.088.936 2.088 2.088-.936 2.088-2.088 2.088zm0-5.424c-1.152 0-2.088-.936-2.088-2.088s.936-2.088 2.088-2.088 2.088.936 2.088 2.088-.936 2.088-2.088 2.088zm8.664 9.12V9.912h-2.208v7.464h2.208z"></path>
+                        </svg>
+                        <span class="text-2xl font-bold text-white">ORCID Profile</span>
+                    </div>
+
+                    <!-- Right Side: ID and Link -->
+                    <div class="flex flex-col items-center md:items-end">
+                        <span class="font-mono text-lg text-gray-300">0009-0000-1779-5573</span>
+                        <!-- This link text changes color on hover for extra "wow" -->
+                        <span class="mt-1 inline-flex items-center gap-1.5 text-md font-medium text-[#a6ce39] group-hover:text-white transition-colors duration-300">
+                            View My Record
+                            <!-- Arrow icon moves on hover -->
+                            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </span>
+                    </div>
+                </div>
+            </a>
+        </section>
+
         <section id="experience" class="mb-12">
             <h2 class="text-3xl font-bold mb-4">Experience</h2>
             <div class="grid gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                <!-- UPDATED: Added section-card class -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <h3 class="text-xl font-semibold">Full-Stack Developer, Genuine Parts Company</h3>
                     <p class="text-gray-600">Jun 2024 - Present | Dallas, TX</p>
                     <ul class="list-disc ml-6 mt-2 text-gray-700">
@@ -193,7 +249,8 @@
                         <li>Spearheaded initiatives and contributed to development of Chat-GPC, a proprietary LLM-based AI solution using LangChain and RAG (gpt 4).</li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                <!-- UPDATED: Added section-card class -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <h3 class="text-xl font-semibold">Systems Engineer/RPA Developer, GlaxoSmithKline</h3>
                     <p class="text-gray-600">May 2020 - May 2022 | Remote</p>
                     <ul class="list-disc ml-6 mt-2 text-gray-700">
@@ -206,7 +263,8 @@
         <section id="education" class="mb-12">
             <h2 class="text-3xl font-bold mb-4">Education</h2>
             <div class="grid gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                <!-- UPDATED: Added section-card class -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <h3 class="text-xl font-semibold">Northeastern University, Boston, MA</h3>
                     <p class="text-gray-600">2022 - 2024</p>
                     <p class="text-gray-700">MS, Data Architecture and Management</p>
@@ -214,7 +272,8 @@
                         <strong>Courses:</strong> DAMG7370 Designing Advanced Data Architectures for Business Intelligence, DAMG7250 Big Data Architecture & Governance, DAMG6210 Database Management & Database Design, INFO7374 Algorithmic Marketing, DAMG6105 Data Science Engineering with Python, CSYE6200 Concepts of Object-Oriented Programming & Design, INFO6150 Web Design and User Experience, CSYE7280 User Experience Design and Testing
                     </p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                <!-- UPDATED: Added section-card class -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <h3 class="text-xl font-semibold">Jawaharlal Nehru Technological University, India</h3>
                     <p class="text-gray-600">2016 - 2020</p>
                     <p class="text-gray-700">B.Tech, Computer Science</p>
@@ -225,7 +284,8 @@
             <h2 class="text-3xl font-bold mb-4">Publications & Achievements</h2>
             <div class="grid gap-6">
                 
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                <!-- UPDATED: Added section-card class -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <h3 class="text-xl font-semibold">An Autonomous Recommender Bot (RPA and Intelligent Automation) </h3>
                     <p class="text-gray-600">Publisher: IEEE</p>
                     <p class="text-gray-700 mt-2">
@@ -234,35 +294,40 @@
                     </p>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                <!-- UPDATED: Added section-card class -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <h3 class="text-xl font-semibold">ZK-TSP Chain: A Hybrid Proof-of-Useful-Work Blockchain for Verifiable Logistics Optimization</h3>
                     <p class="text-gray-700 mt-2">
                         DOI: <a href="https://doi.org/10.5281/zenodo.17394277" class="text-blue-600 hover:underline">10.5281/ZENODO.17394277</a>
                     </p>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                <!-- UPDATED: Added section-card class -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <h3 class="text-xl font-semibold">Anonymous User Registration in Online Forums Using Advanced Cryptographic Tumbling Inspired by Bitcoin Mixers and Server-Hosted Mnemonics: A Comprehensive Self-Hosted Implementation</h3>
                     <p class="text-gray-700 mt-2">
                         DOI: <a href="https://doi.org/10.5281/zenodo.17389090" class="text-blue-600 hover:underline">10.5281/ZENODO.17389090</a>
                     </p>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                <!-- UPDATED: Added section-card class -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <h3 class="text-xl font-semibold">Music Buckets: A Novelty-Centric Recommendation Architecture for Infinite Music Discovery</h3>
                     <p class="text-gray-700 mt-2">
                         DOI: <a href="https://doi.org/10.5281/zenodo.17393961" class="text-blue-600 hover:underline">10.5281/ZENODO.17393961</a>
                     </p>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                <!-- UPDATED: Added section-card class -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <h3 class="text-xl font-semibold">InventoryGPT: An LLM-Powered Agentic Framework for Real-Time Retail Inventory Optimization/Management</h3>
                     <p class="text-gray-700 mt-2">
                         DOI: <a href="https://doi.org/10.5281/zenodo.17394355" class="text-blue-600 hover:underline">10.5281/ZENODO.17394355</a>
                     </p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                <!-- UPDATED: Added section-card class -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <h3 class="text-xl font-semibold">Runner-up at WSIS Forum</h3>
                     <p class="text-gray-600">World Summit on the Information Society | Challenge Area: Bone Frailty</p>
                     <p class="text-gray-700 mt-2">
@@ -273,7 +338,8 @@
         </section>
         <section id="certifications" class="mb-12">
             <h2 class="text-3xl font-bold mb-4">Certifications</h2>
-            <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+            <!-- UPDATED: Added section-card class -->
+            <div class="bg-white p-6 rounded-lg shadow-md section-card">
                 <ul class="list-disc ml-6 text-gray-700">
                     <li>Automation Anywhere Certified Advanced RPA Professional - Blockchain ID: <a href="https://certificates.automationanywhere.com/b3777d2f-7d17-458f-9c8f-7c524635e85c" class="text-blue-600 hover:underline">622102</a></li>
                     <li>Automation Anywhere Certified RPA Master - Blockchain ID: <a href="https://certificates.automationanywhere.com/a1b929a8-2728-4df6-a993-98ccaf10e65b" class="text-blue-600 hover:underline">661894</a></li>
@@ -281,312 +347,138 @@
             </div>
         </section>
         
+        <!-- ====================================================== -->
+        <!-- START: UPDATED SKILLS SECTION                        -->
+        <!-- ====================================================== -->
         <section id="skills" class="mb-12">
-            <h2 class="text-3xl font-bold mb-4">Skills</h2>
-            <div class="space-y-4">
-                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
-                        Programming Languages
-                    </summary>
-                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Python
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Go (Golang)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Java
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            JavaScript (JS)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            SQL (SQL Server/NoSQL)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            NodeJS
-                        </li>
-                    </ul>
-                </details>
-                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
-                        Data Management & Analytics
-                    </summary>
-                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Database Design & Management (SQL/NoSQL)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            ETL/ELT Pipelines
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Data Cleansing & Version Control
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Big Data Architecture & Governance
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Snowflake (Query Optimization, TPC-DS Standards)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Oracle Fusion
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            BI Tools: Tableau, Power BI (PBI)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Advanced Analytics: Trend Analysis, Patient Response Profiling, Predictive Modeling
-                        </li>
-                    </ul>
-                </details>
-                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
-                        DevOps & Infrastructure
-                    </summary>
-                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            CI/CD Pipelines (Streamlining from Monolithic to Non-Monolithic)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Infrastructure as Code (IaC) with Terraform
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Cloud Services: Service Accounts, Integration, Resource Provisioning etc. 
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Deployment Pipelines for B2B/B2C Applications
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Googel Cloud Platform, AWS, Azure DevOps, GitHub, Git, GitLab, Jenkins
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Custom Self-Hosted Build-Agents
-                        </li>
-                    </ul>
-                </details>
-                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
-                        AI & Automation
-                    </summary>
-                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Generative AI (Gen-AI) Solutions
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            LLM-Based Systems
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Agentic Workflows /LangChain/
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Vector Databases (Pinecone)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Retrieval-Augmented Generation (RAG)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Prompt Chaining
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            RPA (Robotic Process Automation) Bots (Multi-Functional for Logistics, Finance, HR, etc.)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Intelligent Automation & AI Tools
-                        </li>
-                    </ul>
-                </details>
-                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
-                        Web & Application Development
-                    </summary>
-                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Full-Stack Development
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            RESTful APIs (in Golang)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Microservices Architecture
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Web Design & User Experience (UX)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            UX Design and Testing
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Object-Oriented Programming (OOP) & Design
-                        </li>
-                    </ul>
-                </details>
-                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
-                        Other Tools & Frameworks
-                    </summary>
-                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            LangChain
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Pinecone
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Automation Anywhere (Certified Advanced RPA Professional & RPA Master)
-                        </li>
-                    </ul>
-                </details>
-                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
-                        Domain Expertise
-                    </summary>
-                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Retail (e.g., NAPA Auto Parts, Motion Industries, Advanced Auto Parts)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 22" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Logistics & Supply-Chain
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Pharmacy (e.g., Clinical Research, Inventory Management)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Finance & HR
-                        </li>
-                    </ul>
-                </details>
-                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
-                        Soft Skills & Professional Experience
-                    </summary>
-                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Platform Modernization & Technology Vision
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Collaboration with Cross-Functional Teams (e.g., Search, Discovery, UI)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Mentoring & Training (Mentored 6+ Developers/Trainees)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            R&D Contributions in AI and Analytics
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Document Overhaul & Authoring (FDDs/TDDs)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Actionable Insights Delivery for Loyalty & Marketing
-                        </li>
-                    </ul>
-                </details>
-                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
-                        Certifications
-                    </summary>
-                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Automation Anywhere Certified Advanced RPA Professional (Blockchain ID: 622102)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Automation Anywhere Certified RPA Master (Blockchain ID: 661894)
-                        </li>
-                    </ul>
-                </details>
-                <details class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <summary class="text-xl font-semibold text-blue-700 cursor-pointer">
-                        Education-Relevant Skills
-                    </summary>
-                    <ul class="mt-4 space-y-2 pl-8 text-gray-700">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            DAMG7370 Designing Advanced Data Architectures for BI
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            DAMG7250 Big Data Architecture & Governance
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            DAMG6210 Database Management & Database Design
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            INFO7374 Algorithmic Marketing
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            DAMG6105 Data Science Engineering with Python
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            CSYE6200 Object-Oriented Programming & Design
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            INFO6150 Web Design and User Experience
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            CSYE7280 User Experience Design and Testing
-                        </li>
-                    </ul>
-                </details>
+            <h2 class="text-3xl font-bold mb-6 text-left">Core Competencies</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Skill Card 1: Programming Languages -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-8 h-8 text-blue-700 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5 0-4.5 16.5" />
+                        </svg>
+                        <h3 class="text-xl font-semibold text-gray-900">Programming Languages</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">Go (Golang)</span>
+                        <span class="skill-pill">Java</span>
+                        <span class="skill-pill">JavaScript</span>
+                        <span class="skill-pill">SQL (SQL Server/NoSQL)</span>
+                        <span class="skill-pill">NodeJS</span>
+                    </div>
+                </div>
+
+                <!-- Skill Card 2: Data Management & Analytics -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-8 h-8 text-blue-700 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                             <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375" />
+                        </svg>
+                        <h3 class="text-xl font-semibold text-gray-900">Data & Analytics</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill">Database Management/Design (SQL/NoSQL)</span>
+                        <span class="skill-pill">ETL/ELT Pipelines</span>
+                        <span class="skill-pill">Big Data Architecture & Governance</span>
+                        <span class="skill-pill">Decision Support Benchmarking</span>
+                        <span class="skill-pill">Snowflake</span>
+                        <span class="skill-pill">Oracle Fusion</span>
+                        <span class="skill-pill">Tableau</span>
+                        <span class="skill-pill">Power BI (PBI)</span>
+                        <span class="skill-pill">Predictive Modeling</span>
+                        <span class="skill-pill">Advanced Analytics (e.g. Trend Analysis, Patient Response Profiling, Predictive Modeling)</span>
+                    </div>
+                </div>
+
+                <!-- Skill Card 3: DevOps & Infrastructure -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-8 h-8 text-blue-700 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z" />
+                        </svg>
+                        <h3 class="text-xl font-semibold text-gray-900">DevOps & Infrastructure</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill">Deployment Pipelines for B2B/B2C</span>
+                        <span class="skill-pill">Cloud Optimization (legacy -> non-monolithic)</span>
+                        <span class="skill-pill">Cloud Automation `Service Accounts, Integration, Resource Provisioning to reduce SRE oversight etc</span>
+                        <span class="skill-pill">Terraform (IaC)</span>
+                        <span class="skill-pill">GCP</span>
+                        <span class="skill-pill">AWS</span>
+                        <span class="skill-pill">Azure DevOps</span>
+                        <span class="skill-pill">Jenkins</span>
+                        <span class="skill-pill">Git / GitHub / GitLab</span>
+                        <span class="skill-pill">Custom (self-hosted) Build-Agents</span>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 4: AI & Automation -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-8 h-8 text-blue-700 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" />
+                        </svg>
+                        <h3 class="text-xl font-semibold text-gray-900">AI & Automation</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill">Generative AI</span>
+                        <span class="skill-pill">LLM Systems</span>
+                        <span class="skill-pill">Agentic Workflows/LangChain</span>
+                        <span class="skill-pill">RAG</span>
+                        <span class="skill-pill">Vector DBs (Pinecone)</span>
+                        <span class="skill-pill">RPA (Automation Anywhere)</span>
+                        <span class="skill-pill">Intelligent Automation</span>
+                    </div>
+                </div>
+
+                <!-- Skill Card 5: Web & Application Development -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-8 h-8 text-blue-700 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                        </svg>
+                        <h3 class="text-xl font-semibold text-gray-900">App Development</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill">Full-Stack Development</span>
+                        <span class="skill-pill">RESTful APIs</span>
+                        <span class="skill-pill">Microservices</span>
+                        <span class="skill-pill">Web Design & UX</span>
+                        <span class="skill-pill">UX Testing</span>
+                        <span class="skill-pill">OOP & Design</span>
+                    </div>
+                </div>
+
+                <!-- Skill Card 6: Domain Expertise -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-8 h-8 text-blue-700 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.002a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18.152V14.15M18 4.5l-6 6m0 0-6-6m6 6v10.5m-6-10.5h12v10.5h-12V4.5Z" />
+                        </svg>
+                        <h3 class="text-xl font-semibold text-gray-900">Domain Expertise</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill">Retail & E-commerce [NAPA Auto Parts, Motion Industries, Advanced Auto Parts]</span>
+                        <span class="skill-pill">Logistics & Supply-Chain [GlaxoSmithKline]</span>
+                        <span class="skill-pill">Pharmaceuticals | Clinical Research, Inventory Management [GlaxoSmithKline]</span>
+                        <span class="skill-pill">Finance & HR</span>
+                    </div>
+                </div>
+
             </div>
         </section>
+        <!-- ====================================================== -->
+        <!-- END: UPDATED SKILLS SECTION                          -->
+        <!-- ====================================================== -->
+
         <section id="contact" class="mb-12">
             <h2 class="text-3xl font-bold mb-4">Contact</h2>
-            <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+            <!-- UPDATED: Added section-card class -->
+            <div class="bg-white p-6 rounded-lg shadow-md section-card">
                 <p class="text-lg text-gray-700">
                     Email: <a href="mailto:xxxxxxxxxxxxxxxx@gmail.com" class="text-blue-600 hover:underline">xxxxxxxy@gmail.com</a><br>
                     Phone: <a href="tel:+1-xxx-xxx-xxxx" class="text-blue-600 hover:underline">+1-xxxxxxx</a><br>
@@ -675,7 +567,7 @@
                     projectCard.className = 'project-card bg-white p-4 rounded-lg shadow-md';
                     const languageColor = (repo.language && languageColors[repo.language] && languageColors[repo.language].color) 
                         ? languageColors[repo.language].color 
-                        : languageColors.Default.color;
+                        : (languageColors.Default ? languageColors.Default.color : '#e0e0e0'); // Added fallback for Default
                     projectCard.innerHTML = `
                         <h3 class="text-lg font-semibold text-gray-800">${repo.name}</h3>
                         <p class="text-gray-600 mt-2">${repo.description || 'No description available'}</p>
@@ -703,3 +595,4 @@
     </script>
 </body>
 </html>
+
