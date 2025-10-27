@@ -51,28 +51,34 @@
             margin: 5px 0;
             transition: all 0.3s ease;
         }
+        
+        /* === FIXED MOBILE MENU STYLES === */
         @media (max-width: 767px) {
             .hamburger {
-                display: block;
+                display: block; /* Show hamburger icon on mobile */
             }
             .nav-menu {
-                display: none;
+                display: none; /* Hide nav menu by default on mobile */
                 flex-direction: column;
                 width: 100%;
                 position: absolute;
-                top: 100%;
+                top: 100%; /* Position below the header (which is now 'relative') */
                 left: 0;
                 background-color: #1e3a8a; /* Matches bg-blue-900 */
                 padding: 1rem;
+                z-index: 50; /* Add z-index to ensure it appears on top */
             }
             .nav-menu.active {
-                display: flex;
+                display: flex; /* Show the menu when 'active' class is toggled */
             }
             .nav-menu a {
                 margin: 0.5rem 0;
                 font-size: 1.25rem;
+                text-align: center; /* Center links for a cleaner mobile look */
             }
         }
+        /* === END FIXED STYLES === */
+
         /* Immersive GitHub Section Styles */
         #github {
             position: relative;
@@ -162,7 +168,12 @@
     </style>
 </head>
 <body class="bg-gray-100 font-sans">
-    <header class="bg-blue-900 text-white py-6">
+    <!-- 
+      FIX 1: Added 'relative' class to the header.
+      This makes the header the positioning context for the 
+      absolute-positioned mobile menu.
+    -->
+    <header class="bg-blue-900 text-white py-6 relative">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div>
                 <h1 class="text-4xl font-bold">Prithvi Vasireddy</h1>
@@ -173,6 +184,8 @@
                 <div></div>
                 <div></div>
             </div>
+            <!-- This nav structure is correct. 'md:flex' shows it on desktop -->
+            <!-- The custom CSS handles hiding/showing on mobile -->
             <nav class="nav-menu mt-4 md:flex md:space-x-4" id="nav-menu">
                 <a href="#about" class="text-blue-200 hover:text-white mx-4">About</a>
                 <a href="#experience" class="text-blue-200 hover:text-white mx-4">Experience</a>
@@ -418,7 +431,7 @@
             </div>
         </section>
         <!-- ====================================================== -->
-        <!-- END: UPDATED PUBLICATIONS SECTION                    -->
+        <!-- END: UPDATED PUBLICATIONS SECTION                      -->
         <!-- ====================================================== -->
 
 
@@ -476,7 +489,7 @@
 
         
         <section id="certifications" class="mb-12">
-        <!-- START: UPDATED SKILLS SECTION                        -->
+        <!-- START: UPDATED SKILLS SECTION                      -->
         <!-- ====================================================== -->
         <section id="skills" class="mb-12">
             <h2 class="text-3xl font-bold mb-6 text-left">Core Competencies</h2>
@@ -530,7 +543,7 @@
                 <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <div class="flex items-center mb-4">
                         <svg class="w-8 h-8 text-blue-700 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                           <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z" />
                         </svg>
                         <h3 class="text-xl font-semibold text-gray-900">DevOps & Infrastructure</h3>
                     </div>
@@ -573,7 +586,7 @@
                 <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <div class="flex items-center mb-4">
                         <svg class="w-8 h-8 text-blue-700 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                           <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
                         </svg>
                         <h3 class="text-xl font-semibold text-gray-900">App Development</h3>
                     </div>
@@ -591,7 +604,7 @@
                 <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <div class="flex items-center mb-4">
                         <svg class="w-8 h-8 text-blue-700 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                           <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.002a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18.152V14.15M18 4.5l-6 6m0 0-6-6m6 6v10.5m-6-10.5h12v10.5h-12V4.5Z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.002a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18.152V14.15M18 4.5l-6 6m0 0-6-6m6 6v10.5m-6-10.5h12v10.5h-12V4.5Z" />
                         </svg>
                         <h3 class="text-xl font-semibold text-gray-900">Domain Expertise</h3>
                     </div>
@@ -608,7 +621,7 @@
                     <div class="flex items-center mb-4">
                          <svg class="w-8 h-8 text-blue-700 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A9.065 9.065 0 0 1 12 15v-4.043m1.5 0v.19l.094.06D13.682 11.43 15 11.96V12m0-8.25h-.008L14.992 3.75m.008 0A2.25 2.25 0 1 0 15 8.25a2.25 2.25 0 0 0 0-4.5M15 3.75h.008v.008H15V3.75Zm-3.75 0h.008v.008H11.25V3.75Zm-3.75 0h.008v.008H7.5V3.75Zm-3.75 0h.008v.008H3.75V3.75Zm0 4.5h.008v.008H3.75v-.008Zm0 4.5h.008v.008H3.75v-.008Zm0 4.5h.008v.008H3.75v-.008Zm3.75 4.5h.008v.008H7.5v-.008Zm3.75 0h.008v.008H11.25v-.008Zm3.75 0h.008v.008H15v-.008Zm3.75 0h.008v.008H18.75v-.008Zm0-4.5h.008v.008H18.75v-.008Zm0-4.5h.008v.008H18.75v-.008Zm0-4.5h.008v.008H18.75V3.75Z" />
-                        </svg>
+                         </svg>
                         <h3 class="text-xl font-semibold text-gray-900">Soft Skills & Professional</h3>
                     </div>
                     <ul class="skill-list">
@@ -624,7 +637,7 @@
             </div>
         </section>
         <!-- ====================================================== -->
-        <!-- END: UPDATED SKILLS SECTION                          -->
+        <!-- END: UPDATED SKILLS SECTION                            -->
         <!-- ====================================================== -->
 
         <section id="contact" class="mb-12">
@@ -645,6 +658,8 @@
     </footer>
     <script>
         // Hamburger menu toggle
+        // This JavaScript remains unchanged and is correct.
+        // It toggles the 'active' class on the nav menu when the hamburger is clicked.
         document.getElementById('hamburger').addEventListener('click', () => {
             document.getElementById('nav-menu').classList.toggle('active');
         });
@@ -747,4 +762,3 @@
     </script>
 </body>
 </html>
-
