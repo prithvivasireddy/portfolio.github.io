@@ -36,14 +36,14 @@ Genuine Parts Company (GPC), Dallas, TX
 Full-Stack Developer, Contract
 Jun 2024 - Present
 - Contributed to the platform and technology vision for modernization, reliability, Gen-AI, cloud and edge computing scenarios at Motion Industries and NAPA Auto Parts.
-- Architected new deployment/data pipelines for NAPAOnline™, PROLink™, and PartsPROSE™, restructured monolithic CI/CD architectures to non-monolithic (Groovy) triggers, reducing processing time by 70%.
+- Architected new deployment/data pipelines for NAPAOnline™, PROLink™, and PartsPROSE™, restructured monolithic CI/CD architectures to non-monolithic triggers, reducing processing time by 70%.
 - Collaborated with Search, Discovery, and One-UI teams to drive analytics modernization, delivering actionable insights for loyalty and marketing initiatives.
 - Simplified infra-wide deployments by decommissioning AzureDevOps, GitLab, and Jenkins.
 - Streamlined BI infrastructure by adopting Oracle Fusion, implementing best practices in data cleansing, database design, ETL, and version control for scalable reporting.
 - Configured custom data agents (Linux/Windows) to meet in-house BI needs, ensuring compatibility with hybrid environments for omnichannel analytics (Hybris Suite).
 - Leveraged R/Python, SQL, and BI tools (Power BI, Tableau) to deliver actionable recommendations, enhancing efficiency and customer experience in retail analytics.
 - Developed RESTful APIs in Python/FastAPI (transitioning from Golang prototypes) for RE-Ops™ backend, enabling secure data exchange, traffic management, and seamless integration with GCP services via service accounts.
-- Designed a custom Python logger in RE-Ops with four information levels to track user actions and critical alerts, promoting high-autonomy operations and product-led improvements by enabling real-time feedback loops for end-users.
+- Designed a custom logger in RE-Ops with four information levels to track user actions and critical alerts, promoting high-autonomy operations and product-led improvements by enabling real-time feedback loops for end-users.
 - Spearheaded initiatives and contributed to the development of Chat-GPC, a proprietary LLM-based AI solution at GPC, implementing advanced agentic workflows utilizing LangChain, vector databases (such as Pinecone), Retrieval-Augmented Generation (RAG), and prompt chaining to support intelligent automation and customer interactions.
 * RE-Ops is a proprietary Ops console for managing cloud and reliability at scale (e.g., directing traffic between services and revisions, auto-resource provisioning to cut SRE oversight, automated JIRA workflows) through an intuitive interface. Powered by Golang backend, IaC Terraform, and NodeJS/React.
 
