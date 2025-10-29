@@ -195,13 +195,20 @@
          }
          /* Specific hover effect ONLY for github project cards */
         #github-projects .project-card:hover {
-             transform: perspective(1000px) rotateX(2deg) rotateY(2deg) translateY(-5px); /* Added translateY */
+             /* * FIX: Moved translateY(-5px) to the *front* of the transform list.
+             * This resolves the conflict with the `slideIn` animation's
+             * `animation-fill-mode: forwards` which was locking the
+             * transform at `translateY(0)`.
+             */
+             transform: translateY(-5px) perspective(1000px) rotateX(2deg) rotateY(2deg);
              box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 0 20px rgba(14, 172, 93, 0.5); /* Combined shadows */
              z-index: 10;
         }
          /* Ensure dark mode hover uses the same transform and adjusted shadow */
          .dark #github-projects .project-card:hover {
-             transform: perspective(1000px) rotateX(2deg) rotateY(2deg) translateY(-5px); /* Keep the transform */
+             /* * FIX: Applied the same transform order fix here for dark mode.
+             */
+             transform: translateY(-5px) perspective(1000px) rotateX(2deg) rotateY(2deg);
              box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 20px rgba(14, 172, 93, 0.5); /* Darker lift shadow + glow */
              border-color: #30363d; /* Keep original dark border color on hover */
              z-index: 10;
@@ -345,9 +352,9 @@
             <!-- Theme Toggle -->
             <div class="flex items-center">
                  <button id="theme-toggle" class="text-gray-400 hover:text-white p-1 rounded-md">
-                    <svg id="theme-icon-sun" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 12a5 5 0 110-10 5 5 0 010 10z" /></svg>
-                    <svg id="theme-icon-moon" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
-                </button>
+                     <svg id="theme-icon-sun" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 12a5 5 0 110-10 5 5 0 010 10z" /></svg>
+                     <svg id="theme-icon-moon" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+                 </button>
             </div>
         </div>
     </header>
@@ -372,39 +379,39 @@
             <div id="content-nav-full" class="hidden lg:flex flex-wrap">
                  <a href="#about" class="content-nav-link active">
                      <svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M0 1.75A.75.75 0 01.75 1h4.253a.75.75 0 01.684.43l.813 1.625a.75.75 0 00.684.43h5.053a.75.75 0 01.75.75v8.5a.75.75 0 01-.75.75h-13a.75.75 0 01-.75-.75v-11zm1.5.75v10.5h11.5v-7.5h-4.5a2.25 2.25 0 01-2.05-.916L1.5 2.5zM3 3h1.989l.813 1.625a.75.75 0 00.684.43h4.264V3H3z"></path></svg>
-                    About
+                     About
                  </a>
                  <a href="#github" class="content-nav-link">
                      <svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
-                    GitHub
+                     GitHub
                  </a>
                  <a href="#experience" class="content-nav-link">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.5 0A1.5 1.5 0 000 1.5v13A1.5 1.5 0 001.5 16h13a1.5 1.5 0 001.5-1.5v-13A1.5 1.5 0 0014.5 0h-13zM6 4h4v1H6V4zm4 3H6v1h4V7zm-4 3h4v1H6v-1zm1 4h2v1H7v-1z"></path></svg>
-                    Experience
+                     Experience
                  </a>
                  <a href="#skills" class="content-nav-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.5 0A1.5 1.5 0 000 1.5v9.264a1.5 1.5 0 00.373 1.002l4.16 4.16a1.5 1.5 0 002.121 0l4.16-4.16A1.5 1.5 0 0011.187 10.764V1.5A1.5 1.5 0 009.687 0h-8.188zm5.79 6.854L8.74 5.397l.916.917L11.11 4.86l-.916-.916 1.456-1.456L10.194.98l-1.456 1.456-.916-.916L6.366 3.024l.916.916-1.456 1.457L7.28 6.854zm3.11-.917l-.917-.916 1.457-1.456L12.486.98l-1.456 1.456-.917-.916L8.66 3.024l.916.916L8.12 5.397l1.457 1.456.916-.916z"></path></svg>
-                    Skills
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.5 0A1.5 1.5 0 000 1.5v9.264a1.5 1.5 0 00.373 1.002l4.16 4.16a1.5 1.5 0 002.121 0l4.16-4.16A1.5 1.5 0 0011.187 10.764V1.5A1.5 1.5 0 009.687 0h-8.188zm5.79 6.854L8.74 5.397l.916.917L11.11 4.86l-.916-.916 1.456-1.456L10.194.98l-1.456 1.456-.916-.916L6.366 3.024l.916.916-1.456 1.457L7.28 6.854zm3.11-.917l-.917-.916 1.457-1.456L12.486.98l-1.456 1.456-.917-.916L8.66 3.024l.916.916L8.12 5.397l1.457 1.456.916-.916z"></path></svg>
+                     Skills
                  </a>
                  <a href="#publications" class="content-nav-link">
-                    <svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M0 1.75A.75.75 0 01.75 1h4.253a.75.75 0 01.684.43l.813 1.625a.75.75 0 00.684.43h5.053a.75.75 0 01.75.75v8.5a.75.75 0 01-.75.75h-13a.75.75 0 01-.75-.75v-11zm1.5.75v10.5h11.5v-7.5h-4.5a2.25 2.25 0 01-2.05-.916L1.5 2.5zM3 3h1.989l.813 1.625a.75.75 0 00.684.43h4.264V3H3z"></path></svg>
-                    Publications
+                     <svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M0 1.75A.75.75 0 01.75 1h4.253a.75.75 0 01.684.43l.813 1.625a.75.75 0 00.684.43h5.053a.75.75 0 01.75.75v8.5a.75.75 0 01-.75.75h-13a.75.75 0 01-.75-.75v-11zm1.5.75v10.5h11.5v-7.5h-4.5a2.25 2.25 0 01-2.05-.916L1.5 2.5zM3 3h1.989l.813 1.625a.75.75 0 00.684.43h4.264V3H3z"></path></svg>
+                     Publications
                  </a>
                  <a href="#education" class="content-nav-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6 3.75A1.75 1.75 0 017.75 2h.5a.75.75 0 010 1.5h-.5a.25.25 0 00-.25.25v1.5c0 .138.112.25.25.25h.5a.75.75 0 010 1.5h-.5A1.75 1.75 0 016 5.25v-1.5zM11.75 2h.5a.75.75 0 010 1.5h-.5a.25.25 0 00-.25.25v1.5c0 .138.112.25.25.25h.5a.75.75 0 010 1.5h-.5A1.75 1.75 0 0110 5.25v-1.5A1.75 1.75 0 0111.75 2zM4.75 8a.75.75 0 01.75-.75h5.5a.75.75 0 010 1.5h-5.5a.75.75 0 01-.75-.75zm-.25 3.5a.75.75 0 01.75-.75h2.5a.75.75 0 010 1.5h-2.5a.75.75 0 01-.75-.75z"></path></svg>
-                    Education
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6 3.75A1.75 1.75 0 017.75 2h.5a.75.75 0 010 1.5h-.5a.25.25 0 00-.25.25v1.5c0 .138.112.25.25.25h.5a.75.75 0 010 1.5h-.5A1.75 1.75 0 016 5.25v-1.5zM11.75 2h.5a.75.75 0 010 1.5h-.5a.25.25 0 00-.25.25v1.5c0 .138.112.25.25.25h.5a.75.75 0 010 1.5h-.5A1.75 1.75 0 0110 5.25v-1.5A1.75 1.75 0 0111.75 2zM4.75 8a.75.75 0 01.75-.75h5.5a.75.75 0 010 1.5h-5.5a.75.75 0 01-.75-.75zm-.25 3.5a.75.75 0 01.75-.75h2.5a.75.75 0 010 1.5h-2.5a.75.75 0 01-.75-.75z"></path></svg>
+                     Education
                  </a>
                  <a href="#certifications" class="content-nav-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.5 0A1.5 1.5 0 000 1.5v13A1.5 1.5 0 001.5 16h13a1.5 1.5 0 001.5-1.5v-13A1.5 1.5 0 0014.5 0h-13zM8 12a4 4 0 110-8 4 4 0 010 8zm0-1.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg>
-                    Certifications
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.5 0A1.5 1.5 0 000 1.5v13A1.5 1.5 0 001.5 16h13a1.5 1.5 0 001.5-1.5v-13A1.5 1.5 0 0014.5 0h-13zM8 12a4 4 0 110-8 4 4 0 010 8zm0-1.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg>
+                     Certifications
                  </a>
                  <a href="#orcid" class="content-nav-link">
                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM5.122 12.308a.75.75 0 0 1-.752.016 3.001 3.001 0 0 1-1.304-2.522c0-.98.49-1.884 1.305-2.523a.75.75 0 1 1 .752 1.322 1.5 1.5 0 0 0-.652 1.201c0 .49.246.932.652 1.201a.75.75 0 0 1-.001 1.305Zm2.76-1.072v-6.5a.75.75 0 0 1 1.5 0v6.5a.75.75 0 0 1-1.5 0Z"></path></svg>
-                    ORCID
+                     ORCID
                  </a>
                  <a href="#contact" class="content-nav-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.75 2A1.75 1.75 0 0 0 0 3.75v.736a.75.75 0 0 0 0 .027v7.737A1.75 1.75 0 0 0 1.75 14h12.5A1.75 1.75 0 0 0 16 12.25v-7.736a.75.75 0 0 0 0-.027v-.736A1.75 1.75 0 0 0 14.25 2H1.75ZM8 8.42l-5.84-3.717A.25.25 0 0 1 2.25 4h11.5a.25.25 0 0 1 .09.467L8 8.42Zm-6.5 2.83V5.08l5.47 3.479a.75.75 0 0 0 .863.003L14.5 5.08v6.17a.25.25 0 0 1-.25.25H1.75a.25.25 0 0 1-.25-.25Z"></VG>
-                    Contact
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.75 2A1.75 1.75 0 0 0 0 3.75v.736a.75.75 0 0 0 0 .027v7.737A1.75 1.75 0 0 0 1.75 14h12.5A1.75 1.75 0 0 0 16 12.25v-7.736a.75.75 0 0 0 0-.027v-.736A1.75 1.75 0 0 0 14.25 2H1.75ZM8 8.42l-5.84-3.717A.25.25 0 0 1 2.25 4h11.5a.25.25 0 0 1 .09.467L8 8.42Zm-6.5 2.83V5.08l5.47 3.479a.75.75 0 0 0 .863.003L14.5 5.08v6.17a.25.25 0 0 1-.25.25H1.75a.25.25 0 0 1-.25-.25Z"></VG>
+                     Contact
                  </a>
             </div>
         </nav>
@@ -444,7 +451,7 @@
                             <div class="flex items-center gap-2">
                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
-                                </svg>
+                                 </svg>
                                 <a href="https://www.linkedin.com/in/prithvi-vasireddy" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">LinkedIn Profile</a>
                             </div>
                             <div class="flex items-center gap-2">
@@ -454,11 +461,11 @@
                                 <a href="https://orcid.org/0009-0000-1779-5573" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">ORCID</a>
                             </div>
                              <div class="flex items-center gap-2"> <!-- Added Contact Link -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                                </svg>
-                                <a href="#contact" class="text-blue-600 dark:text-blue-400 hover:underline">Contact Me</a>
-                            </div>
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                 </svg>
+                                 <a href="#contact" class="text-blue-600 dark:text-blue-400 hover:underline">Contact Me</a>
+                             </div>
                         </div>
 
                         <!-- Organizations -->
@@ -752,11 +759,15 @@
                                     <span class="skill-pill">Oracle Fusion</span>
                                     <span class="skill-pill">Tableau</span>
                                     <span class="skill-pill">Power BI (PBI)</span>
+                                    <span class="skill-pill">Predictive Modeling</span>
+
                                 </div>
                                 <ul class="skill-list">
                                     <li>Database Management/Design</li>
                                     <li>ETL/ELT Pipelines</li>
-                                    <li>Big Data Architecture</li>
+                                    <li>Big Data Architecture & Governance</li>
+                                    <li>Decision Support Benchmarking</li>
+                                    <li>Advanced Analytics (Trend Analysis, Patient Response Profiling, etc.)</li>
                                 </ul>
                             </div>
                             <!-- Skill Card 3 -->
@@ -771,12 +782,13 @@
                                     <span class="skill-pill">AWS</span>
                                     <span class="skill-pill">Azure DevOps</span>
                                     <span class="skill-pill">Jenkins</span>
-                                    <span class="skill-pill">Git</span>
+                                    <span class="skill-pill">Git/GitHub/GitLab</span>
                                 </div>
                                 <ul class="skill-list">
                                     <li>B2B/B2C Deployment Pipelines</li>
-                                    <li>Cloud Optimization</li>
-                                    <li>Custom Build-Agents</li>
+                                    <li>Cloud Optimization/Modernization (Legacy → Non-Monolithic)</li>
+                                    <li>Cloud Automation (Reduced SRE Oversight)</li>
+                                    <li>Custom (self-hosted) Build-Agents</li>
                                 </ul>
                             </div>
                             <!-- Skill Card 4 -->
@@ -788,10 +800,11 @@
                                 <div class="flex flex-wrap gap-2">
                                     <span class="skill-pill">Generative AI</span>
                                     <span class="skill-pill">LLM Systems</span>
-                                    <span class="skill-pill">LangChain</span>
+                                    <span class="skill-pill">Agentic Workflows/LangChain</span>
                                     <span class="skill-pill">RAG</span>
                                     <span class="skill-pill">Vector DBs</span>
-                                    <span class="skill-pill">RPA</span>
+                                    <span class="skill-pill">RPA (Automation Anywhere)</span>
+                                    <span class="skill-pill">Intelligent Automation</span>
                                 </div>
                             </div>
                             <!-- Skill Card 5 -->
@@ -801,12 +814,12 @@
                                     <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100">App Development</h3>
                                 </div>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="skill-pill">Full-Stack</span>
+                                    <span class="skill-pill">Full-Stack Development</span>
                                     <span class="skill-pill">RESTful APIs</span>
                                     <span class="skill-pill">Microservices</span>
                                     <span class="skill-pill">Web Design & UX</span>
                                     <span class="skill-pill">UX Testing</span>
-                                    <span class="skill-pill">OOP</span>
+                                    <span class="skill-pill">OOP & Design</span>
                                 </div>
                             </div>
                             <!-- Skill Card 6 -->
@@ -816,9 +829,9 @@
                                     <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100">Domain Expertise</h3>
                                 </div>
                                 <ul class="skill-list">
-                                    <li>Retail & E-commerce</li>
-                                    <li>Logistics & Supply-Chain</li>
-                                    <li>Pharmaceuticals</li>
+                                    <li>Retail & E-commerce (NAPA Auto Parts, Motion Industries)</li>
+                                    <li>Logistics & Supply-Chain (GlaxoSmithKline)</li>
+                                    <li>Pharmaceuticals (Clinical Research, Inventory)</li>
                                 </ul>
                             </div>
                             <!-- Skill Card 7 -->
@@ -828,12 +841,11 @@
                                     <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100">Soft Skills & Professional</h3>
                                 </div>
                                 <ul class="skill-list columns-1 md:columns-2"> <!-- Multi-column for wide card -->
-                                    <li>Platform Modernization</li>
-                                    <li>Technology Vision</li>
-                                    <li>Cross-Functional Collaboration</li>
-                                    <li>Mentoring & Training</li>
-                                    <li>R&D Contributions</li>
-                                    <li>Technical Documentation</li>
+                                    <li>Platform Modernization/Technology Vision</li>
+                                    <li>Cross-Functional Team Collaboration (e.g., Search, Discovery, One-UI, Catalog...)</li>
+                                    <li>Mentoring & Training (6+ Devs/Trainees)</li>
+                                    <li>R&D Contributions in AI & Analytics</li>
+                                    <li>Document Overhaul & Authoring (FDDs/TDDs)</li>
                                     <li>Actionable Insights Delivery</li>
                                 </ul>
                             </div>
@@ -842,15 +854,15 @@
 
                     <!-- Contact (Ported from Blue) -->
                      <section id="contact" class="content-section">
-                        <h3 class="content-section-header text-lg font-medium text-gray-900 dark:text-gray-100">Contact</h3>
-                        <div class="content-section-body">
+                         <h3 class="content-section-header text-lg font-medium text-gray-900 dark:text-gray-100">Contact</h3>
+                         <div class="content-section-body">
                              <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                                  Email: <a href="mailto:vasireddy.p@northeastern.edu" class="text-blue-600 dark:text-blue-400 hover:underline">vasireddy.p@northeastern.edu</a><br>
                                  Phone: <a href="tel:+1-857-xxx-xxxx" class="text-blue-600 dark:text-blue-400 hover:underline">+1-857-xxx-xxxx</a><br>
                                  LinkedIn: <a href="https://www.linkedin.com/in/prithvi-vasireddy" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">linkedin.com/in/prithvi-vasireddy</a><br>
                                  GitHub: <a href="https://github.com/prithvivasireddy" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">github.com/prithvivasireddy</a>
-                             </p>
-                         </div>
+                              </p>
+                          </div>
                      </section>
 
                 </div> <!-- End Content Sections -->
@@ -863,9 +875,9 @@
     <footer class="container mx-auto max-w-7xl mt-12 py-8 px-4 border-t border-gray-200 dark:border-gray-700 text-xs text-gray-500 dark:text-gray-500 flex flex-col md:flex-row md:items-center md:justify-between">
         <div class="flex items-center gap-2 mb-4 md:mb-0">
              <svg height="24" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="24" class="fill-gray-400 dark:fill-gray-600">
-                <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.19.01-.82.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21-.15.46-.55.38A8.013 8.013 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
-            </svg>
-            <span>&copy; 2024 Prithvi Vasireddy</span>
+                 <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.19.01-.82.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21-.15.46-.55.38A8.013 8.013 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+             </svg>
+             <span>&copy; 2024 Prithvi Vasireddy</span>
         </div>
         <!-- Merged Footer Links -->
         <ul class="flex flex-wrap gap-4">
@@ -877,7 +889,7 @@
             <li><a href="#education" class="hover:text-blue-600 dark:hover:text-blue-400">Education</a></li>
             <li><a href="#certifications" class="hover:text-blue-600 dark:hover:text-blue-400">Certifications</a></li>
             <li><a href="#orcid" class="hover:text-blue-600 dark:hover:text-blue-400">ORCID</a></li>
-            <li><a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a></li>
+            <li><a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-4Code">Contact</a></li>
         </ul>
     </footer>
 
@@ -963,8 +975,8 @@
                         window.scrollTo({ top: offsetPosition, behavior: "smooth" });
                         updateActiveClass(targetId);
                          if (contentNavMenu && contentNavMenu.contains(this)) {
-                            contentNavMenu.classList.remove('active');
-                        }
+                             contentNavMenu.classList.remove('active');
+                         }
                     }
                 });
             });
@@ -992,8 +1004,8 @@
                          // Adjust logic to find the section closest to the top edge (or slightly past it)
                          const sectionTop = section.getBoundingClientRect().top - scrollOffset;
                          if (sectionTop <= 50) { // Check if section top is near or above the scroll offset point
-                            // Among eligible sections, find the one closest to the ideal position (0)
-                            if (Math.abs(sectionTop) < minDistance) {
+                             // Among eligible sections, find the one closest to the ideal position (0)
+                             if (Math.abs(sectionTop) < minDistance) {
                                  minDistance = Math.abs(sectionTop);
                                  currentSection = section.getAttribute('id');
                              }
@@ -1040,7 +1052,7 @@
                      // Manually add 'color' property if it's nested (as it is in this JSON)
                      Object.keys(fbColors).forEach(k => {
                          if (fbColors[k].color) {
-                            languageColors[k] = { color: fbColors[k].color };
+                             languageColors[k] = { color: fbColors[k].color };
                          }
                      });
                      if (Object.keys(languageColors).length === 0) {
@@ -1056,14 +1068,14 @@
                         const lines = ymlText.split('\n');
                         let currentLang = null;
                         lines.forEach(line => {
-                            const langMatch = line.match(/^(\w[\w\s+#.-]*):$/);
-                            const colorMatch = line.match(/^\s+color:\s+"?([^"\s]+)"?$/);
-                            if (langMatch) {
-                                currentLang = langMatch[1].trim();
-                            } else if (colorMatch && currentLang) {
-                                languageColors[currentLang] = { color: colorMatch[1] };
-                                currentLang = null;
-                            }
+                             const langMatch = line.match(/^(\w[\w\s+#.-]*):$/);
+                             const colorMatch = line.match(/^\s+color:\s+"?([^"\s]+)"?$/);
+                             if (langMatch) {
+                                 currentLang = langMatch[1].trim();
+                             } else if (colorMatch && currentLang) {
+                                 languageColors[currentLang] = { color: colorMatch[1] };
+                                 currentLang = null;
+                             }
                         });
                         if (Object.keys(languageColors).length === 0) throw new Error('YAML parsing failed');
                      } catch (errorPrimary) {
@@ -1138,10 +1150,10 @@
                             </p>
                             <div class="mt-2 flex justify-between items-center">
                                  ${lang !== 'Unknown' ? `
-                                    <span class="language-tag text-xs" style="background-color: ${languageColor}; color: ${textColor};">
-                                        ${lang}
-                                    </span>
-                                ` : '<span class="text-xs text-gray-500"></span>'}
+                                     <span class="language-tag text-xs" style="background-color: ${languageColor}; color: ${textColor};">
+                                         ${lang}
+                                     </span>
+                                 ` : '<span class="text-xs text-gray-500"></span>'}
                                 <div class="star-icon text-sm">
                                     <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1">
                                          <path fill-rule="evenodd" d="M10.868 2.884c-.321-.64-.97-.995-1.668-.995s-1.347.355-1.668.994L6.61 5.719l-3.078.447c-.66.096-1.17.59-1.363 1.225-.195.635-.03 1.31.42 1.77l2.227 2.172-.526 3.065c-.113.658.163 1.32.724 1.705.56.385 1.28.42 1.875.093L10 14.88l2.748 1.445c.595.328 1.315.292 1.875-.093.56-.385.837-1.047.724-1.705l-.526-3.065 2.227-2.172c.45-.46.615-1.135.42-1.77-.193-.635-.702-1.13-1.363-1.225l-3.078-.447L10.868 2.884Z" clip-rule="evenodd" />
@@ -1180,4 +1192,3 @@
     </script>
 </body>
 </html>
-
