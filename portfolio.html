@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Add class here for JS to target for dark mode -->
 <html lang="en" class="">
 <head>
     <meta charset="UTF-8">
@@ -112,6 +113,7 @@
              border: 1px solid #30363d; /* Dark border */
              box-shadow: none;
          }
+        /* Standard hover for most section cards */
         .section-card:hover {
              transform: translateY(-5px);
              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -157,38 +159,55 @@
              50% { background-position: 100% 50%; }
              100% { background-position: 0% 50%; }
          }
-        .project-card {
-             position: relative;
-             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* Specific styles for cards *within* the github section */
+        #github-projects .project-card {
+             position: relative; /* Needed for z-index */
+             transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ensure transition is here */
              transform-style: preserve-3d;
              animation: slideIn 0.5s ease-out forwards;
              opacity: 0;
-             /* Styles from JS (bg-white/90, border) handle light mode */
+             background-color: rgba(255, 255, 255, 0.9); /* Light mode specific bg */
+             border: 1px solid #e2e8f0; /* Light mode specific border */
+             border-radius: 0.5rem;
+             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
          }
-        .dark .project-card {
+        .dark #github-projects .project-card {
              background-color: rgba(13, 17, 23, 0.9); /* Darker backdrop */
              border-color: #30363d;
+             box-shadow: none;
          }
          /* Ensure project card text is visible in dark mode */
-         .dark .project-card h3 { color: #c9d1d9 !important; } /* Use important for specificity */
-         .dark .project-card p { color: #8b949e !important; }
-         .dark .project-card a { color: #58a6ff !important; }
-         .dark .project-card a:hover { color: #80b6ff !important; }
+         .dark #github-projects .project-card h3 { color: #c9d1d9 !important; }
+         .dark #github-projects .project-card p { color: #8b949e !important; }
+         .dark #github-projects .project-card a { color: #58a6ff !important; }
+         .dark #github-projects .project-card a:hover { color: #80b6ff !important; }
 
-        .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .project-card:nth-child(2) { animation-delay: 0.2s; }
-        .project-card:nth-child(3) { animation-delay: 0.3s; }
-        .project-card:nth-child(4) { animation-delay: 0.4s; }
-        .project-card:nth-child(5) { animation-delay: 0.5s; }
-        .project-card:nth-child(6) { animation-delay: 0.6s; }
+        /* Staggered animation delays */
+        #github-projects .project-card:nth-child(1) { animation-delay: 0.1s; }
+        #github-projects .project-card:nth-child(2) { animation-delay: 0.2s; }
+        #github-projects .project-card:nth-child(3) { animation-delay: 0.3s; }
+        #github-projects .project-card:nth-child(4) { animation-delay: 0.4s; }
+        #github-projects .project-card:nth-child(5) { animation-delay: 0.5s; }
+        #github-projects .project-card:nth-child(6) { animation-delay: 0.6s; }
         @keyframes slideIn {
              from { transform: translateY(20px); opacity: 0; }
              to { transform: translateY(0); opacity: 1; }
          }
-        .project-card:hover {
-             transform: perspective(1000px) rotateX(2deg) rotateY(2deg);
-             box-shadow: 0 0 20px rgba(14, 172, 93, 0.5);
+         /* Specific hover effect ONLY for github project cards */
+        #github-projects .project-card:hover {
+             transform: perspective(1000px) rotateX(2deg) rotateY(2deg) translateY(-5px); /* Added translateY */
+             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 0 20px rgba(14, 172, 93, 0.5); /* Combined shadows */
+             z-index: 10;
+        }
+         /* Ensure dark mode hover uses the same transform and adjusted shadow */
+         .dark #github-projects .project-card:hover {
+             transform: perspective(1000px) rotateX(2deg) rotateY(2deg) translateY(-5px); /* Keep the transform */
+             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 20px rgba(14, 172, 93, 0.5); /* Darker lift shadow + glow */
+             border-color: #30363d; /* Keep original dark border color on hover */
+             z-index: 10;
          }
+
+
         .language-tag {
              display: inline-block;
              padding: 0.25rem 0.5rem;
@@ -246,6 +265,9 @@
          .dark #publications .pub-card {
              background-color: #161b22;
              border-left-color: #58a6ff;
+             /* Apply standard section-card dark styles */
+             border: 1px solid #30363d;
+             box-shadow: none;
          }
 
         #publications .pub-card::before {
@@ -264,7 +286,11 @@
              border-left-color: #0EAC5D;
          }
          .dark #publications .pub-card:hover {
-             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+             transform: translateY(-5px) scale(1.01); /* Keep transform */
+             /* Use standard dark hover effect */
+             box-shadow: 0 0 20px rgba(88, 166, 255, 0.2);
+             border-color: #8b949e; /* Standard dark hover border */
+             border-left-color: #0EAC5D; /* Keep accent color */
          }
 
         #publications .pub-card:hover::before { border-right-color: #a5f3fc; }
@@ -507,8 +533,8 @@
                     <section id="experience" class="content-section">
                          <h3 class="content-section-header text-lg font-medium text-gray-900 dark:text-gray-100">Experience</h3>
                          <div class="content-section-body space-y-6">
-                            <!-- Card from Blue Portfolio -->
-                            <div class_models="section-card p-6 bg-transparent dark:bg-transparent shadow-none dark:border-none border-none">
+                            <!-- Card from Blue Portfolio - CORRECTED CLASS -->
+                            <div class="section-card p-6 bg-transparent dark:bg-transparent shadow-none dark:border-none border-none">
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100">Full-Stack Developer, Genuine Parts Company</h3>
                                 <p class="text-gray-600 dark:text-gray-400">Jun 2024 - Present | Dallas, TX</p>
                                 <ul class="list-disc ml-6 mt-2 text-gray-700 dark:text-gray-300 space-y-2">
@@ -519,7 +545,7 @@
                                     <li>Spearheaded initiatives and contributed to development of Chat-GPC, a proprietary LLM-based AI solution using LangChain and RAG (gpt 4).</li>
                                 </ul>
                             </div>
-                            <!-- Card from Blue Portfolio -->
+                            <!-- Card from Blue Portfolio - CORRECTED CLASS -->
                             <div class="section-card p-6 bg-transparent dark:bg-transparent shadow-none dark:border-none border-none border-t border-gray-200 dark:border-gray-700 pt-6">
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100">Systems Engineer/RPA Developer, GlaxoSmithKline</h3>
                                 <p class="text-gray-600 dark:text-gray-400">May 2020 - May 2022 | Remote</p>
@@ -571,7 +597,7 @@
                                     <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                                 </span>
                             </a>
-                            <a href="https://doi.org/10.5281/zenodo.17394277" target="_blank" rel="noopener noreferrer" class="group block p-6 rounded-lg shadow-md pub-card">
+                             <a href="https://doi.org/10.5281/zenodo.17394277" target="_blank" rel="noopener noreferrer" class="group block p-6 rounded-lg shadow-md pub-card">
                                 <div class="flex items-start justify-between mb-3">
                                     <h3 class="text-lg pub-title group-hover:text-blue-700 transition-colors duration-300 pr-4">
                                         ZK-TSP Chain: A Novel Hybrid Blockchain Consensus...
@@ -963,20 +989,30 @@
                     
                     sections.forEach(section => {
                          const distance = Math.abs((section.getBoundingClientRect().top) - scrollOffset);
-                         if (distance < minDistance) {
-                             minDistance = distance;
-                             currentSection = section.getAttribute('id');
+                         // Adjust logic to find the section closest to the top edge (or slightly past it)
+                         const sectionTop = section.getBoundingClientRect().top - scrollOffset;
+                         if (sectionTop <= 50) { // Check if section top is near or above the scroll offset point
+                            // Among eligible sections, find the one closest to the ideal position (0)
+                            if (Math.abs(sectionTop) < minDistance) {
+                                 minDistance = Math.abs(sectionTop);
+                                 currentSection = section.getAttribute('id');
+                             }
                          }
                     });
 
-                    if (!currentSection && sections.length > 0 && window.pageYOffset < (sections[0].offsetTop - scrollOffset - 50)) {
-                         currentSection = sections[0].getAttribute('id');
+                    // Fallback to the first section if scrolled to the very top
+                    if (!currentSection && window.pageYOffset < (sections[0]?.offsetTop - scrollOffset - 50 || 0)) {
+                         currentSection = sections[0]?.getAttribute('id') || '';
                     }
+
+                    // If no section is clearly active (e.g., in the middle of a long scroll), maybe keep the last active one or default?
+                    // For now, it defaults to the closest one that has passed the threshold.
+
                     updateActiveClass(currentSection);
-                }, 100);
+                }, 100); // Debounce scroll event slightly
             }
             window.addEventListener('scroll', highlightNavOnScroll);
-            highlightNavOnScroll();
+            highlightNavOnScroll(); // Initial check
 
 
             // === GitHub Data Loading (Ported from Blue Portfolio) ===
@@ -1079,7 +1115,7 @@
                         // Added dark mode classes
                         projectCard.className = 'project-card bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm p-4 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700';
                         
-                        const lang = repo.language || 'Unknown';
+                        const lang = repo.language || 'Unknown'; // FIX: Removed 'action' typo from previous version if present
                         const colorData = languageColors[lang] || languageColors.Default;
                         const languageColor = colorData ? colorData.color : '#6c757d';
                         
