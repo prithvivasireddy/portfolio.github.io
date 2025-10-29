@@ -29,7 +29,6 @@
             font-family: 'Inter', sans-serif;
             font-weight: 600;
         }
-
         .content-nav-link {
             padding: 8px 16px;
             margin-right: 8px;
@@ -47,7 +46,6 @@
         .dark .content-nav-link:hover { color: #c9d1d9; border-bottom-color: #30363d; }
         .content-nav-link.active { color: #24292f; font-weight: 600; border-bottom-color: #f9826c; }
          .dark .content-nav-link.active { color: #c9d1d9; border-bottom-color: #f9826c; }
-
         .hamburger-tabs {
              cursor: pointer; padding: 8px; border: 1px solid #d0d7de; border-radius: 6px;
          }
@@ -55,30 +53,39 @@
         .hamburger-tabs div { width: 20px; height: 2px; background-color: #24292f; margin: 4px 0; transition: all 0.3s ease; }
          .dark .hamburger-tabs div { background-color: #c9d1d9; }
 
-
         #content-nav-mobile { display: none; }
         #content-nav-full { display: flex; flex-wrap: wrap;}
         .main-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; }
         .main-grid aside { grid-column: span 1 / span 1; }
-        .main-grid section.content-area { grid-column: span 3 / span 3; } /* Added class */
+        .main-grid section { grid-column: span 3 / span 3; }
         .profile-container { position: relative; margin-top: 0; }
+        .nav-tabs-container { margin-top: -1rem; }
+        .search-bar-container { display: block; }
 
         body.view-mobile #content-nav-mobile { display: block; }
         body.view-mobile #content-nav-full { display: none; }
         body.view-mobile .hamburger-tabs { display: block; }
         body.view-mobile .main-grid { display: block; }
-        body.view-mobile .profile-container { margin-top: 1rem; } /* Removed negative margin */
-        body.view-mobile .nav-tabs-container { margin-top: 0; } /* Remove negative margin on nav */
-        body.view-mobile main { padding-top: 4rem; } /* Add padding to main to account for header+nav */
+        body.view-mobile .profile-container { margin-top: -4rem; }
+        body.view-mobile .nav-tabs-container { margin-top: 0; }
+        body.view-mobile .search-bar-container { display: none; }
 
-        body.view-desktop #content-nav-mobile { display: none; }
-        body.view-desktop #content-nav-full { display: flex; }
-        body.view-desktop .hamburger-tabs { display: none; }
-        body.view-desktop .main-grid { display: grid; }
-        body.view-desktop .profile-container { margin-top: 0; }
-        body.view-desktop .nav-tabs-container { margin-top: -1rem; } /* Keep slight overlap for desktop */
-        body.view-desktop main { padding-top: 2rem; } /* Adjust desktop padding */
-
+        .avatar-container {
+            width: 50%;
+            margin-left: auto; margin-right: auto;
+            border-radius: 9999px; border-width: 2px; border-color: #fff;
+            overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .dark .avatar-container { border-color: #1f2937; }
+        @media (min-width: 640px) {
+            .avatar-container { width: 33.333333%; }
+        }
+        @media (min-width: 768px) {
+            .avatar-container { width: 25%; }
+        }
+        @media (min-width: 1024px) {
+            .avatar-container { width: 100%; max-width: 296px; margin-left: 0; margin-right: 0; }
+        }
 
         .content-nav {
             display: none; flex-direction: column; width: max-content;
@@ -97,7 +104,6 @@
         .dark .content-nav .content-nav-link { border-bottom-color: #30363d; }
          .content-nav .content-nav-link:first-child { border-top-left-radius: 6px; border-top-right-radius: 6px; }
          .content-nav .content-nav-link:last-child { border-bottom: 0; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; }
-
 
         .content-section { margin-bottom: 1rem; }
          .dark .content-section {
@@ -118,8 +124,6 @@
          }
         .content-section-body { padding: 1rem; }
 
-
-
         .section-card {
              background-color: #ffffff;
              border-radius: 0.5rem;
@@ -131,7 +135,6 @@
              border: 1px solid #30363d;
              box-shadow: none;
          }
-
         .section-card:hover {
              transform: translateY(-5px);
              box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -140,7 +143,6 @@
              box-shadow: 0 0 20px rgba(88, 166, 255, 0.2);
              border-color: #8b949e;
          }
-
 
         .loading-text {
              animation: pulse 1.5s infinite;
@@ -163,7 +165,6 @@
          }
         @keyframes spin { to { transform: rotate(360deg); } }
 
-
         #github { position: relative; overflow: hidden; }
         .github-bg {
              background: linear-gradient(135deg, #1e3a8a, #0EAC5D, #4b0082);
@@ -177,7 +178,6 @@
              50% { background-position: 100% 50%; }
              100% { background-position: 0% 50%; }
          }
-
         #github-projects .project-card {
              position: relative;
              transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -194,13 +194,12 @@
              border-color: #30363d;
              box-shadow: none;
          }
-
          .dark #github-projects .project-card h3 { color: #c9d1d9 !important; }
          .dark #github-projects .project-card p { color: #8b949e !important; }
          .dark #github-projects .project-card a { color: #58a6ff !important; }
          .dark #github-projects .project-card a:hover { color: #80b6ff !important; }
 
-
+        /* Staggered animation delays - REVERTED to original */
         #github-projects .project-card:nth-child(1) { animation-delay: 0.1s; }
         #github-projects .project-card:nth-child(2) { animation-delay: 0.2s; }
         #github-projects .project-card:nth-child(3) { animation-delay: 0.3s; }
@@ -211,20 +210,17 @@
              from { transform: translateY(20px); opacity: 0; }
              to { transform: translateY(0); opacity: 1; }
          }
-
         #github-projects .project-card:hover {
              transform: translateY(-5px) perspective(1000px) rotateX(2deg) rotateY(2deg);
              box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 0 20px rgba(14, 172, 93, 0.5);
              z-index: 10;
         }
-
          .dark #github-projects .project-card:hover {
              transform: translateY(-5px) perspective(1000px) rotateX(2deg) rotateY(2deg);
              box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 20px rgba(14, 172, 93, 0.5);
              border-color: #30363d;
              z-index: 10;
          }
-
 
         .language-tag {
              display: inline-block;
@@ -242,7 +238,6 @@
         .star-icon svg { width: 1rem; height: 1rem; margin-right: 0.25rem; }
         .dark .star-icon { color: #e3b341; }
 
-
         .skill-pill {
              display: inline-block;
              background-color: #eef2ff;
@@ -255,13 +250,11 @@
              transition: all 0.2s ease;
          }
         .skill-pill:hover { background-color: #c7d2fe; color: #312e81; }
-
         .dark .skill-pill {
              background-color: #312e81;
              color: #e0e7ff;
          }
          .dark .skill-pill:hover { background-color: #3730a3; color: #ffffff; }
-
         .skill-list {
              list-style-type: disc;
              padding-left: 1.25rem;
@@ -271,7 +264,6 @@
          }
          .dark .skill-list { color: #9ca3af; }
          .skill-list li { margin-bottom: 0.5rem; }
-
 
         #publications .pub-card {
              background-color: #f8fafc;
@@ -286,7 +278,6 @@
              border: 1px solid #30363d;
              box-shadow: none;
          }
-
         #publications .pub-card::before {
              content: ''; position: absolute; top: 0; right: 0;
              border-width: 0 20px 20px 0; border-style: solid;
@@ -296,7 +287,6 @@
          .dark #publications .pub-card::before {
              border-right-color: #1e3a8a;
          }
-
         #publications .pub-card:hover {
              transform: translateY(-5px) scale(1.01);
              box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
@@ -308,54 +298,45 @@
              border-color: #8b949e;
              border-left-color: #0EAC5D;
          }
-
         #publications .pub-card:hover::before { border-right-color: #a5f3fc; }
          .dark #publications .pub-card:hover::before { border-right-color: #0EAC5D; }
-
         #publications .pub-title { font-weight: 600; color: #1e3a8a; }
-
          .dark #publications .pub-card h3.pub-title { color: #58a6ff !important; }
          .dark #publications .pub-card:hover h3.pub-title { color: #80b6ff !important; }
-
         #publications .pub-meta {
              font-family: 'Roboto Mono', monospace;
              font-size: 0.8rem;
              color: #4b5563;
          }
-
          .dark #publications .pub-meta { color: #8b949e !important; }
-
         #publications .pub-link { color: #1d4ed8; }
          .dark #publications .pub-link { color: #58a6ff !important; }
         #publications .pub-link span { font-weight: 500; }
-
         #publications .pub-icon { color: #3b82f6; transition: color 0.3s ease; }
          .dark #publications .pub-icon { color: #58a6ff !important; }
         #publications .pub-card:hover .pub-icon { color: #10b981; }
          .dark #publications .pub-card:hover .pub-icon { color: #0EAC5D !important; }
-
         #publications .achievement-card { border-left-color: #f59e0b; }
         #publications .achievement-card:hover { border-left-color: #facc15; }
         #publications .achievement-icon { color: #f59e0b; }
         #publications .achievement-card:hover .achievement-icon { color: #fbbf24; }
-
     </style>
 </head>
-
 <body class="bg-white dark:bg-[#0d1117] text-gray-900 dark:text-gray-300 font-sans transition-colors duration-200 view-desktop">
 
     <header class="bg-[#161b22] text-white py-2 px-4 border-b border-[#30363d] sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center max-w-7xl">
-            <div class="flex items-center gap-4 flex-shrink-0">
+            <div class="flex items-center gap-4 flex-1 min-w-0">
                 <svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true" class="fill-white flex-shrink-0">
                     <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.19.01-.82.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21-.15.46-.55.38A8.013 8.013 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
                 </svg>
                 <div class="relative search-bar-container">
-                    <input type="text" placeholder="Search..." class="bg-[#0d1117] border border-[#30363d] rounded-md py-1 px-3 w-full sm:w-64 text-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 transition duration-200" />
+                    <input type="text" placeholder="Search..." class="bg-[#0d1117] border border-[#30363d] rounded-md py-1 px-3 w-64 text-sm placeholder-gray-400 focus:outline-none focus:border-blue-500 transition duration-200" />
                 </div>
             </div>
             <div class="flex items-center gap-2 flex-shrink-0">
-                 <button id="view-toggle" class="text-gray-400 hover:text-white p-1 rounded-md text-xs border border-gray-600">
+                 <button id="view-toggle" class="text-gray-400 hover:text-white p-1 rounded-md text-xs border border-gray-600 hidden sm:block">
+                     Desktop View
                  </button>
                  <button id="theme-toggle" class="text-gray-400 hover:text-white p-1 rounded-md">
                      <svg id="theme-icon-sun" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 12a5 5 0 110-10 5 5 0 010 10z" /></svg>
@@ -368,13 +349,14 @@
                         <div></div>
                     </button>
                     <div class="content-nav" id="content-nav-menu">
+                        <!-- Links added by JS -->
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="container mx-auto px-4 max-w-7xl">
+    <main class="container mx-auto px-4 py-8 max-w-7xl">
 
         <nav class="border-b border-gray-200 dark:border-gray-700 mb-6 relative nav-tabs-container">
             <div id="content-nav-full">
@@ -419,20 +401,23 @@
 
         <div class="main-grid">
             <aside>
-                <div class="profile-container">
-                    <div class="w-1/2 sm:w-1/3 md:w-1/4 lg:w-full max-w-[296px] mx-auto lg:mx-0 rounded-full border-2 border-white dark:border-gray-800 overflow-hidden shadow-lg">
+                <div class="profile-container -mt-16 sm:-mt-20 lg:mt-0">
+                    <div class="avatar-container">
                         <img src="https://placehold.co/296x296/e2e8f0/64748b?text=PV" alt="Prithvi Vasireddy" class="block w-full h-auto aspect-square object-cover">
                     </div>
                     <div class="mt-4 px-2">
                         <h1 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Prithvi Vasireddy</h1>
                         <p class="text-xl text-gray-500 dark:text-gray-400 font-light">prithvivasireddy</p>
+
                         <button class="w-full bg-[#f6f8fa] dark:bg-[#21262d] border border-[#d0d7de] dark:border-[#30363d] rounded-md py-1.5 mt-4 text-sm font-medium hover:bg-[#f3f4f6] dark:hover:bg-[#30363d] text-[#24292f] dark:text-gray-100">Follow</button>
+
                         <p class="text-gray-700 dark:text-gray-300 mt-4 text-sm">
                             Data Engineer | Full-Stack Developer
                         </p>
                         <p class="text-gray-700 dark:text-gray-300 mt-1 text-sm">
                             Full-Stack Dev @ GPC | Ex-GSK | NEU Alum
                         </p>
+
                         <div class="mt-4 space-y-2 text-sm text-gray-700 dark:text-gray-300 border-t border-gray-200 dark:border-gray-700 pt-4">
                             <div class="flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -459,6 +444,7 @@
                                  <a href="#contact" class="text-blue-600 dark:text-blue-400 hover:underline">Contact Me</a>
                              </div>
                         </div>
+
                         <h3 class="text-base font-semibold text-gray-900 dark:text-gray-100 mt-6 border-t border-gray-200 dark:border-gray-700 pt-4">Organizations</h3>
                         <div class="flex items-center gap-2 mt-2">
                             <a href="#" title="Genuine Parts Company"><img src="https://placehold.co/38x38/1e40af/ffffff?text=GPC" alt="GPC" class="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-700 hover:ring-2 ring-blue-500"></a>
@@ -469,8 +455,9 @@
                 </div>
             </aside>
 
-            <section class="content-area">
+            <section>
                 <div class="space-y-6">
+
                     <section id="about" class="content-section">
                         <h3 class="content-section-header text-lg font-medium text-gray-900 dark:text-gray-100">README.md</h3>
                         <div class="content-section-body text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -492,6 +479,7 @@
                                 GitHub projects fetched by latest commits/pushes: <span id="fetched-date"></span>
                             </p>
                             <div id="github-projects" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 hidden">
+                                <!-- GitHub projects added by JS -->
                             </div>
                         </div>
                     </section>
@@ -849,7 +837,7 @@
             <li><a href="#education" class="hover:text-blue-600 dark:hover:text-blue-400">Education</a></li>
             <li><a href="#certifications" class="hover:text-blue-600 dark:hover:text-blue-400">Certifications</a></li>
             <li><a href="#orcid" class="hover:text-blue-600 dark:hover:text-blue-400">ORCID</a></li>
-            <li><a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-4Code">Contact</a></li>
+            <li><a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a></li>
         </ul>
     </footer>
 
@@ -866,23 +854,15 @@
             const contentNavLinksFull = document.querySelectorAll('#content-nav-full a');
             const headerElement = document.querySelector('header');
             const sections = document.querySelectorAll('main section[id]');
-            const mobileNavContainer = document.getElementById('content-nav-mobile');
-            const desktopNavContainer = document.getElementById('content-nav-full');
-            const mainGrid = document.querySelector('.main-grid');
-            const profileContainer = document.querySelector('.profile-container');
-            const searchBarContainer = document.querySelector('.search-bar-container');
-
 
             let headerHeight = headerElement ? headerElement.offsetHeight : 0;
             let scrollOffset = headerHeight + 10;
             let currentViewMode = 'desktop';
 
-
             const recalculateOffsets = () => {
                 headerHeight = headerElement ? headerElement.offsetHeight : 0;
                 scrollOffset = body.classList.contains('view-mobile') ? headerHeight + 20 : headerHeight + 10;
             };
-
 
             function updateThemeIcon() {
                 if (document.documentElement.classList.contains('dark')) {
@@ -900,34 +880,34 @@
                 updateThemeIcon();
             });
 
-
-             function setViewMode(mode) {
+            function setViewMode(mode) {
                  currentViewMode = mode;
                  if (mode === 'mobile') {
                      body.classList.add('view-mobile');
                      body.classList.remove('view-desktop');
-                     viewToggleBtn.textContent = 'Desktop View';
+                     if (viewToggleBtn) viewToggleBtn.textContent = 'Desktop View';
                  } else {
                      body.classList.add('view-desktop');
                      body.classList.remove('view-mobile');
-                     viewToggleBtn.textContent = 'Mobile View';
-                     if(contentNavMenu) contentNavMenu.classList.remove('active');
+                     if (viewToggleBtn) viewToggleBtn.textContent = 'Mobile View';
+                     if (contentNavMenu) contentNavMenu.classList.remove('active');
                  }
                  recalculateOffsets();
             }
 
-
-            if (window.innerWidth < 1012) {
+             if (window.innerWidth < 1024) {
                  setViewMode('mobile');
-            } else {
+             } else {
                  setViewMode('desktop');
-            }
+             }
 
-
-             viewToggleBtn.addEventListener('click', () => {
-                 setViewMode(currentViewMode === 'desktop' ? 'mobile' : 'desktop');
-             });
-
+             if (viewToggleBtn) {
+                 viewToggleBtn.addEventListener('click', () => {
+                     setViewMode(currentViewMode === 'desktop' ? 'mobile' : 'desktop');
+                 });
+             } else {
+                 console.warn("View toggle button not found");
+             }
 
             if (contentNavMenu && contentNavLinksFull.length > 0 && contentNavMenu.children.length === 0) {
                 contentNavLinksFull.forEach(link => {
@@ -938,22 +918,21 @@
                 });
             }
 
-
             if (contentHamburgerBtn && contentNavMenu) {
                 contentHamburgerBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
                     contentNavMenu.classList.toggle('active');
                 });
+            } else {
+                 console.warn("Hamburger button or menu not found");
             }
-
 
             document.addEventListener('click', (e) => {
                 if (contentNavMenu && contentNavMenu.classList.contains('active') &&
-                    !contentNavMenu.contains(e.target) && !contentHamburgerBtn.contains(e.target)) {
+                    contentHamburgerBtn && !contentHamburgerBtn.contains(e.target) && !contentNavMenu.contains(e.target) ) {
                     contentNavMenu.classList.remove('active');
                 }
             });
-
 
             function updateActiveClass(activeId) {
                 document.querySelectorAll('.content-nav-link').forEach(link => {
@@ -965,8 +944,7 @@
                 });
             }
 
-
-            document.querySelectorAll('nav a[href^="#"], footer a[href^="#"]').forEach(anchor => {
+             document.querySelectorAll('nav a[href^="#"], footer a[href^="#"]').forEach(anchor => {
                  anchor.addEventListener('click', function(e) {
                      e.preventDefault();
                      const targetId = this.getAttribute('href').substring(1);
@@ -980,57 +958,65 @@
                          window.scrollTo({ top: offsetPosition, behavior: "smooth" });
                          updateActiveClass(targetId);
 
-                         if (contentNavMenu && contentNavMenu.contains(this)) {
+                         if (contentNavMenu && contentNavMenu.contains(this) && contentNavMenu.classList.contains('active')) {
                              contentNavMenu.classList.remove('active');
                          }
+                     } else {
+                        console.warn(`Target element not found for ID: ${targetId}`);
                      }
                  });
              });
-
 
             let scrollTimeout;
             function highlightNavOnScroll() {
                 if (scrollTimeout) clearTimeout(scrollTimeout);
                 scrollTimeout = setTimeout(() => {
                     recalculateOffsets();
-                    let currentSection = '';
-                    let minDistance = Infinity;
-                    let firstSectionId = sections[0]?.getAttribute('id') || 'about';
+                    let currentSectionId = '';
+                    let minDistanceAbove = Infinity;
+                    let closestSectionAbove = '';
 
                     sections.forEach(section => {
                         const sectionTop = section.getBoundingClientRect().top - scrollOffset;
-                        if (sectionTop <= 50 && sectionTop > -section.offsetHeight * 0.75) {
-                             if (Math.abs(sectionTop) < minDistance) {
-                                 minDistance = Math.abs(sectionTop);
-                                 currentSection = section.getAttribute('id');
+
+                        if (sectionTop <= 50) {
+                             if (Math.abs(sectionTop) < minDistanceAbove) {
+                                 minDistanceAbove = Math.abs(sectionTop);
+                                 closestSectionAbove = section.getAttribute('id');
                              }
-                         }
+                        }
                     });
 
-                    if (!currentSection && window.pageYOffset < 100) {
-                         currentSection = firstSectionId;
+                    currentSectionId = closestSectionAbove;
+
+                    if (window.pageYOffset < 50 && sections.length > 0) {
+                        currentSectionId = sections[0].getAttribute('id');
                     }
 
-                     if (!currentSection && sections.length > 0) {
-                        currentSection = firstSectionId;
+                    if (!currentSectionId && sections.length > 0) {
+                        currentSectionId = sections[0].getAttribute('id');
                     }
 
-                    updateActiveClass(currentSection);
+                    if (currentSectionId) {
+                        updateActiveClass(currentSectionId);
+                    }
+
                 }, 100);
             }
             window.addEventListener('scroll', highlightNavOnScroll);
             window.addEventListener('resize', () => {
                 recalculateOffsets();
+                 if (window.innerWidth < 1024) {
+                     setViewMode('mobile');
+                 } else {
+                     setViewMode('desktop');
+                 }
                 highlightNavOnScroll();
-                 if (window.innerWidth < 1012 && currentViewMode !== 'mobile') {
-                    setViewMode('mobile');
-                } else if (window.innerWidth >= 1012 && currentViewMode !== 'desktop') {
-                    setViewMode('desktop');
-                }
             });
             highlightNavOnScroll();
 
 
+            // === GitHub Data Loading ===
             const loadingMessages = [
                  'Loading repositories from GitHub API...',
                  'Querying user activity...',
@@ -1039,12 +1025,20 @@
             ];
             let messageIndex = 0;
             const loadingMessageElement = document.getElementById('loading-message');
-            const loadingInterval = setInterval(() => {
-                messageIndex = (messageIndex + 1) % loadingMessages.length;
+            let loadingInterval; // Declare interval variable
+
+            // Function to start the loading message cycle
+            function startLoadingMessages() {
                 if (loadingMessageElement) {
-                    loadingMessageElement.textContent = loadingMessages[messageIndex];
+                    loadingMessageElement.textContent = loadingMessages[messageIndex]; // Show first message immediately
                 }
-             }, 1800);
+                 loadingInterval = setInterval(() => {
+                    messageIndex = (messageIndex + 1) % loadingMessages.length;
+                    if (loadingMessageElement) {
+                        loadingMessageElement.textContent = loadingMessages[messageIndex];
+                    }
+                 }, 1800); // Keep interval at 1.8 seconds
+            }
 
             let languageColors = {};
             async function fetchLanguageColors() {
@@ -1061,28 +1055,12 @@
                          throw new Error('Fallback JSON parsed but no colors found');
                      }
                  } catch (errorFallback) {
-                     console.warn('Fallback language color JSON failed:', errorFallback, '- trying primary YAML (slow).');
-                     try {
-                        const response = await fetch('https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml');
-                        if (!response.ok) throw new Error('Failed primary color fetch');
-                        const ymlText = await response.text();
-                        const lines = ymlText.split('\n');
-                        let currentLang = null;
-                        lines.forEach(line => {
-                             const langMatch = line.match(/^(\w[\w\s+#.-]*):$/);
-                             const colorMatch = line.match(/^\s+color:\s+"?([^"\s]+)"?$/);
-                             if (langMatch) {
-                                 currentLang = langMatch[1].trim();
-                             } else if (colorMatch && currentLang) {
-                                 languageColors[currentLang] = { color: colorMatch[1] };
-                                 currentLang = null;
-                             }
-                        });
-                        if (Object.keys(languageColors).length === 0) throw new Error('YAML parsing failed');
-                     } catch (errorPrimary) {
-                         console.error('All language color fetches failed:', errorPrimary);
-                         languageColors = { Default: { color: '#6c757d' } };
-                     }
+                     console.warn('Fallback language color JSON failed:', errorFallback);
+                     languageColors = {
+                         JavaScript: { color: '#f1e05a' }, Python: { color: '#3572A5' }, HTML: { color: '#e34c26' }, CSS: { color: '#563d7c' },
+                         Go: { color: '#00ADD8' }, Java: { color: '#b07219' }, TypeScript: { color: '#3178c6'}, Shell: { color: '#89e051' },
+                         Default: { color: '#6c757d' }
+                     };
                  }
                  if (!languageColors.Default) {
                      languageColors.Default = { color: '#6c757d' };
@@ -1090,7 +1068,9 @@
             }
 
             async function loadGithubData() {
-                clearInterval(loadingInterval);
+                // Stop the loading message interval *after* data starts loading
+                if (loadingInterval) clearInterval(loadingInterval);
+
                 const loadingDiv = document.getElementById('github-loading');
                 const fetchedMessage = document.getElementById('fetched-message');
                 const projectsContainer = document.getElementById('github-projects');
@@ -1105,7 +1085,7 @@
                 }
 
                 try {
-                    await fetchLanguageColors();
+                    // Language colors should already be fetched
                     const username = 'prithvivasireddy';
                     const response = await fetch(`https://api.github.com/users/${username}/repos?sort=pushed&direction=desc&per_page=6`, {
                         headers: { 'Accept': 'application/vnd.github.v3+json' }
@@ -1113,6 +1093,7 @@
                     if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
                     const repos = await response.json();
 
+                    // Hide loading, show fetched message and container only AFTER data is ready
                     if(loadingDiv) loadingDiv.classList.add('hidden');
                     if(fetchedMessage) fetchedMessage.classList.remove('hidden');
                     projectsContainer.classList.remove('hidden');
@@ -1140,11 +1121,13 @@
                              if (!color) return false;
                              const hex = color.replace('#', '');
                              if (hex.length < 6) return false;
-                             const r = parseInt(hex.substring(0, 2), 16);
-                             const g = parseInt(hex.substring(2, 4), 16);
-                             const b = parseInt(hex.substring(4, 6), 16);
-                             const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-                             return luminance < 0.5;
+                             try {
+                                 const r = parseInt(hex.substring(0, 2), 16);
+                                 const g = parseInt(hex.substring(2, 4), 16);
+                                 const b = parseInt(hex.substring(4, 6), 16);
+                                 const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+                                 return luminance < 0.5;
+                             } catch (e) { return false; }
                         };
                         const textColor = isDarkColor(languageColor) ? '#ffffff' : '#333333';
 
@@ -1175,20 +1158,27 @@
 
                 } catch (error) {
                     console.error('Error loading GitHub projects:', error);
-                     if (loadingDiv) {
-                        loadingDiv.innerHTML = '<p class="text-red-400">Error loading projects. Check console.</p>';
+                    if (loadingDiv) {
+                        loadingDiv.innerHTML = `<p class="text-red-400">Error loading projects: ${error.message}</p>`;
                         loadingDiv.classList.remove('loading-text', 'hidden');
                     }
                     if(fetchedMessage) fetchedMessage.classList.add('hidden');
                      if(projectsContainer) {
-                         projectsContainer.innerHTML = `<p class="text-red-400 col-span-full text-center">Error loading projects. Check console for details.</p>`;
+                         projectsContainer.innerHTML = `<p class="text-red-400 col-span-full text-center">Error loading projects. Check console.</p>`;
                          projectsContainer.classList.remove('hidden');
                     }
                 }
             }
-            loadGithubData();
 
-        });
+            // Start loading messages immediately
+            startLoadingMessages();
+
+            // Fetch colors, then wait ~6 seconds before loading GitHub data
+            fetchLanguageColors().then(() => {
+                setTimeout(loadGithubData, 6000); // Wait 6 seconds
+            });
+
+        }); // End DOMContentLoaded
     </script>
 
 </body>
