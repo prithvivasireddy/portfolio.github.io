@@ -6,6 +6,7 @@
     <title>Prithvi Vasireddy - Professional Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet"> <!-- Added Roboto Mono -->
     <style>
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Inter', sans-serif;
@@ -165,6 +166,66 @@
         }
         /* === END SKILLS SECTION STYLES === */
 
+        /* === NERDY PUBLICATIONS SECTION STYLES === */
+        #publications .pub-card {
+            background-color: #f8fafc; /* Slightly off-white bg */
+            border-left: 4px solid #1d4ed8; /* Blue accent border */
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        #publications .pub-card::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             right: 0;
+             border-width: 0 20px 20px 0; /* Triangle */
+             border-style: solid;
+             border-color: transparent #e0e7ff transparent transparent; /* Light indigo */
+             transition: all 0.3s ease;
+        }
+        #publications .pub-card:hover {
+             transform: translateY(-5px) scale(1.01);
+             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+             border-left-color: #0EAC5D; /* Green accent on hover */
+        }
+        #publications .pub-card:hover::before {
+            border-right-color: #a5f3fc; /* Light cyan */
+        }
+        #publications .pub-title {
+             font-weight: 600; /* Semibold */
+             color: #1e3a8a; /* Dark blue */
+        }
+        #publications .pub-meta {
+            font-family: 'Roboto Mono', monospace; /* Monospace font */
+            font-size: 0.8rem;
+            color: #4b5563; /* Gray-600 */
+        }
+        #publications .pub-link span {
+            font-weight: 500;
+        }
+        #publications .pub-icon {
+            color: #3b82f6; /* Blue-500 */
+            transition: color 0.3s ease;
+        }
+        #publications .pub-card:hover .pub-icon {
+             color: #10b981; /* Emerald-500 */
+        }
+        #publications .achievement-card {
+             border-left-color: #f59e0b; /* Amber-500 */
+        }
+        #publications .achievement-card:hover {
+             border-left-color: #facc15; /* Yellow-400 */
+        }
+        #publications .achievement-icon {
+            color: #f59e0b; /* Amber-500 */
+        }
+         #publications .achievement-card:hover .achievement-icon {
+             color: #fbbf24; /* Amber-400 */
+        }
+
+        /* === END NERDY PUBLICATIONS STYLES === */
+
     </style>
 </head>
 <body class="bg-gray-100 font-sans">
@@ -193,7 +254,7 @@
                 <a href="#publications" class="text-blue-200 hover:text-white mx-4">Publications</a>
                 <a href="#certifications" class="text-blue-200 hover:text-white mx-4">Certifications</a>
                 <a href="#github" class="text-blue-200 hover:text-white mx-4">GitHub</a>
-                <a href="#orcid" class="text-blue-200 hover:text-white mx-4">ORCiD</a>
+                <a href="#orcid" class="text-blue-200 hover:text-white mx-4">ORCID</a>
                 <a href="#skills" class="text-blue-200 hover:text-white mx-4">Skills</a>
                 <a href="#contact" class="text-blue-200 hover:text-white mx-4">Contact</a>
             </nav>
@@ -203,7 +264,7 @@
         <section id="about" class="mb-12">
             <h2 class="text-3xl font-bold mb-4">About Me</h2>
             <p class="text-lg text-gray-700">
-                Full-Stack Developer and Systems (Data) Engineer with 5+ years of experience modernizing platforms, architecting scalable microservices, and implementing AI-driven solutions at Genuine Parts Company and GlaxoSmithKline. Proficient in streamlining CI/CD pipelines, optimizing data infrastructure (SnowFlake/OracleFusion), and developing advanced analytics and automation tools, including proprietary LLM-based systems and RPA bots. Skilled in Python, Go, JS, SQL, and BI tools, delivering actionable insights and enhancing operational efficiency across retail, logistics, and pharmaceutical domains.
+                 Full-Stack Developer and Systems Engineer with 5+ years of experience modernizing platforms, architecting scalable microservices, and implementing AI-driven solutions at Genuine Parts Company and GlaxoSmithKline. Proficient in streamlining CI/CD pipelines, optimizing data infrastructure (SnowFlake/OracleFusion), and developing advanced analytics and automation tools, including proprietary LLM-based systems and RPA bots. Skilled in Python, Go, JS, SQL, and BI tools, delivering actionable insights and enhancing operational efficiency across retail, logistics, and pharmaceutical domains.
             </p>
         </section>
 
@@ -224,7 +285,7 @@
         </section>
         
         <section id="orcid" class="mb-12">
-            <h2 class="text-3xl font-bold mb-4">ORCiD.me</h2>
+            <h2 class="text-3xl font-bold mb-4">ORCID</h2> <!-- Corrected title -->
             <a href="https://orcid.org/0009-0000-1779-5573" target="_blank" rel="noopener noreferrer" 
                class="group block relative p-1 rounded-2xl overflow-hidden transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#a6ce39]/30">
                 
@@ -240,7 +301,7 @@
                         <svg class="w-12 h-12" fill="#a6ce39" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM7.72 18.288c-1.152 0-2.088-.936-2.088-2.088s.936-2.088 2.088-2.088 2.088.936 2.088 2.088-.936 2.088-2.088 2.088zm0-5.424c-1.152 0-2.088-.936-2.088-2.088s.936-2.088 2.088-2.088 2.088.936 2.088 2.088-.936 2.088-2.088 2.088zm0-5.424c-1.152 0-2.088-.936-2.088-2.088s.936-2.088 2.088-2.088 2.088.936 2.088 2.088-.936 2.088-2.088 2.088zm8.664 9.12V9.912h-2.208v7.464h2.208z"></path>
                         </svg>
-                        <span class="text-2xl font-bold text-white">ORCiD Profile</span>
+                        <span class="text-2xl font-bold text-white">ORCID Profile</span>
                     </div>
 
                     <!-- Right Side: ID and Link -->
@@ -260,11 +321,11 @@
         <section id="experience" class="mb-12">
             <h2 class="text-3xl font-bold mb-4">Experience</h2>
             <div class="grid gap-6">
-                <!-- UPDATED: Added section-card class -->
+                <!-- Added section-card class -->
                 <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <h3 class="text-xl font-semibold">Full-Stack Developer, Genuine Parts Company</h3>
                     <p class="text-gray-600">Jun 2024 - Present | Dallas, TX</p>
-                    <ul class="list-disc ml-6 mt-2 text-gray-700">
+                    <ul class="list-disc ml-6 mt-2 text-gray-700 space-y-2"> <!-- Added space-y-2 for better list spacing -->
                         <li>Responsible for driving the platform and technology vision for modernization, reliability, Gen-AI, cloud and edge computing scenarios at Motion Industries and NAPA Auto Parts.</li>
                         <li>Configured custom build-agents and architected the new deployment/data pipelines for NAPAOnline™, PROLink™, and PartsProSE™’s (B2B/B2C applications) restructuring monolithic CI/CD to non-monolithic triggers where applicable, reducing processing time by 70% working 20+ microservices.</li>
                         <li>Drove the vision for Jarvis, an application that simplifies the process of provisioning cloud applications on Google Cloud Platform (GCP) by abstracting the underlying complexities of cloud infrastructure (e.g. auto resource provisioning to cut SRE oversight), allowing developers to move faster into production environments.</li>
@@ -272,11 +333,11 @@
                         <li>Spearheaded initiatives and contributed to development of Chat-GPC, a proprietary LLM-based AI solution using LangChain and RAG (gpt 4).</li>
                     </ul>
                 </div>
-                <!-- UPDATED: Added section-card class -->
+                <!-- Added section-card class -->
                 <div class="bg-white p-6 rounded-lg shadow-md section-card">
-                    <h3 class="text-xl font-semibold">Systems (Data) Engineer/RPA Developer, GlaxoSmithKline</h3>
+                    <h3 class="text-xl font-semibold">Systems Engineer/RPA Developer, GlaxoSmithKline</h3>
                     <p class="text-gray-600">May 2020 - May 2022 | Remote</p>
-                    <ul class="list-disc ml-6 mt-2 text-gray-700">
+                    <ul class="list-disc ml-6 mt-2 text-gray-700 space-y-2"> <!-- Added space-y-2 -->
                         <li>Worked for the EIA/AI (Enterprise Intelligent Automation/Artificial Intelligence) unit of TCS in the GlaxoSmithKline X UNICEF initiative developing multi-functional (fuzzy logic, De-skewing, AutoML, and NLP) bots and ETL/ELT pipelines for logistics, finance, HR, clinical research, supply chain, and pharma inventory management.</li>
                         <li>Mentored 6+ devs/trainees and contributed significantly to R&D in TCS' life sciences unit, aiding in the development of TCS’ advanced AI and analytics solutions - Cognix™ and MFDM™.</li>
                     </ul>
@@ -286,164 +347,167 @@
         <section id="education" class="mb-12">
             <h2 class="text-3xl font-bold mb-4">Education</h2>
             <div class="grid gap-6">
-                <!-- UPDATED: Added section-card class -->
+                <!-- Added section-card class -->
                 <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <h3 class="text-xl font-semibold">Northeastern University, Boston, MA</h3>
                     <p class="text-gray-600">2022 - 2024</p>
-                    <p class="text-gray-700">MS, Data Architecture and Management</p>
-                    <p class="text-gray-700 mt-2">
-                        <strong>Courses:</strong> DAMG7370 Designing Advanced Data Architectures for Business Intelligence, DAMG7250 Big Data Architecture & Governance, DAMG6210 Database Management & Database Design, INFO7374 Algorithmic Marketing, DAMG6105 Data Science Engineering with Python, CSYE6200 Concepts of Object-Oriented Programming & Design, INFO6150 Web Design and User Experience, CSYE7280 User Experience Design and Testing
+                    <p class="text-gray-700 font-medium">MS, Data Architecture and Management</p> <!-- Added font-medium -->
+                    <p class="text-gray-600 mt-2 text-sm leading-relaxed"> <!-- Adjusted styling for readability -->
+                        <strong>Relevant Coursework:</strong> Designing Advanced Data Architectures for BI (DAMG7370), Big Data Architecture & Governance (DAMG7250), Database Management & Design (DAMG6210), Algorithmic Marketing (INFO7374), Data Science Engineering w/ Python (DAMG6105), Concepts of OOP & Design (CSYE6200), Web Design & UX (INFO6150), UX Design & Testing (CSYE7280)
                     </p>
                 </div>
-                <!-- UPDATED: Added section-card class -->
+                <!-- Added section-card class -->
                 <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <h3 class="text-xl font-semibold">Jawaharlal Nehru Technological University, India</h3>
                     <p class="text-gray-600">2016 - 2020</p>
-                    <p class="text-gray-700">B.Tech, Computer Science</p>
+                    <p class="text-gray-700 font-medium">B.Tech, Computer Science</p> <!-- Added font-medium -->
                 </div>
             </div>
         </section>
 
+        <!-- ====================================================== -->
+        <!-- START: NERDY PUBLICATIONS SECTION                      -->
+        <!-- ====================================================== -->
         <section id="publications" class="mb-12">
-            <h2 class="text-3xl font-bold mb-6 text-left">Publications & Achievements</h2>
+            <h2 class="text-3xl font-bold mb-6 text-left">Publications & Noteworthy Projects</h2> <!-- Updated Title -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
                 <!-- Publication Card 1 -->
                 <a href="https://doi.org/10.1109/ICICCS48265.2020.9121120" target="_blank" rel="noopener noreferrer" 
-                   class="group block bg-white p-6 rounded-lg shadow-md section-card">
-                    <div class="mb-3">
-                        <svg class="w-10 h-10 text-blue-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m-1.5 15H5.625c-.621 0-1.125-.504-1.125-1.125v-1.5c0-.621.504-1.125 1.125-1.125H9.75M19.5 15.75H8.25M4.5 19.5H19.5a2.25 2.25 0 0 0 2.25-2.25v-10.5a2.25 2.25 0 0 0-2.25-2.25H8.25a2.25 2.25 0 0 0-2.25 2.25v10.5a2.25 2.25 0 0 0 2.25 2.25Z" />
+                   class="group block p-6 rounded-lg shadow-md pub-card"> <!-- Added pub-card class -->
+                    <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-lg pub-title group-hover:text-blue-700 transition-colors duration-300 pr-4">
+                             A Framework for Intelligent Automation in Autonomous Recommendation Systems
+                        </h3>
+                        <svg class="w-8 h-8 flex-shrink-0 pub-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m.75 12 3 3m0 0 3-3m-3 3v-6m-1.5-1.5H5.625c-.621 0-1.125-.504-1.125-1.125v-1.5c0-.621.504-1.125 1.125-1.125H9.75M8.25 21H19.5a2.25 2.25 0 0 0 2.25-2.25v-13.5A2.25 2.25 0 0 0 19.5 3H8.25a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 8.25 21Z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
-                        An Autonomous Recommender Bot (RPA and Intelligent Automation)
-                    </h3>
-                    <p class="text-gray-600 mt-2 text-sm">
-                        Publisher: <strong>IEEE</strong>
+                    <p class="pub-meta mb-3">
+                        Publisher: IEEE Xplore | Type: Conference Paper
                     </p>
-                    <span class="mt-4 inline-flex items-center gap-1.5 text-md font-medium text-blue-700">
-                        View Publication
+                    <span class="inline-flex items-center gap-1.5 text-sm font-medium text-blue-700 pub-link">
+                        Access Paper
                         <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                     </span>
                 </a>
 
                 <!-- Publication Card 2 -->
                 <a href="https://doi.org/10.5281/zenodo.17394277" target="_blank" rel="noopener noreferrer" 
-                   class="group block bg-white p-6 rounded-lg shadow-md section-card">
-                    <div class="mb-3">
-                        <svg class="w-10 h-10 text-blue-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m-1.5 15H5.625c-.621 0-1.125-.504-1.125-1.125v-1.5c0-.621.504-1.125 1.125-1.125H9.75M19.5 15.75H8.25M4.5 19.5H19.5a2.25 2.25 0 0 0 2.25-2.25v-10.5a2.25 2.25 0 0 0-2.25-2.25H8.25a2.25 2.25 0 0 0-2.25 2.25v10.5a2.25 2.25 0 0 0 2.25 2.25Z" />
+                   class="group block p-6 rounded-lg shadow-md pub-card">
+                    <div class="flex items-start justify-between mb-3">
+                         <h3 class="text-lg pub-title group-hover:text-blue-700 transition-colors duration-300 pr-4">
+                            ZK-TSP Chain: A Novel Hybrid Blockchain Consensus Leveraging Zero-Knowledge Proofs and Proof-of-Useful-Work
+                        </h3>
+                        <svg class="w-8 h-8 flex-shrink-0 pub-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
-                        ZK-TSP Chain: A Hybrid Proof-of-Useful-Work Blockchain
-                    </h3>
-                    <p class="text-gray-600 mt-2 text-sm">
-                        Publisher: <strong>Zenodo</strong>
+                    <p class="pub-meta mb-3">
+                        Publisher: Zenodo | Type: Pre-print
                     </p>
-                    <span class="mt-4 inline-flex items-center gap-1.5 text-md font-medium text-blue-700">
-                        View Publication
+                    <span class="inline-flex items-center gap-1.5 text-sm font-medium text-blue-700 pub-link">
+                       View Pre-print
                         <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                     </span>
                 </a>
 
-                 <!-- Publication Card 02 -->
+                 <!-- Publication Card 3 (Hub-and-Spoke) -->
                 <a href="https://doi.org/10.5281/zenodo.17460226" target="_blank" rel="noopener noreferrer" 
-                   class="group block bg-white p-6 rounded-lg shadow-md section-card">
-                    <div class="mb-3">
-                        <svg class="w-10 h-10 text-blue-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m-1.5 15H5.625c-.621 0-1.125-.504-1.125-1.125v-1.5c0-.621.504-1.125 1.125-1.125H9.75M19.5 15.75H8.25M4.5 19.5H19.5a2.25 2.25 0 0 0 2.25-2.25v-10.5a2.25 2.25 0 0 0-2.25-2.25H8.25a2.25 2.25 0 0 0-2.25 2.25v10.5a2.25 2.25 0 0 0 2.25 2.25Z" />
+                   class="group block p-6 rounded-lg shadow-md pub-card">
+                     <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-lg pub-title group-hover:text-blue-700 transition-colors duration-300 pr-4">
+                             A Federated "Hub-and-Spoke" Organizational Model for Scaling Pharmaceutical AI/ML Operations
+                        </h3>
+                        <svg class="w-8 h-8 flex-shrink-0 pub-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
-                        The Hub-and-Spoke Framework: A Federated Organizational Model for Scaling Artificial Intelligence in the Pharmaceutical Industry    
-                    </h3>
-                    <p class="text-gray-600 mt-2 text-sm">
-                        Publisher: <strong>Zenodo</strong>
+                     <p class="pub-meta mb-3">
+                        Publisher: Zenodo | Type: Pre-print / White Paper
                     </p>
-                    <span class="mt-4 inline-flex items-center gap-1.5 text-md font-medium text-blue-700">
-                        View Publication
+                    <span class="inline-flex items-center gap-1.5 text-sm font-medium text-blue-700 pub-link">
+                         Read White Paper
                         <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                     </span>
                 </a>
 
-                <!-- Publication Card 3 -->
-                <a href="https://doi.org/10.5281/zenodo.17389090" target="_blank" rel="noopener noreferrer" 
-                   class="group block bg-white p-6 rounded-lg shadow-md section-card">
-                    <div class="mb-3">
-                        <svg class="w-10 h-10 text-blue-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m-1.5 15H5.625c-.621 0-1.125-.504-1.125-1.125v-1.5c0-.621.504-1.125 1.125-1.125H9.75M19.5 15.75H8.25M4.5 19.5H19.5a2.25 2.25 0 0 0 2.25-2.25v-10.5a2.25 2.25 0 0 0-2.25-2.25H8.25a2.25 2.25 0 0 0-2.25 2.25v10.5a2.25 2.25 0 0 0 2.25 2.25Z" />
+                <!-- Publication Card 4 (Anon Reg) -->
+                 <a href="https://doi.org/10.5281/zenodo.17389090" target="_blank" rel="noopener noreferrer" 
+                   class="group block p-6 rounded-lg shadow-md pub-card">
+                     <div class="flex items-start justify-between mb-3">
+                         <h3 class="text-lg pub-title group-hover:text-blue-700 transition-colors duration-300 pr-4">
+                             A Cryptographic Protocol for Anonymous User Registration in Decentralized Forums (Self-Hosted Raspberry Pi Implementation)
+                        </h3>
+                       <svg class="w-8 h-8 flex-shrink-0 pub-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
-                        Anonymous User Registration in Online Forums / A Self-Hosted Implementation on Raspberry Pi
-                    </h3>
-                    <p class="text-gray-600 mt-2 text-sm">
-                        Publisher: <strong>Zenodo</strong>
+                    <p class="pub-meta mb-3">
+                        Publisher: Zenodo | Type: Pre-print
                     </p>
-                    <span class="mt-4 inline-flex items-center gap-1.5 text-md font-medium text-blue-700">
-                        View Publication
+                    <span class="inline-flex items-center gap-1.5 text-sm font-medium text-blue-700 pub-link">
+                        Explore Protocol
                         <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                     </span>
                 </a>
 
-                <!-- Publication Card 4 -->
+                <!-- Publication Card 5 (Music Buckets) -->
                 <a href="https://doi.org/10.5281/zenodo.17393961" target="_blank" rel="noopener noreferrer" 
-                   class="group block bg-white p-6 rounded-lg shadow-md section-card">
-                    <div class="mb-3">
-                        <svg class="w-10 h-10 text-blue-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m-1.5 15H5.625c-.621 0-1.125-.504-1.125-1.125v-1.5c0-.621.504-1.125 1.125-1.125H9.75M19.5 15.75H8.25M4.5 19.5H19.5a2.25 2.25 0 0 0 2.25-2.25v-10.5a2.25 2.25 0 0 0-2.25-2.25H8.25a2.25 2.25 0 0 0-2.25 2.25v10.5a2.25 2.25 0 0 0 2.25 2.25Z" />
+                   class="group block p-6 rounded-lg shadow-md pub-card">
+                    <div class="flex items-start justify-between mb-3">
+                         <h3 class="text-lg pub-title group-hover:text-blue-700 transition-colors duration-300 pr-4">
+                            Music Buckets: An Architectural Model for Novelty-Centric Recommendation Engines
+                        </h3>
+                        <svg class="w-8 h-8 flex-shrink-0 pub-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66a2.25 2.25 0 0 0 1.632-2.163Zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 0 1-.99-3.467l2.31-.66A2.25 2.25 0 0 0 9 15.553Z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
-                        Music Buckets: A Novelty-Centric Recommendation Architecture
-                    </h3>
-                    <p class="text-gray-600 mt-2 text-sm">
-                        Publisher: <strong>Zenodo</strong>
+                     <p class="pub-meta mb-3">
+                        Publisher: Zenodo | Type: Pre-print
                     </p>
-                    <span class="mt-4 inline-flex items-center gap-1.5 text-md font-medium text-blue-700">
-                        View Publication
+                    <span class="inline-flex items-center gap-1.5 text-sm font-medium text-blue-700 pub-link">
+                         See Architecture
                         <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                     </span>
                 </a>
-
-                <!-- Publication Card 5 -->
+                
+                 <!-- Publication Card 6 (InventoryGPT) -->
                 <a href="https://doi.org/10.5281/zenodo.17394355" target="_blank" rel="noopener noreferrer" 
-                   class="group block bg-white p-6 rounded-lg shadow-md section-card">
-                    <div class="mb-3">
-                        <svg class="w-10 h-10 text-blue-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m-1.5 15H5.625c-.621 0-1.125-.504-1.125-1.125v-1.5c0-.621.504-1.125 1.125-1.125H9.75M19.5 15.75H8.25M4.5 19.5H19.5a2.25 2.25 0 0 0 2.25-2.25v-10.5a2.25 2.25 0 0 0-2.25-2.25H8.25a2.25 2.25 0 0 0-2.25 2.25v10.5a2.25 2.25 0 0 0 2.25 2.25Z" />
+                   class="group block p-6 rounded-lg shadow-md pub-card">
+                     <div class="flex items-start justify-between mb-3">
+                         <h3 class="text-lg pub-title group-hover:text-blue-700 transition-colors duration-300 pr-4">
+                           InventoryGPT: Design and Implementation of an LLM-Powered Agentic Framework
+                        </h3>
+                        <svg class="w-8 h-8 flex-shrink-0 pub-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
-                        InventoryGPT: An LLM-Powered Agentic Framework
-                    </h3>
-                    <p class="text-gray-600 mt-2 text-sm">
-                        Publisher: <strong>Zenodo</strong>
+                     <p class="pub-meta mb-3">
+                        Publisher: Zenodo | Type: Pre-print
                     </p>
-                    <span class="mt-4 inline-flex items-center gap-1.5 text-md font-medium text-blue-700">
-                        View Publication
+                    <span class="inline-flex items-center gap-1.5 text-sm font-medium text-blue-700 pub-link">
+                         Review Framework
                         <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                     </span>
                 </a>
 
                 <!-- Achievement Card -->
                 <a href="https://drive.google.com/file/d/1TM1Xb7YrPd8MOWnD0q2OD8D3m3BSm63B/view" target="_blank" rel="noopener noreferrer" 
-                   class="group block bg-white p-6 rounded-lg shadow-md section-card">
-                    <div class="mb-3">
-                        <svg class="w-10 h-10 text-yellow-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9a2.25 2.25 0 0 0-2.25 2.25v.01c0 .11.09.2.2.2h12.7c.11 0 .2-.09.2-.2v-.01a2.25 2.25 0 0 0-2.25-2.25ZM18.75 16.5h.375c.621 0 1.125-.504 1.125-1.125v-8.625c0-.621-.504-1.125-1.125-1.125h-15c-.621 0-1.125.504-1.125 1.125v8.625c0 .621.504 1.125 1.125 1.125h.375m14.25 0v-3.375c0-.621-.504-1.125-1.125-1.125h-2.25c-.621 0-1.125.504-1.125 1.125v3.375m-6.75 0v-3.375c0-.621-.504-1.125-1.125-1.125h-2.25c-.621 0-1.125.504-1.125 1.125v3.375m9 0h-3" />
+                   class="group block p-6 rounded-lg shadow-md pub-card achievement-card"> <!-- Added achievement-card class -->
+                     <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-lg pub-title group-hover:text-blue-700 transition-colors duration-300 pr-4">
+                             WSIS Forum Global Runner-up: Predictive Analytics for Bone Frailty
+                        </h3>
+                       <svg class="w-8 h-8 flex-shrink-0 achievement-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9a2.25 2.25 0 0 0-2.25 2.25v.01c0 .11.09.2.2.2h12.7c.11 0 .2-.09.2-.2v-.01a2.25 2.25 0 0 0-2.25-2.25ZM18.75 16.5h.375c.621 0 1.125-.504 1.125-1.125v-8.625c0-.621-.504-1.125-1.125-1.125h-15c-.621 0-1.125.504-1.125 1.125v8.625c0 .621.504 1.125 1.125 1.125h.375m14.25 0v-3.375c0-.621-.504-1.125-1.125-1.125h-2.25c-.621 0-1.125.504-1.125 1.125v3.375m-6.75 0v-3.375c0-.621-.504-1.125-1.125-1.125h-2.25c-.621 0-1.125.504-1.125 1.125v3.375m9 0h-3" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
-                        Runner-up at WSIS Forum
-                    </h3>
-                    <p class="text-gray-600 mt-2 text-sm">
-                        World Summit on the Information Society | Challenge Area: Bone Frailty
+                     <p class="pub-meta mb-3">
+                        Awarded by: World Summit on the Information Society (ITU) | Area: Health Informatics & AI
                     </p>
-                    <span class="mt-4 inline-flex items-center gap-1.5 text-md font-medium text-blue-700">
-                        View Certificate
+                    <span class="inline-flex items-center gap-1.5 text-sm font-medium text-blue-700 pub-link">
+                         View Certificate
                         <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                     </span>
                 </a>
@@ -451,29 +515,29 @@
             </div>
         </section>
         <!-- ====================================================== -->
-        <!-- END: UPDATED PUBLICATIONS SECTION                      -->
+        <!-- END: NERDY PUBLICATIONS SECTION                        -->
         <!-- ====================================================== -->
-
-
         
         <section id="certifications" class="mb-12">
             <h2 class="text-3xl font-bold mb-6 text-left">Certifications</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                 <!-- Certification Card 1: Advanced RPA Professional -->
+                <!-- Applied standard section-card styling -->
                 <a href="https://certificates.automationanywhere.com/b3777d2f-7d17-458f-9c8f-7c524635e85c" target="_blank" rel="noopener noreferrer" 
-                   class="group block bg-white p-6 rounded-lg shadow-md section-card">
+                   class="group block bg-white p-6 rounded-lg shadow-md section-card"> 
                     <div class="flex items-start justify-between">
                         <div class="pr-4">
                             <h3 class="text-xl font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
                                 Automation Anywhere Certified Advanced RPA Professional
                             </h3>
-                            <p class="text-gray-500 mt-2 text-sm">
+                            <p class="text-gray-500 mt-2 text-sm font-mono"> <!-- Added font-mono -->
                                 Blockchain ID: 622102
                             </p>
                         </div>
-                        <svg class="w-12 h-12 flex-shrink-0" style="color: #F05A28" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.906 59.906 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.697 50.697 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443a55.378 55.378 0 0 1 5.25 2.882V15M12 18a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
+                        <!-- AA Logo Placeholder -->
+                         <svg class="w-12 h-12 flex-shrink-0 text-[#F05A28]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.906 59.906 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.697 50.697 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443a55.378 55.378 0 0 1 5.25 2.882V15M12 18a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
                         </svg>
                     </div>
                     <span class="mt-4 inline-flex items-center gap-1.5 text-md font-medium text-blue-700">
@@ -483,6 +547,7 @@
                 </a>
 
                 <!-- Certification Card 2: RPA Master -->
+                 <!-- Applied standard section-card styling -->
                 <a href="https://certificates.automationanywhere.com/a1b929a8-2728-4df6-a993-98ccaf10e65b" target="_blank" rel="noopener noreferrer" 
                    class="group block bg-white p-6 rounded-lg shadow-md section-card">
                     <div class="flex items-start justify-between">
@@ -490,12 +555,13 @@
                             <h3 class="text-xl font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
                                 Automation Anywhere Certified RPA Master
                             </h3>
-                            <p class="text-gray-500 mt-2 text-sm">
+                            <p class="text-gray-500 mt-2 text-sm font-mono"> <!-- Added font-mono -->
                                 Blockchain ID: 661894
                             </p>
                         </div>
-                        <svg class="w-12 h-12 flex-shrink-0" style="color: #F05A28" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.906 59.906 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.697 50.697 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443a55.378 55.378 0 0 1 5.25 2.882V15M12 18a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
+                         <!-- AA Logo Placeholder -->
+                         <svg class="w-12 h-12 flex-shrink-0 text-[#F05A28]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.906 59.906 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.697 50.697 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443a55.378 55.378 0 0 1 5.25 2.882V15M12 18a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
                         </svg>
                     </div>
                     <span class="mt-4 inline-flex items-center gap-1.5 text-md font-medium text-blue-700">
@@ -506,16 +572,15 @@
 
             </div>
         </section>
-
         
-        <section id="certifications" class="mb-12">
-        <!-- START: UPDATED SKILLS SECTION                      -->
+        <!-- ====================================================== -->
+        <!-- START: SKILLS SECTION (NO CHANGE)                      -->
         <!-- ====================================================== -->
         <section id="skills" class="mb-12">
             <h2 class="text-3xl font-bold mb-6 text-left">Core Competencies</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <!-- Skill Card 1: Programming Languages (Kept as pills) -->
+                <!-- Skill Card 1: Programming Languages -->
                 <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <div class="flex items-center mb-4">
                         <svg class="w-8 h-8 text-blue-700 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -533,7 +598,7 @@
                     </div>
                 </div>
 
-                <!-- Skill Card 2: Data Management & Analytics (Switched to Hybrid) -->
+                <!-- Skill Card 2: Data Management & Analytics -->
                 <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <div class="flex items-center mb-4">
                         <svg class="w-8 h-8 text-blue-700 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -541,7 +606,6 @@
                         </svg>
                         <h3 class="text-xl font-semibold text-gray-900">Data & Analytics</h3>
                     </div>
-                    <!-- Pills for short items -->
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-pill">Snowflake</span>
                         <span class="skill-pill">Oracle Fusion</span>
@@ -549,7 +613,6 @@
                         <span class="skill-pill">Power BI (PBI)</span>
                         <span class="skill-pill">Predictive Modeling</span>
                     </div>
-                    <!-- List for long items -->
                     <ul class="skill-list">
                         <li>Database Management/Design (SQL/NoSQL)</li>
                         <li>ETL/ELT Pipelines</li>
@@ -559,7 +622,7 @@
                     </ul>
                 </div>
 
-                <!-- Skill Card 3: DevOps & Infrastructure (Switched to Hybrid) -->
+                <!-- Skill Card 3: DevOps & Infrastructure -->
                 <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <div class="flex items-center mb-4">
                         <svg class="w-8 h-8 text-blue-700 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -583,7 +646,7 @@
                     </ul>
                 </div>
                 
-                <!-- Skill Card 4: AI & Automation (Kept as pills) -->
+                <!-- Skill Card 4: AI & Automation -->
                 <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <div class="flex items-center mb-4">
                         <svg class="w-8 h-8 text-blue-700 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -602,7 +665,7 @@
                     </div>
                 </div>
 
-                <!-- Skill Card 5: Web & Application Development (Kept as pills) -->
+                <!-- Skill Card 5: Web & Application Development -->
                 <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <div class="flex items-center mb-4">
                         <svg class="w-8 h-8 text-blue-700 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -620,7 +683,7 @@
                     </div>
                 </div>
 
-                <!-- Skill Card 6: Domain Expertise (Switched to List) -->
+                <!-- Skill Card 6: Domain Expertise -->
                 <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <div class="flex items-center mb-4">
                         <svg class="w-8 h-8 text-blue-700 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -636,7 +699,7 @@
                     </ul>
                 </div>
 
-                <!-- NEW Skill Card 7: Soft Skills -->
+                <!-- Skill Card 7: Soft Skills -->
                 <div class="bg-white p-6 rounded-lg shadow-md section-card">
                     <div class="flex items-center mb-4">
                          <svg class="w-8 h-8 text-blue-700 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -657,29 +720,27 @@
             </div>
         </section>
         <!-- ====================================================== -->
-        <!-- END: UPDATED SKILLS SECTION                            -->
+        <!-- END: SKILLS SECTION                                  -->
         <!-- ====================================================== -->
 
         <section id="contact" class="mb-12">
             <h2 class="text-3xl font-bold mb-4">Contact</h2>
-            <!-- UPDATED: Added section-card class -->
+            <!-- Added section-card class -->
             <div class="bg-white p-6 rounded-lg shadow-md section-card">
-                <p class="text-lg text-gray-700">
-                    Email: <a href="mailto:xxxxxxxxxxxxxxxx@gmail.com" class="text-blue-600 hover:underline">xxxxxxxy@gmail.com</a><br>
-                    Phone: <a href="tel:+1-xxx-xxx-xxxx" class="text-blue-600 hover:underline">+1-xxxxxxx</a><br>
-                    LinkedIn: <a href="https://www.linkedin.com/in/prithvi-vasireddy" class="text-blue-600 hover:underline">prithvi-vasireddy</a><br>
-                    GitHub: <a href="https://github.com/prithvivasireddy" class="text-blue-600 hover:underline">prithvivasireddy</a>
+                <p class="text-lg text-gray-700 leading-relaxed"> <!-- Added leading-relaxed -->
+                    Email: <a href="mailto:vasireddy.p@northeastern.edu" class="text-blue-600 hover:underline">vasireddy.p@northeastern.edu</a><br> <!-- Example Email -->
+                    Phone: <a href="tel:+1-857-xxx-xxxx" class="text-blue-600 hover:underline">+1-857-xxx-xxxx</a><br> <!-- Example Phone -->
+                    LinkedIn: <a href="https://www.linkedin.com/in/prithvi-vasireddy" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">linkedin.com/in/prithvi-vasireddy</a><br>
+                    GitHub: <a href="https://github.com/prithvivasireddy" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">github.com/prithvivasireddy</a>
                 </p>
             </div>
         </section>
     </main>
     <footer class="bg-blue-900 text-white py-4 text-center">
-        <p>&copy; 2025 Prithvi Vasireddy. All rights reserved.</p>
+        <p>&copy; 2024 Prithvi Vasireddy. All rights reserved.</p> <!-- Updated Year -->
     </footer>
     <script>
         // Hamburger menu toggle
-        // This JavaScript remains unchanged and is correct.
-        // It toggles the 'active' class on the nav menu when the hamburger is clicked.
         document.getElementById('hamburger').addEventListener('click', () => {
             document.getElementById('nav-menu').classList.toggle('active');
         });
@@ -690,7 +751,21 @@
                 e.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
-                targetElement.scrollIntoView({ behavior: 'smooth' });
+                
+                // Calculate offset needed due to potentially fixed header (optional)
+                // const headerOffset = 80; // Adjust if you have a fixed header height
+                // const elementPosition = targetElement.getBoundingClientRect().top;
+                // const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                // window.scrollTo({
+                //      top: offsetPosition,
+                //      behavior: "smooth"
+                // });
+
+                // Simpler scroll into view (might be slightly off with fixed headers)
+                 targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+
                 // Close menu on mobile after clicking a link
                 document.getElementById('nav-menu').classList.remove('active');
             });
@@ -698,87 +773,162 @@
 
         // GitHub projects loading
         const loadingMessages = [
-            'Loading repositories by latest commits...',
-            'Sorting uploads by user actions...',
-            'Loading...'
+            'Loading repositories from GitHub API...',
+            'Querying user activity...',
+            'Compiling project data...',
+            'Almost there...'
         ];
         let messageIndex = 0;
         const loadingMessageElement = document.getElementById('loading-message');
         const loadingInterval = setInterval(() => {
             messageIndex = (messageIndex + 1) % loadingMessages.length;
             loadingMessageElement.textContent = loadingMessages[messageIndex];
-        }, 2000);
+        }, 1800); // Slightly adjusted interval
 
         // Fetch GitHub language colors
         let languageColors = {};
         async function fetchLanguageColors() {
             try {
-                const response = await fetch('https://raw.githubusercontent.com/ozh/github-colors/master/colors.json');
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch language colors: ${response.status}`);
+                 // Using a more robust source for colors if the primary one fails
+                const response = await fetch('https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml');
+                if (!response.ok) throw new Error('Failed primary color fetch');
+                
+                // Basic YAML parsing (can be fragile, consider a library for complex YAML)
+                const ymlText = await response.text();
+                const lines = ymlText.split('\n');
+                let currentLang = null;
+                lines.forEach(line => {
+                    const langMatch = line.match(/^(\w[\w\s+#.-]*):$/);
+                    const colorMatch = line.match(/^\s+color:\s+"?([^"\s]+)"?$/);
+                    if (langMatch) {
+                        currentLang = langMatch[1].trim();
+                    } else if (colorMatch && currentLang) {
+                        languageColors[currentLang] = { color: colorMatch[1] };
+                        currentLang = null; // Reset for next language
+                    }
+                });
+                
+                if (Object.keys(languageColors).length === 0) {
+                     throw new Error('YAML parsing failed or yielded no colors');
                 }
-                languageColors = await response.json();
-            } catch (error) {
-                console.error('Error fetching language colors:', error);
-                languageColors = { Default: { color: '#e0e0e0' } };
+
+            } catch (errorPrimary) {
+                console.warn('Primary language color fetch/parse failed:', errorPrimary, '- Falling back to secondary source.');
+                 try {
+                     const fallbackResponse = await fetch('https://raw.githubusercontent.com/ozh/github-colors/master/colors.json');
+                     if (!fallbackResponse.ok) throw new Error('Fallback color fetch failed');
+                     languageColors = await fallbackResponse.json();
+                 } catch (errorFallback) {
+                      console.error('Error fetching language colors from both sources:', errorFallback);
+                      languageColors = { Default: { color: '#6c757d' } }; // Use a neutral default
+                 }
+            }
+            // Ensure a default exists
+            if (!languageColors.Default) {
+                 languageColors.Default = { color: '#6c757d' };
             }
         }
 
         // Load repositories and colors
-        setTimeout(async () => {
-            clearInterval(loadingInterval);
-            document.getElementById('github-loading').classList.add('hidden');
-            document.getElementById('github-projects').classList.remove('hidden');
-            document.getElementById('fetched-message').classList.remove('hidden');
-            const fetchedDate = new Date().toLocaleDateString();
-            document.getElementById('fetched-date').textContent = fetchedDate;
-
-            // Fetch language colors first
-            await fetchLanguageColors();
-
+        async function loadGithubData() { // Renamed and made async
+            clearInterval(loadingInterval); // Stop loading animation earlier
+            
             try {
-                const response = await fetch('https://api.github.com/users/prithvivasireddy/repos?sort=updated&per_page=6', {
-                    headers: { 'Accept': 'application/vnd.github.v3+json' }
+                await fetchLanguageColors(); // Wait for colors
+                
+                const response = await fetch('https://api.github.com/users/prithvivasireddy/repos?sort=pushed&direction=desc&per_page=6', { // Sort by pushed (more accurate than updated)
+                    headers: { 
+                        'Accept': 'application/vnd.github.v3+json',
+                         // 'Authorization': 'token YOUR_GITHUB_TOKEN' // Add if rate limited
+                    }
                 });
+                
                 if (!response.ok) {
-                    throw new Error(`GitHub API error: ${response.status}`);
+                    throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
                 }
+                
                 const repos = await response.json();
+                
+                // Hide loading state *after* successful fetch
+                document.getElementById('github-loading').classList.add('hidden');
+                document.getElementById('fetched-message').classList.remove('hidden');
+                document.getElementById('github-projects').classList.remove('hidden');
+                const fetchedDate = new Date().toLocaleString(); // More precise date/time
+                document.getElementById('fetched-date').textContent = fetchedDate;
+
                 const projectsContainer = document.getElementById('github-projects');
+                projectsContainer.innerHTML = ''; // Clear previous content if any
+
                 if (repos.length === 0) {
-                    projectsContainer.innerHTML = '<p class="text-red-300">No repositories found.</p>';
+                    projectsContainer.innerHTML = '<p class="text-gray-300 col-span-full text-center">No public repositories found for this user.</p>'; // Adjusted message
                     return;
                 }
+
                 repos.forEach(repo => {
                     const projectCard = document.createElement('div');
-                    projectCard.className = 'project-card bg-white p-4 rounded-lg shadow-md';
-                    const languageColor = (repo.language && languageColors[repo.language] && languageColors[repo.language].color) 
-                        ? languageColors[repo.language].color 
-                        : (languageColors.Default ? languageColors.Default.color : '#e0e0e0'); // Added fallback for Default
+                    projectCard.className = 'project-card bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg border border-gray-200'; // Added subtle background/border
+                    
+                    const lang = repo.language || 'Unknown';
+                    const colorData = languageColors[lang] || languageColors.Default;
+                    const languageColor = colorData ? colorData.color : '#6c757d'; 
+                    
+                     // Basic check for color contrast (light/dark text)
+                    const isDarkColor = (color) => {
+                         if (!color) return false;
+                         const hex = color.replace('#', '');
+                         const r = parseInt(hex.substring(0, 2), 16);
+                         const g = parseInt(hex.substring(2, 4), 16);
+                         const b = parseInt(hex.substring(4, 6), 16);
+                         // Basic luminance calculation
+                         const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+                         return luminance < 0.5;
+                    };
+                    const textColor = isDarkColor(languageColor) ? '#ffffff' : '#333333';
+
+
                     projectCard.innerHTML = `
-                        <h3 class="text-lg font-semibold text-gray-800">${repo.name}</h3>
-                        <p class="text-gray-600 mt-2">${repo.description || 'No description available'}</p>
-                        ${repo.language ? `
-                            <span class="language-tag" style="background-color: ${languageColor}; color: #fff;">
-                                ${repo.language}
-                            </span>
-                        ` : ''}
-                        <div class="star-icon">
-                            <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M12 2.25c-.66 0-1.26.38-1.55.94l-2.68 5.37-5.99.82c-.64.09-1.15.55-1.35 1.16-.2.61-.03 1.27.44 1.73l4.34 4.23-1.02 5.97c-.11.64.16 1.29.71 1.67.55.38 1.25.42 1.84.1l5.36-2.82 5.36 2.82c.59.32 1.29.28 1.84-.1.55-.38.82-1.03.71-1.67l-1.02-5.97 4.34-4.23c.47-.46.64-1.12.44-1.73-.2-.61-.71-1.07-1.35-1.16l-5.99-.82-2.68-5.37c-.29-.56-.89-.94-1.55-.94z"/>
-                            </svg>
-                            ${repo.stargazers_count}
+                        <h3 class="text-lg font-semibold text-gray-800 truncate" title="${repo.name}">${repo.name}</h3>
+                        <p class="text-gray-600 mt-1 text-sm h-10 overflow-hidden text-ellipsis"> <!-- Fixed height for description -->
+                           ${repo.description || '<i>No description provided.</i>'}
+                        </p>
+                        <div class="mt-2 flex justify-between items-center">
+                             ${lang !== 'Unknown' ? `
+                                <span class="language-tag text-xs" style="background-color: ${languageColor}; color: ${textColor};">
+                                    ${lang}
+                                </span>
+                            ` : '<span class="text-xs text-gray-500"></span>' /* Placeholder to keep alignment */}
+                            <div class="star-icon text-sm">
+                                <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1"> <!-- Adjusted icon size -->
+                                     <path fill-rule="evenodd" d="M10.868 2.884c-.321-.64-.97-.995-1.668-.995s-1.347.355-1.668.994L6.61 5.719l-3.078.447c-.66.096-1.17.59-1.363 1.225-.195.635-.03 1.31.42 1.77l2.227 2.172-.526 3.065c-.113.658.163 1.32.724 1.705.56.385 1.28.42 1.875.093L10 14.88l2.748 1.445c.595.328 1.315.292 1.875-.093.56-.385.837-1.047.724-1.705l-.526-3.065 2.227-2.172c.45-.46.615-1.135.42-1.77-.193-.635-.702-1.13-1.363-1.225l-3.078-.447L10.868 2.884Z" clip-rule="evenodd" />
+                                </svg>
+                                ${repo.stargazers_count}
+                            </div>
                         </div>
-                        <a href="${repo.html_url}" class="text-blue-600 hover:underline mt-2 inline-block">View on GitHub</a>
+                        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 text-sm mt-3 inline-block font-medium">
+                            View on GitHub &rarr;
+                        </a>
                     `;
                     projectsContainer.appendChild(projectCard);
                 });
+
             } catch (error) {
-                console.error('Error fetching GitHub projects:', error);
-                const projectsContainer = document.getElementById('github-projects');
-                projectsContainer.innerHTML = '<p class="text-red-300">Unable to load GitHub projects at this time. Please try again later.</p>';
+                console.error('Error loading GitHub projects:', error);
+                 // Keep loading indicator but show error message
+                 document.getElementById('github-loading').classList.remove('hidden');
+                 loadingMessageElement.textContent = 'Error loading projects.';
+                 loadingMessageElement.classList.remove('loading-text'); // Stop pulse
+                 loadingMessageElement.classList.add('text-red-400');
+                 document.querySelector('#github-loading .spinner').style.display = 'none'; // Hide spinner
+                
+                 document.getElementById('fetched-message').classList.add('hidden');
+                 document.getElementById('github-projects').classList.add('hidden'); // Ensure projects grid is hidden
             }
-        }, 3000);
+        }
+
+        // Delay the fetch slightly for visual effect, then load data
+        setTimeout(loadGithubData, 1500); // Start loading after 1.5s 
+
     </script>
 </body>
 </html>
+
