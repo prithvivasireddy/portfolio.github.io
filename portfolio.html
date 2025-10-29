@@ -355,6 +355,18 @@
                      <svg id="theme-icon-sun" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 12a5 5 0 110-10 5 5 0 010 10z" /></svg>
                      <svg id="theme-icon-moon" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
                  </button>
+                 <!-- Moved Mobile Nav Container HERE -->
+                 <div id="content-nav-mobile" class="lg:hidden ml-2 relative"> <!-- Added ml-2 for spacing and relative positioning -->
+                    <button class="hamburger-tabs" id="hamburger-tabs-btn">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </button>
+                    <!-- Mobile Menu Dropdown - position absolute relative to the button container -->
+                    <div class="content-nav" id="content-nav-menu">
+                        <!-- Links will be dynamically added here by JS -->
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -363,18 +375,8 @@
     <main class="container mx-auto px-4 py-8 max-w-7xl">
 
         <!-- === Content Navigation Tabs (MERGED) === -->
+        <!-- Removed Mobile Nav Container From Here -->
         <nav class="border-b border-gray-200 dark:border-gray-700 mb-6 relative -mt-4">
-            <!-- Mobile Nav (Hamburger container) -->
-            <div id="content-nav-mobile" class="lg:hidden">
-                <button class="hamburger-tabs" id="hamburger-tabs-btn">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </button>
-                <div class="content-nav" id="content-nav-menu">
-                    <!-- Links will be dynamically added here by JS -->
-                </div>
-            </div>
             <!-- Desktop Nav (Full) -->
             <div id="content-nav-full" class="hidden lg:flex flex-wrap">
                  <a href="#about" class="content-nav-link active">
@@ -670,10 +672,6 @@
                                 </span>
                             </a>
 
-                            
-
-                            
-
                             <a href="https://drive.google.com/file/d/1TM1Xb7YrPd8MOWnD0q2OD8D3m3BSm63B/view" target="_blank" rel="noopener noreferrer" class="group block p-6 rounded-lg shadow-md pub-card achievement-card">
                                 <div class="flex items-start justify-between mb-3">
                                     <h3 class="text-lg pub-title group-hover:text-blue-700 transition-colors duration-300 pr-4">
@@ -940,14 +938,28 @@
                  });
              }
 
-             const allContentNavLinks = document.querySelectorAll('.content-nav-link');
+             const allContentNavLinks = document.querySelectorAll('.content-nav-link'); // Keep this selector
 
+            // *** Adjusted Mobile Nav Toggle Logic ***
             if (contentHamburgerBtn && contentNavMenu) {
-                contentHamburgerBtn.addEventListener('click', () => {
+                contentHamburgerBtn.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent click from bubbling up to document listener immediately
                     contentNavMenu.classList.toggle('active');
                 });
+                // Close menu if clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!contentNavMenu.contains(e.target) && !contentHamburgerBtn.contains(e.target)) {
+                         contentNavMenu.classList.remove('active');
+                    }
+                });
+
+                 // Ensure links inside the mobile menu also close it
                  contentNavMenu.querySelectorAll('a').forEach(link => {
-                     link.addEventListener('click', () => contentNavMenu.classList.remove('active'));
+                     link.addEventListener('click', () => {
+                        // Smooth scroll logic is handled by the generic listener below
+                        // Just need to close the menu
+                        contentNavMenu.classList.remove('active');
+                     });
                  });
             }
 
@@ -1196,3 +1208,4 @@
     </script>
 </body>
 </html>
+
