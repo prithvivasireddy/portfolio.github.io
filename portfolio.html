@@ -59,7 +59,6 @@
         .main-grid aside { grid-column: span 1 / span 1; }
         .main-grid section { grid-column: span 3 / span 3; }
         .profile-container { position: relative; margin-top: 0; }
-        /* Reset negative margin for tabs on desktop */
         .nav-tabs-container { margin-top: -1rem; }
         .search-bar-container { display: block; }
 
@@ -67,11 +66,9 @@
         body.view-mobile #content-nav-full { display: none; }
         body.view-mobile .hamburger-tabs { display: block; }
         body.view-mobile .main-grid { display: block; }
-        /* ** FIX: Removed negative margin-top here ** */
         body.view-mobile .profile-container { margin-top: 0; }
-        /* Reset negative margin for tabs on mobile */
         body.view-mobile .nav-tabs-container { margin-top: 0; }
-        body.view-mobile .search-bar-container { display: none; }
+        
 
         .avatar-container {
             width: 50%;
@@ -332,7 +329,7 @@
                 </div>
             </div>
             <div class="flex items-center gap-2 flex-shrink-0">
-                 <button id="view-toggle" class="text-gray-400 hover:text-white p-1 rounded-md text-xs border border-gray-600 hidden md:block">
+                 <button id="view-toggle" class="text-gray-400 hover:text-white p-1 rounded-md text-xs border border-gray-600">
                      Desktop View
                  </button>
                  <button id="theme-toggle" class="text-gray-400 hover:text-white p-1 rounded-md">
