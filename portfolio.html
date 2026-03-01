@@ -314,6 +314,15 @@
         #publications .achievement-card:hover { border-left-color: #facc15; }
         #publications .achievement-icon { color: #f59e0b; }
         #publications .achievement-card:hover .achievement-icon { color: #fbbf24; }
+
+        /* Clean carousel look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
     </style>
 </head>
 <body class="bg-white dark:bg-[#0d1117] text-gray-900 dark:text-gray-300 font-sans transition-colors duration-200 view-desktop">
@@ -343,8 +352,7 @@
                         <div></div>
                     </button>
                     <div class="content-nav" id="content-nav-menu">
-                        <!-- Links added by JS -->
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -386,8 +394,12 @@
                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM5.122 12.308a.75.75 0 0 1-.752.016 3.001 3.001 0 0 1-1.304-2.522c0-.98.49-1.884 1.305-2.523a.75.75 0 1 1 .752 1.322 1.5 1.5 0 0 0-.652 1.201c0 .49.246.932.652 1.201a.75.75 0 0 1-.001 1.305Zm2.76-1.072v-6.5a.75.75 0 0 1 1.5 0v6.5a.75.75 0 0 1-1.5 0Z"></path></svg>
                      ORCID
                  </a>
+                 <a href="#everyday" class="content-nav-link">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 3h12.5c.966 0 1.75.784 1.75 1.75v9.5A1.75 1.75 0 0 1 14.25 16H1.75A1.75 1.75 0 0 1 0 14.25v-9.5C0 3.784.784 3 1.75 3ZM1.5 4.75v9.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25-.25ZM8 12.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0-1.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path></svg>
+                     Everyday
+                 </a>
                  <a href="#contact" class="content-nav-link">
-                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.75 2A1.75 1.75 0 0 0 0 3.75v.736a.75.75 0 0 0 0 .027v7.737A1.75 1.75 0 0 0 1.75 14h12.5A1.75 1.75 0 0 0 16 12.25v-7.736a.75.75 0 0 0 0-.027v-.736A1.75 1.75 0 0 0 14.25 2H1.75ZM8 8.42l-5.84-3.717A.25.25 0 0 1 2.25 4h11.5a.25.25 0 0 1 .09.467L8 8.42Zm-6.5 2.83V5.08l5.47 3.479a.75.75 0 0 0 .863.003L14.5 5.08v6.17a.25.25 0 0 1-.25.25H1.75a.25.25 0 0 1-.25-.25Z"></VG>
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.75 2A1.75 1.75 0 0 0 0 3.75v.736a.75.75 0 0 0 0 .027v7.737A1.75 1.75 0 0 0 1.75 14h12.5A1.75 1.75 0 0 0 16 12.25v-7.736a.75.75 0 0 0 0-.027v-.736A1.75 1.75 0 0 0 14.25 2H1.75ZM8 8.42l-5.84-3.717A.25.25 0 0 1 2.25 4h11.5a.25.25 0 0 1 .09.467L8 8.42Zm-6.5 2.83V5.08l5.47 3.479a.75.75 0 0 0 .863.003L14.5 5.08v6.17a.25.25 0 0 1-.25.25H1.75a.25.25 0 0 1-.25-.25Z"></path></svg>
                      Contact
                  </a>
             </div>
@@ -477,8 +489,7 @@
                                 GitHub projects fetched by latest commits/pushes: <span id="fetched-date"></span>
                             </p>
                             <div id="github-projects" class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 hidden">
-                                <!-- GitHub projects added by JS -->
-                            </div>
+                                </div>
                         </div>
                     </section>
 
@@ -502,6 +513,43 @@
                                 </div>
                             </div>
                         </a>
+                    </section>
+
+                    <section id="everyday" class="mb-12">
+                        <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100 italic">my everyday in .jpg's...</h2>
+                        
+                        <div class="relative group">
+                            <div class="flex overflow-x-auto gap-4 pb-6 snap-x snap-mandatory scroll-smooth no-scrollbar" id="carousel-container">
+                                
+                                <div class="flex-none w-72 h-96 snap-center rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 relative transition-transform duration-300 hover:scale-[1.03]">
+                                    <img src="assets/boston_office.jpg" alt="Boston Office" class="w-full h-full object-cover">
+                                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                                        <p class="text-white text-sm font-mono">01_boston_office.jpg</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex-none w-72 h-96 snap-center rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 relative transition-transform duration-300 hover:scale-[1.03]">
+                                    <img src="assets/architecture_diagram.jpg" alt="LangGraph Workflow" class="w-full h-full object-cover">
+                                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                                        <p class="text-white text-sm font-mono">02_agent_p_logic.jpg</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex-none w-72 h-96 snap-center rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 relative transition-transform duration-300 hover:scale-[1.03]">
+                                    <img src="assets/sandbox_test.jpg" alt="AWS Testing" class="w-full h-full object-cover">
+                                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                                        <p class="text-white text-sm font-mono">03_sandbox_nuke_test.jpg</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex-none w-72 h-96 snap-center rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 relative transition-transform duration-300 hover:scale-[1.03]">
+                                    <img src="assets/late_night.jpg" alt="Coding Session" class="w-full h-full object-cover">
+                                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                                        <p class="text-white text-sm font-mono">04_bedrock_inference.jpg</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </section>
 
                     <section id="experience" class="content-section">
@@ -871,6 +919,7 @@
             <li><a href="#education" class="hover:text-blue-600 dark:hover:text-blue-400">Education</a></li>
             <li><a href="#certifications" class="hover:text-blue-600 dark:hover:text-blue-400">Certifications</a></li>
             <li><a href="#orcid" class="hover:text-blue-600 dark:hover:text-blue-400">ORCID</a></li>
+            <li><a href="#everyday" class="hover:text-blue-600 dark:hover:text-blue-400">Everyday</a></li>
             <li><a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a></li>
         </ul>
     </footer>
@@ -1210,9 +1259,27 @@
                 setTimeout(loadGithubData, 6000);
             });
 
+            // Auto-scroll logic for the Everyday carousel
+            const carousel = document.getElementById('carousel-container');
+            if(carousel) {
+                const scrollStep = 300; // Matches approx card width + gap
+                
+                function autoScroll() {
+                    if (carousel.scrollLeft >= (carousel.scrollWidth - carousel.clientWidth - 10)) {
+                        carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
+                    }
+                }
+
+                // Runs every 4 seconds, pauses if the user is hovering
+                let scrollInterval = setInterval(autoScroll, 4000);
+                carousel.addEventListener('mouseenter', () => clearInterval(scrollInterval));
+                carousel.addEventListener('mouseleave', () => scrollInterval = setInterval(autoScroll, 4000));
+            }
+
         });
     </script>
 
 </body>
 </html>
-
