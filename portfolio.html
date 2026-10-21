@@ -98,22 +98,22 @@
 
   <!-- STICKY TOP NAVIGATION -->
   <header class="sticky top-0 z-40 backdrop-blur-md bg-[#FAF7F2]/90 dark:bg-[#0B0F17]/90 border-b border-dashed border-blue-400/60 dark:border-blue-800/70">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <!-- Brand / Status -->
-      <div class="flex items-center space-x-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <!-- Brand & Compact Status Badge -->
+      <div class="flex items-center space-x-3 shrink-0">
         <a href="#" class="font-mono text-sm font-semibold tracking-tight flex items-center gap-2 text-slate-900 dark:text-white">
           <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
           <span>prithvi.vasireddy</span>
         </a>
-        <span class="hidden md:inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-blue-100/80 text-blue-800 dark:bg-blue-950/80 dark:text-blue-300 border border-blue-300/60 dark:border-blue-800">
-          AI Engineer • Explainable & Agentic AI Research
+        <span class="hidden xl:inline-flex items-center px-2 py-0.5 rounded text-[11px] font-mono font-medium bg-blue-100/80 text-blue-800 dark:bg-blue-950/80 dark:text-blue-300 border border-blue-300/60 dark:border-blue-800 truncate max-w-[220px]">
+          AI Researcher & Engineer
         </span>
       </div>
 
       <!-- Navigation Links -->
-      <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-700 dark:text-slate-300">
+      <nav class="hidden lg:flex items-center space-x-5 text-sm font-medium text-slate-700 dark:text-slate-300 shrink-0">
         <a href="#why" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Research Vision</a>
-        <a href="#publications" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Publications (6)</a>
+        <a href="#publications" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Publications</a>
         <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Projects</a>
         <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Experience</a>
         <a href="#education" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Education</a>
@@ -121,7 +121,7 @@
       </nav>
 
       <!-- Action Buttons -->
-      <div class="flex items-center space-x-2">
+      <div class="flex items-center space-x-2 shrink-0">
         <a href="mailto:Prithvivasireddy@gmail.com" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-mono font-medium border border-slate-300 dark:border-slate-700 hover:border-blue-600 dark:hover:border-blue-400 transition">
           <i data-lucide="mail" class="w-3.5 h-3.5 text-blue-600 dark:text-blue-400"></i>
           <span class="hidden sm:inline">Email</span>
@@ -148,7 +148,7 @@
           
           <!-- Alphabet Monogram (PV) & Name -->
           <div class="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-start gap-5">
-            <div class="w-28 h-28 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white flex items-center justify-center font-serif text-4xl font-bold tracking-wider shadow-md border-2 border-blue-400/50">
+            <div class="w-28 h-28 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white flex items-center justify-center font-serif text-4xl font-bold tracking-wider shadow-md border-2 border-blue-400/50 shrink-0">
               PV
             </div>
 
@@ -305,7 +305,7 @@
           </h2>
 
           <p class="mt-3 text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
-            Across my industry work at <strong>Wells Fargo</strong>, <strong>State Street Global Advisors</strong>, <strong>Genuine Parts Company</strong>, and <strong>GlaxoSmithKline</strong>[cite: 5, 6], I have observed a recurring sociotechnical bottleneck: black-box generative pipelines fail silently when deployed over complex, high-stakes enterprise state. My research agenda investigates how <strong>hierarchical multi-agent workflows (Planner–Builder–Critic loops)</strong> and <strong>seamful Explainable AI (XAI)</strong> can expose model uncertainty, automate formal reconciliation, and empower human operators to audit and steer autonomous systems.
+            Across my industry work at <strong>Wells Fargo</strong>, <strong>State Street Global Advisors</strong>, <strong>Genuine Parts Company</strong>, and <strong>GlaxoSmithKline</strong>, I have observed a recurring sociotechnical bottleneck: black-box generative pipelines fail silently when deployed over complex, high-stakes enterprise state. My research agenda investigates how <strong>hierarchical multi-agent workflows (Planner–Builder–Critic loops)</strong> and <strong>seamful Explainable AI (XAI)</strong> can expose model uncertainty, automate formal reconciliation, and empower human operators to audit and steer autonomous systems.
           </p>
 
           <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-blue-200/60 dark:border-slate-800 text-xs font-mono">
@@ -491,7 +491,7 @@
           </div>
         </section>
 
-        <!-- SECTION 3: PROJECTS (GOLEM AI CARD ADDED) -->
+        <!-- SECTION 3: PROJECTS (GOLEM AI CARD) -->
         <section id="projects" class="space-y-6">
           <div class="flex items-end justify-between pb-3 dashed-divider">
             <div>
@@ -590,22 +590,22 @@
 
               <ul class="space-y-2.5 text-sm text-slate-700 dark:text-slate-300 list-disc list-outside ml-5 leading-relaxed">
                 <li>
-                  Contributed to the development of a multi-agent <strong>Digital Worker</strong> system using <strong>LangGraph (on AWS AgentCore)</strong> to automate Infrastructure as Code (IaC) generation - effectively replacing manual SRE oversight to accelerate deployment cycles from over three weeks to under a day for <strong>~400 application teams</strong>[cite: 5].
+                  Contributed to the development of a multi-agent <strong>Digital Worker</strong> system using <strong>LangGraph (on AWS AgentCore)</strong> to automate Infrastructure as Code (IaC) generation - effectively replacing manual SRE oversight to accelerate deployment cycles from over three weeks to under a day for <strong>~400 application teams</strong>.
                 </li>
                 <li>
-                  Engineered a dual-agent architecture (<strong>agent A & agent P</strong>) to autonomously generate, validate, and deploy foundational L1 Terraform modules and application-specific L2 infrastructure natively on AWS[cite: 5].
+                  Engineered a dual-agent architecture (<strong>agent A & agent P</strong>) to autonomously generate, validate, and deploy foundational L1 Terraform modules and application-specific L2 infrastructure natively on AWS.
                 </li>
                 <li>
-                  Integrated <strong>AWS Bedrock and Claude foundation models</strong> to implement a Retrieval-Augmented Generation architecture, leveraging vector embeddings to ground AI code generation in Confluence security policies and AWS Well-Architected Framework standards[cite: 5].
+                  Integrated <strong>AWS Bedrock and Claude foundation models</strong> to implement a Retrieval-Augmented Generation architecture, leveraging vector embeddings to ground AI code generation in Confluence security policies and AWS Well-Architected Framework standards.
                 </li>
                 <li>
-                  Implemented <strong>AgentCore Observability</strong> to manage multi-account telemetry and session tracking, utilizing the <strong>Agent Core Identity</strong> architecture to maintain a unified audit trail and session persistence across federated AWS environments[cite: 5].
+                  Implemented <strong>AgentCore Observability</strong> to manage multi-account telemetry and session tracking, utilizing the <strong>Agent Core Identity</strong> architecture to maintain a unified audit trail and session persistence across federated AWS environments.
                 </li>
                 <li>
-                  Orchestrated seamless enterprise integrations across <strong>Jira, GitHub, Harness CI/CD, and Terraform Enterprise</strong> to establish an automated pipeline, featuring human-in-the-loop review and multi-stage compliance validation using <strong>Checkov and OPA</strong>[cite: 5].
+                  Orchestrated seamless enterprise integrations across <strong>Jira, GitHub, Harness CI/CD, and Terraform Enterprise</strong> to establish an automated pipeline, featuring human-in-the-loop review and multi-stage compliance validation using <strong>Checkov and OPA</strong>.
                 </li>
                 <li>
-                  Collaborated with the SSGA deployment team and <strong>Strategic Initiative Office</strong> to scale the IaC assistant across 400 application teams, enforcing strict multi-tenancy models and secure credential management[cite: 5].
+                  Collaborated with the SSGA deployment team and <strong>Strategic Initiative Office</strong> to scale the IaC assistant across 400 application teams, enforcing strict multi-tenancy models and secure credential management.
                 </li>
               </ul>
             </article>
@@ -628,31 +628,31 @@
 
               <ul class="space-y-2.5 text-sm text-slate-700 dark:text-slate-300 list-disc list-outside ml-5 leading-relaxed">
                 <li>
-                  Contributed to the platform and technology vision for modernization, reliability, cloud and edge computing scenarios at <strong>Motion Industries and NAPA Auto Parts</strong>[cite: 5, 6].
+                  Contributed to the platform and technology vision for modernization, reliability, cloud and edge computing scenarios at <strong>Motion Industries and NAPA Auto Parts</strong>.
                 </li>
                 <li>
-                  <strong>Dev-Zero of Pipeline Migration/Modernization team:</strong> Configured custom build-agents (Linux/Windows) and architected the new deployment/data pipelines for <strong>NAPAOnline, PROLink™, and PartsProSE™'s</strong> (B2B/B2C applications) restructuring monolithic CI/CD to non-monolithic triggers where applicable, reducing processing times by <strong>70%</strong>[cite: 5, 6]. Simplified infra-wide deployments by decommissioning AzureDevOps, GitLab, and Jenkins (leading the migration initiative to <strong>GCP/GitHub</strong>)[cite: 5, 6].
+                  <strong>Dev-Zero of Pipeline Migration/Modernization team:</strong> Configured custom build-agents (Linux/Windows) and architected the new deployment/data pipelines for <strong>NAPAOnline, PROLink™, and PartsProSE™'s</strong> (B2B/B2C applications) restructuring monolithic CI/CD to non-monolithic triggers where applicable, reducing processing times by <strong>70%</strong>. Simplified infra-wide deployments by decommissioning AzureDevOps, GitLab, and Jenkins (leading the migration initiative to <strong>GCP/GitHub</strong>).
                 </li>
                 <li>
-                  Collaborated with <strong>Search, Discovery, and One-UI</strong> teams to drive analytics modernization, delivering actionable insights for loyalty and marketing initiatives. Streamlined BI infrastructure implementing best practices in data cleansing, database design, ETL, and version control for scalable reporting using <strong>BigQuery</strong>[cite: 5, 6].
+                  Collaborated with <strong>Search, Discovery, and One-UI</strong> teams to drive analytics modernization, delivering actionable insights for loyalty and marketing initiatives. Streamlined BI infrastructure implementing best practices in data cleansing, database design, ETL, and version control for scalable reporting using <strong>BigQuery</strong>.
                 </li>
                 <li>
-                  Optimized deployment triggers to reduce the overall run-time (on average) from <strong>51 minutes per deployment on 6 nodes to 2 minutes per node i.e., 12 minutes/deployment</strong> - reduced average run-time across microservices to a third with new, more modular scripts[cite: 5, 6].
+                  Optimized deployment triggers to reduce the overall run-time (on average) from <strong>51 minutes per deployment on 6 nodes to 2 minutes per node i.e., 12 minutes/deployment</strong> - reduced average run-time across microservices to a third with new, more modular scripts.
                 </li>
                 <li>
-                  Developed and maintained high-performance RESTful APIs and microservices in <strong>GoLang/ReactJS for RE-Ops*</strong>, facilitating secure data exchange, traffic management endpoints, and integration with GCP services via service accounts[cite: 5, 6].
+                  Developed and maintained high-performance RESTful APIs and microservices in <strong>GoLang/ReactJS for RE-Ops*</strong>, facilitating secure data exchange, traffic management endpoints, and integration with GCP services via service accounts.
                 </li>
                 <li>
-                  Engineered <strong>RE-Ops' CI/CD pipelines</strong> for backend and <strong>Terraform IaC</strong>, seamlessly integrating with GCP resources like Cloud Run service accounts and GAR repositories. Devised observability logger for Re-Ops with 4 info. Levels[cite: 5, 6].
+                  Engineered <strong>RE-Ops' CI/CD pipelines</strong> for backend and <strong>Terraform IaC</strong>, seamlessly integrating with GCP resources like Cloud Run service accounts and GAR repositories. Devised observability logger for Re-Ops with 4 info. Levels.
                 </li>
                 <li>
-                  Spearheaded initiatives and contributed significantly to the development and deployment of <strong>Chat-GPC</strong>, a proprietary LLM-based AI solution at GPC, implementing advanced agentic workflows utilizing <strong>LangChain, vector databases (such as Pinecone), Retrieval-Augmented Generation (RAG), and prompt chaining</strong>[cite: 5, 6].
+                  Spearheaded initiatives and contributed significantly to the development and deployment of <strong>Chat-GPC</strong>, a proprietary LLM-based AI solution at GPC, implementing advanced agentic workflows utilizing <strong>LangChain, vector databases (such as Pinecone), Retrieval-Augmented Generation (RAG), and prompt chaining</strong>.
                 </li>
               </ul>
 
               <!-- Footnote -->
               <div class="mt-4 p-3 rounded-lg bg-white/70 dark:bg-slate-900/70 border border-dashed border-blue-400/60 dark:border-blue-800 text-xs font-mono text-slate-600 dark:text-slate-400">
-                *Internal Ops console (intuitive interface for our internal teams and C-Level Execs) to manage cloud and reliability at scale e.g., throttling traffic between revisions, a control-room interface to perform Cloud Run health checks, JIRA automation workflows, etc. (Stack: GoLang, IaC Terraform, and NodeJS/React)[cite: 6].
+                *Internal Ops console (intuitive interface for our internal teams and C-Level Execs) to manage cloud and reliability at scale e.g., throttling traffic between revisions, a control-room interface to perform Cloud Run health checks, JIRA automation workflows, etc. (Stack: GoLang, IaC Terraform, and NodeJS/React).
               </div>
             </article>
 
@@ -674,19 +674,19 @@
 
               <ul class="space-y-2.5 text-sm text-slate-700 dark:text-slate-300 list-disc list-outside ml-5 leading-relaxed">
                 <li>
-                  Worked for the <strong>EIA/AI (Enterprise Intelligent Automation/Artificial Intelligence)</strong> unit, in the <strong>GSK x UNICEF initiative</strong> developing multi-functional IQ bots and ETL/ELT pipelines that leveraged <strong>fuzzy logic, De-skewing, AutoML, & NLP</strong> for a critical UNICEF vaccine supply chain[cite: 6]. Saved an estimated <strong>250 work-hours/mo</strong> and improved data processing speeds by <strong>~40%</strong> across logistics, finance, clinical research and inventory[cite: 6].
+                  Worked for the <strong>EIA/AI (Enterprise Intelligent Automation/Artificial Intelligence)</strong> unit, in the <strong>GSK x UNICEF initiative</strong> developing multi-functional IQ bots and ETL/ELT pipelines that leveraged <strong>fuzzy logic, De-skewing, AutoML, & NLP</strong> for a critical UNICEF vaccine supply chain. Saved an estimated <strong>250 work-hours/mo</strong> and improved data processing speeds by <strong>~40%</strong> across logistics, finance, clinical research and inventory.
                 </li>
                 <li>
-                  Processed/Implemented scripts (SQL-Server) & converted safety/efficacy TLFs into dynamic <strong>Tableau and PBI</strong> visualizations; This facilitated intricate trend analysis, patient response profiling, and predictive modeling[cite: 6].
+                  Processed/Implemented scripts (SQL-Server) & converted safety/efficacy TLFs into dynamic <strong>Tableau and PBI</strong> visualizations; This facilitated intricate trend analysis, patient response profiling, and predictive modeling.
                 </li>
                 <li>
-                  Optimized/fine-tuned queries in SQL/NOSQL databases reducing network traffic (improved query response rates by <strong>30 millisec, 30-45%</strong>) complying to the <strong>TPC-DS standards</strong>[cite: 6]. Integrated <strong>AWS QuickSight</strong> for analytics[cite: 6].
+                  Optimized/fine-tuned queries in SQL/NOSQL databases reducing network traffic (improved query response rates by <strong>30 millisec, 30-45%</strong>) complying to the <strong>TPC-DS standards</strong>. Integrated <strong>AWS QuickSight</strong> for analytics.
                 </li>
                 <li>
-                  Spearheaded document overhaul, inventoried gaps, and authored functional/technical design documents (<strong>FDDs/TDDs</strong>) for business' improvements[cite: 6].
+                  Spearheaded document overhaul, inventoried gaps, and authored functional/technical design documents (<strong>FDDs/TDDs</strong>) for business' improvements.
                 </li>
                 <li>
-                  Mentored <strong>8+ devs/trainees</strong> and contributed significantly to R&D in TCS' life sciences unit, aiding in the development of TCS' advanced AI and analytics solutions - <strong>Cognix™ and MFDM™</strong>[cite: 6].
+                  Mentored <strong>8+ devs/trainees</strong> and contributed significantly to R&D in TCS' life sciences unit, aiding in the development of TCS' advanced AI and analytics solutions - <strong>Cognix™ and MFDM™</strong>.
                 </li>
               </ul>
             </article>
@@ -698,7 +698,7 @@
         <section id="education" class="space-y-4">
           <div class="flex items-end justify-between pb-3 dashed-divider">
             <div>
-              <span class="font-mono text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400">04 / Academic Pedigree</span>
+              <span class="font-mono text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400">05 / Academic Pedigree</span>
               <h2 class="font-serif text-3xl text-slate-900 dark:text-white mt-0.5">Education</h2>
             </div>
           </div>
@@ -721,16 +721,16 @@
               </div>
 
               <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800">
-                <p class="font-mono text-[11px] uppercase text-slate-500 dark:text-slate-400 mb-2">Courses taken[cite: 6]:</p>
+                <p class="font-mono text-[11px] uppercase text-slate-500 dark:text-slate-400 mb-2">Courses taken:</p>
                 <div class="flex flex-wrap gap-1.5 text-xs font-mono">
-                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">DAMG7370 Designing Advanced Data Architectures for Business Intelligence[cite: 6]</span>
-                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">DAMG7250 Big data Architecture & Governance[cite: 6]</span>
-                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">DAMG6210 Database management & Database Design[cite: 6]</span>
-                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">INFO7374 Algorithmic Marketing[cite: 6]</span>
-                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">DAMG6105 Data Science Engineering with Python[cite: 6]</span>
-                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">CSYE6200 Concepts of Object-Oriented Programming & Design[cite: 6]</span>
-                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">INFO6150 Web Design and User Experience[cite: 6]</span>
-                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">CSYE7280 User Experience Design and Testing[cite: 6]</span>
+                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">DAMG7370 Designing Advanced Data Architectures for Business Intelligence</span>
+                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">DAMG7250 Big data Architecture & Governance</span>
+                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">DAMG6210 Database management & Database Design</span>
+                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">INFO7374 Algorithmic Marketing</span>
+                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">DAMG6105 Data Science Engineering with Python</span>
+                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">CSYE6200 Concepts of Object-Oriented Programming & Design</span>
+                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">INFO6150 Web Design and User Experience</span>
+                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">CSYE7280 User Experience Design and Testing</span>
                 </div>
               </div>
             </div>
@@ -739,14 +739,14 @@
             <div class="p-6 rounded-xl bg-[#F3EFE6]/85 dark:bg-[#151C28]/90 border border-slate-300 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
               <div>
                 <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                  Jawaharlal Nehru Technological University, India[cite: 6]
+                  Jawaharlal Nehru Technological University, India
                 </h3>
                 <p class="font-mono text-sm text-blue-700 dark:text-blue-400">
-                  Degree (B. Tech), Major (Computer Science)[cite: 6]
+                  Degree (B. Tech), Major (Computer Science)
                 </p>
               </div>
               <span class="font-mono text-xs px-3 py-1 rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 shrink-0">
-                2016 – 2020[cite: 6]
+                2016 – 2020
               </span>
             </div>
           </div>
@@ -756,7 +756,7 @@
         <section id="gallery" class="space-y-4 pt-2">
           <div class="flex items-end justify-between pb-3 dashed-divider">
             <div>
-              <span class="font-mono text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400">05 / Visual Log</span>
+              <span class="font-mono text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400">06 / Visual Log</span>
               <h2 class="font-serif text-3xl text-slate-900 dark:text-white mt-0.5">
                 everyday in <span class="font-mono text-xl text-blue-600 dark:text-blue-400">.jpg's</span>
               </h2>
