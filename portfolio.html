@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prithvi Vasireddy — AI Engineer & Prospective PhD Researcher</title>
-  <meta name="description" content="Academic & Engineering Portfolio of Prithvi Vasireddy — AI Engineer (Wells Fargo, State Street Global Advisors), MS in Data Architecture & Management (Northeastern University)." />
+  <meta name="description" content="Academic & Systems Portfolio of Prithvi Vasireddy — AI Engineer at Wells Fargo, MS in Data Architecture & Management (Northeastern University). Researching Multi-Agent Systems, Seamful XAI, and Human-AI Collaboration." />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -32,6 +32,11 @@
               DEFAULT: '#FAF7F2',
               card: '#F3EFE6',
               border: '#E2DCCE'
+            },
+            academic: {
+              blue: '#1D4ED8',
+              indigo: '#3730A3',
+              slate: '#0F172A'
             }
           }
         }
@@ -64,8 +69,13 @@
       transition: background-color 0.25s ease, color 0.25s ease;
     }
 
+    /* Editorial Blue Dashed Divider */
     .dashed-divider {
       border-bottom: 1.5px dashed var(--border-dashed);
+    }
+
+    .dashed-box {
+      border: 1.5px dashed var(--border-dashed);
     }
 
     /* Infinite Horizontal Photo Carousel */
@@ -77,14 +87,14 @@
     .carousel-track {
       display: flex;
       width: max-content;
-      animation: scrollCarousel 48s linear infinite;
+      animation: scrollCarousel 38s linear infinite;
     }
 
     .carousel-track:hover {
       animation-play-state: paused;
     }
 
-    /* Subtle Editorial Grid Overlay */
+    /* Subtle Paper Grain Overlay */
     .editorial-grid {
       background-size: 32px 32px;
       background-image: 
@@ -96,7 +106,7 @@
 
 <body class="font-sans antialiased editorial-grid min-h-screen flex flex-col">
 
-  <!-- STICKY TOP NAVIGATION -->
+  <!-- TOP NAVIGATION BAR (OutlineCV / Editorial Style) -->
   <header class="sticky top-0 z-50 backdrop-blur-md bg-[#FAF7F2]/90 dark:bg-[#0B0F17]/90 border-b border-dashed border-blue-400/60 dark:border-blue-800/70">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <!-- Brand / Status -->
@@ -105,30 +115,29 @@
           <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
           <span>prithvi.vasireddy</span>
         </a>
-        <span class="hidden md:inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-blue-100/80 text-blue-800 dark:bg-blue-950/80 dark:text-blue-300 border border-blue-300/60 dark:border-blue-800">
-          Prospective PhD Applicant • Explainable & Agentic AI
+        <span class="hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-blue-100/80 text-blue-800 dark:bg-blue-950/80 dark:text-blue-300 border border-blue-300/60 dark:border-blue-800">
+          Prospective PhD Applicant • CS / HCI / Agentic AI
         </span>
       </div>
 
       <!-- Navigation Links -->
-      <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-700 dark:text-slate-300">
-        <a href="#why" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Research Vision</a>
-        <a href="#publications" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Publications (6)</a>
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-700 dark:text-slate-300">
+        <a href="#research" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Research Vision</a>
         <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Experience</a>
+        <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Systems & Artifacts</a>
         <a href="#education" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Education</a>
-        <a href="#references" class="hover:text-blue-600 dark:hover:text-blue-400 transition">References</a>
         <a href="#gallery" class="hover:text-blue-600 dark:hover:text-blue-400 transition font-mono text-xs">.jpg's</a>
       </nav>
 
-      <!-- Action Buttons -->
-      <div class="flex items-center space-x-2">
-        <a href="mailto:Prithvivasireddy@gmail.com" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-mono font-medium border border-slate-300 dark:border-slate-700 hover:border-blue-600 dark:hover:border-blue-400 transition">
+      <!-- Action Buttons: Mail, CV, Theme Toggle -->
+      <div class="flex items-center space-x-2.5">
+        <a href="mailto:vasireddy.p@northeastern.edu" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-mono font-medium border border-slate-300 dark:border-slate-700 hover:border-blue-600 dark:hover:border-blue-400 transition">
           <i data-lucide="mail" class="w-3.5 h-3.5 text-blue-600 dark:text-blue-400"></i>
-          <span class="hidden sm:inline">Email</span>
+          <span>Mail</span>
         </a>
-        <a href="prithvi_vasireddy_pv_resume_916.pdf" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-mono font-medium bg-blue-600 text-white hover:bg-blue-700 transition shadow-sm">
+        <a href="#experience" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-mono font-medium bg-blue-600 text-white hover:bg-blue-700 transition shadow-sm">
           <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
-          <span>CV / PDF</span>
+          <span>CV / Vita</span>
         </a>
         <button id="theme-toggle" aria-label="Toggle Dark Mode" class="p-2 rounded-md border border-slate-300 dark:border-slate-700 hover:bg-slate-200/50 dark:hover:bg-slate-800 transition">
           <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-slate-700"></i>
@@ -138,25 +147,25 @@
     </div>
   </header>
 
-  <!-- MAIN CONTENT GRID -->
+  <!-- MAIN TWO-COLUMN ACADEMIC + GITHUB HYBRID CONTAINER -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
-      <!-- LEFT SIDEBAR: PROFILE, CONTACT, CERTIFICATIONS & SKILLS -->
+      <!-- LEFT SIDEBAR: PROFILE, RESEARCH INTERESTS & ADVISOR QUICK-FACTS -->
       <aside class="lg:col-span-4 space-y-6">
         <div class="p-6 rounded-xl bg-[#F3EFE6]/90 dark:bg-[#151C28]/90 border border-dashed border-blue-400/70 dark:border-blue-800/80 shadow-sm lg:sticky lg:top-24">
           
-          <!-- Profile Picture (dp01.jpeg) & Name -->
+          <!-- Avatar & Name -->
           <div class="flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-start gap-5">
             <div class="relative group">
               <img 
-                src="assets/dp01.jpeg" 
+                src="assets/1000047985.png" 
                 alt="Prithvi Vasireddy" 
                 onerror="this.src='https://ui-avatars.com/api/?name=Prithvi+Vasireddy&background=1D4ED8&color=fff&size=256'"
-                class="w-32 h-32 rounded-2xl object-cover border-2 border-blue-600/80 dark:border-blue-400/80 shadow-md"
+                class="w-28 h-28 rounded-2xl object-cover border-2 border-blue-600/80 dark:border-blue-400/80 shadow-md"
               />
-              <span class="absolute -bottom-1.5 -right-1.5 bg-blue-600 text-white text-[10px] font-mono px-2 py-0.5 rounded-full shadow">
-                AI Engineer
+              <span class="absolute -bottom-1 -right-1 bg-blue-600 text-white text-[10px] font-mono px-2 py-0.5 rounded-full shadow">
+                AI Eng
               </span>
             </div>
 
@@ -165,639 +174,392 @@
                 Prithvi Vasireddy
               </h1>
               <p class="font-mono text-xs text-blue-700 dark:text-blue-400 mt-0.5">
-                AI Engineer • Multi-Agent Systems & XAI Researcher
+                AI Engineer @ Wells Fargo • MS @ Northeastern
               </p>
-              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
-                M.S. in Data Architecture & Management from <strong>Northeastern University</strong>. Designing explainable, accountable, and self-verifying multi-agent architectures at enterprise scale.
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+                Architecting <strong>self-correcting multi-agent systems</strong>, <strong>neuro-symbolic data pipelines</strong>, and <strong>seamful Explainable AI (XAI)</strong> interfaces that bridge autonomous LLM reasoning with human verification.
               </p>
-            </div>
-          </div>
-
-          <!-- Quick Academic & Social Links -->
-          <div class="mt-4 flex flex-wrap gap-2">
-            <a href="https://github.com/prithvivasireddy" target="_blank" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-blue-600 transition">
-              <i data-lucide="github" class="w-3.5 h-3.5 text-blue-600 dark:text-blue-400"></i> GitHub
-            </a>
-            <a href="https://linkedin.com" target="_blank" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-blue-600 transition">
-              <i data-lucide="linkedin" class="w-3.5 h-3.5 text-blue-600 dark:text-blue-400"></i> LinkedIn
-            </a>
-            <a href="https://orcid.org" target="_blank" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-blue-600 transition">
-              <i data-lucide="book-open-check" class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400"></i> ORCID
-            </a>
-          </div>
-
-          <div class="my-5 dashed-divider"></div>
-
-          <!-- Contact & Metadata -->
-          <div class="space-y-2.5 text-xs font-mono text-slate-600 dark:text-slate-400">
-            <div class="flex items-center gap-2.5">
-              <i data-lucide="mail" class="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0"></i>
-              <a href="mailto:Prithvivasireddy@gmail.com" class="hover:underline truncate">Prithvivasireddy@gmail.com</a>
-            </div>
-            <div class="flex items-center gap-2.5">
-              <i data-lucide="phone" class="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0"></i>
-              <span>+1-(857) 693-8909</span>
-            </div>
-            <div class="flex items-center gap-2.5">
-              <i data-lucide="graduation-cap" class="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0"></i>
-              <span>M.S., Northeastern University ('24)</span>
-            </div>
-            <div class="flex items-center gap-2.5">
-              <i data-lucide="award" class="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0"></i>
-              <span>WSIS Forum Runner-Up (Bone Frailty)</span>
             </div>
           </div>
 
           <div class="my-5 dashed-divider"></div>
 
-          <!-- Blockchain-Verified Certifications -->
+          <!-- Research Interests (Tailored for Prospective PhD Advisors) -->
           <div>
-            <h2 class="font-mono text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold mb-2.5 flex items-center gap-1.5">
-              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-blue-600 dark:text-blue-400"></i>
-              Certifications
+            <h2 class="font-mono text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold mb-3 flex items-center gap-1.5">
+              <i data-lucide="compass" class="w-3.5 h-3.5 text-blue-600 dark:text-blue-400"></i>
+              Research Interests
             </h2>
-            <ul class="space-y-2 text-xs text-slate-700 dark:text-slate-300">
-              <li class="p-2.5 rounded-lg bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
-                <div class="font-semibold">Automation Anywhere Certified RPA Master</div>
-                <div class="font-mono text-[11px] text-blue-600 dark:text-blue-400 mt-0.5">Blockchain ID: 661894</div>
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-blue-600 dark:text-blue-400 font-mono">01.</span>
+                <span><strong>Multi-Agent Systems & Program Synthesis:</strong> Planner–Builder–Critic architectures & closed-loop verification.</span>
               </li>
-              <li class="p-2.5 rounded-lg bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
-                <div class="font-semibold">Automation Anywhere Certified Advanced RPA Professional</div>
-                <div class="font-mono text-[11px] text-blue-600 dark:text-blue-400 mt-0.5">Blockchain ID: 622102</div>
+              <li class="flex items-start gap-2">
+                <span class="text-blue-600 dark:text-blue-400 font-mono">02.</span>
+                <span><strong>Seamful Explainable AI (XAI) & HCI:</strong> Cognitive middleware exposing AI uncertainty & provenance.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-blue-600 dark:text-blue-400 font-mono">03.</span>
+                <span><strong>Live-Learning Enterprise RAG:</strong> Low-latency agentic copilots over dynamic relational & vector state.</span>
               </li>
             </ul>
           </div>
 
           <div class="my-5 dashed-divider"></div>
 
-          <!-- Full Technical Skills From Resume -->
-          <div>
-            <h2 class="font-mono text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold mb-2.5 flex items-center gap-1.5">
-              <i data-lucide="cpu" class="w-3.5 h-3.5 text-blue-600 dark:text-blue-400"></i>
-              Technical Arsenal
-            </h2>
-
-            <div class="space-y-3 text-xs">
-              <div>
-                <p class="font-mono text-[10px] uppercase text-slate-400 mb-1">Agentic AI, ML & Frameworks</p>
-                <div class="flex flex-wrap gap-1">
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">LangGraph</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">LangChain</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">Swarm-Intelligence (MiroFish)</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">Amazon Bedrock</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">Amazon AgentCore</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">Google Agent Dev. Kit</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">RAI (Responsible AI) Gateway</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">PyTorch</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">TensorFlow</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">Scikit-Learn</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">NumPy</span>
-                </div>
-              </div>
-
-              <div>
-                <p class="font-mono text-[10px] uppercase text-slate-400 mb-1">Languages & Full-Stack</p>
-                <div class="flex flex-wrap gap-1">
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">GoLang</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">Python</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">Java / J2EE</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">SQL</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">ReactJS</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">Node.js</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">REST/JSON</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">Linux / Shell</span>
-                </div>
-              </div>
-
-              <div>
-                <p class="font-mono text-[10px] uppercase text-slate-400 mb-1">Cloud, IaC, Governance & Data</p>
-                <div class="flex flex-wrap gap-1">
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">AWS Control Tower / AFT</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">Terraform Enterprise</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">Checkov & OPA</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">Harness CI/CD</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">AgentCore Observability</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">PySpark / DBT</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">Snowflake / BigQuery</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">Pinecone</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">Postgres / MongoDB / SQL Server</span>
-                  <span class="px-2 py-0.5 font-mono text-[11px] rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">CyberArk / OAuth 2.0</span>
-                </div>
-              </div>
+          <!-- Metadata & Contact Details -->
+          <div class="space-y-2.5 text-xs font-mono text-slate-600 dark:text-slate-400">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="building-2" class="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0"></i>
+              <span>Wells Fargo (Wealth & Brokerage AI)</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="graduation-cap" class="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0"></i>
+              <span>M.S. Data Architecture, Northeastern ('24)</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="map-pin" class="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0"></i>
+              <span>Charlotte, NC / Boston, MA</span>
             </div>
           </div>
 
+          <!-- Core Technical Stack Pills -->
+          <div class="mt-5 pt-4 border-t border-slate-200/80 dark:border-slate-800">
+            <p class="font-mono text-[11px] uppercase tracking-wider text-slate-400 mb-2">Core Stack & Frameworks</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">LangGraph / LangChain</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">PySpark / DBT</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">Python / GoLang / Java</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">AWS Bedrock & GCP Vertex AI</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">Pinecone / Vector DBs</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700">Terraform / Docker / EKS</span>
+            </div>
+          </div>
         </div>
       </aside>
 
       <!-- RIGHT MAIN CONTENT AREA -->
       <div class="lg:col-span-8 space-y-12">
 
-        <!-- SECTION 1: PERSONAL & RESEARCH "WHY" (FOR PROSPECTIVE PHD ADVISORS) -->
-        <section id="why" class="p-6 sm:p-8 rounded-xl bg-gradient-to-br from-blue-50/90 via-[#F3EFE6] to-[#FAF7F2] dark:from-blue-950/30 dark:via-[#151C28] dark:to-[#0B0F17] border border-dashed border-blue-500/70 dark:border-blue-700/70 shadow-sm">
+        <!-- SECTION 1: RESEARCH STATEMENT FOR PROSPECTIVE PHD ADVISORS -->
+        <section id="research" class="p-6 sm:p-8 rounded-xl bg-gradient-to-br from-blue-50/90 via-[#F3EFE6] to-[#FAF7F2] dark:from-blue-950/30 dark:via-[#151C28] dark:to-[#0B0F17] border border-dashed border-blue-500/70 dark:border-blue-700/70 shadow-sm">
           <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
             <span class="font-mono text-xs uppercase tracking-widest text-blue-700 dark:text-blue-400 font-semibold flex items-center gap-1.5">
               <i data-lucide="sparkles" class="w-4 h-4"></i>
-              Research Philosophy & Personal "Why"
+              Note for Prospective PhD Advisors
             </span>
-            <span class="font-mono text-xs text-slate-500 dark:text-slate-400">HCI • Explainable AI • Multi-Agent Systems</span>
+            <span class="font-mono text-xs text-slate-500 dark:text-slate-400">Fall 2027 / Rolling Doctoral Inquiries</span>
           </div>
 
-          <blockquote class="font-serif text-2xl sm:text-3xl text-slate-900 dark:text-white leading-snug italic border-l-4 border-blue-600 pl-4 py-1">
-            "My personal 'why' is to create a world where the next generation has opportunities that are unimaginable for my generation. This informs my research 'why'—which is to create a world where anyone, regardless of their background, can interact with AI systems in an explainable, accountable, and dignified manner."
-          </blockquote>
+          <h2 class="font-serif text-2xl sm:text-3xl text-slate-900 dark:text-white leading-snug">
+            Designing Reliable, Self-Verifying Multi-Agent Systems & Seamful Human-AI Interfaces
+          </h2>
 
-          <p class="mt-4 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-            My research and engineering trajectory bridges <strong>autonomous multi-agent systems</strong> (Planner–Builder–Critic architectures, dual-agent Infrastructure-as-Code synthesis, and closed-loop reconciliation) with <strong>sociotechnical Human-Computer Interaction (HCI)</strong>—investigating how seamful explainability, policy-grounded RAG, and cognitive middleware can make high-stakes AI transparent and trustworthy.
+          <p class="mt-3 text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+            Across my industry work at <strong>Wells Fargo</strong>, <strong>Manulife</strong>, <strong>Genuine Parts Company</strong>, and <strong>GSK</strong>, I have observed a recurring sociotechnical bottleneck: black-box generative pipelines fail silently when deployed over complex, high-stakes enterprise state. My research agenda investigates how <strong>hierarchical multi-agent workflows (Planner–Builder–Critic loops)</strong> and <strong>seamful Explainable AI (XAI)</strong> can expose model uncertainty, automate formal reconciliation, and empower human operators to audit and steer autonomous systems.
           </p>
-        </section>
 
-        <!-- SECTION 2: RESEARCH, PUBLICATIONS & ACHIEVEMENTS -->
-        <section id="publications" class="space-y-6">
-          <div class="flex items-end justify-between pb-3 dashed-divider">
-            <div>
-              <span class="font-mono text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400">01 / Scholarship & Preprints</span>
-              <h2 class="font-serif text-3xl text-slate-900 dark:text-white mt-0.5">Research, Publications & Achievements</h2>
+          <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-blue-200/60 dark:border-slate-800 text-xs font-mono">
+            <div class="p-3 rounded-lg bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
+              <div class="text-blue-600 dark:text-blue-400 font-bold text-lg">6,200+</div>
+              <div class="text-slate-600 dark:text-slate-400">Legacy ETL Mappings Targeted via Multi-Agent Synthesis</div>
             </div>
-            <span class="font-mono text-xs text-slate-500 hidden sm:inline">IEEE & Zenodo DOIs</span>
-          </div>
-
-          <!-- WSIS Achievement Banner -->
-          <div class="p-4 rounded-xl bg-amber-50/90 dark:bg-amber-950/30 border border-amber-300 dark:border-amber-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-            <div class="flex items-start sm:items-center gap-3">
-              <div class="p-2 rounded-lg bg-amber-500/20 text-amber-700 dark:text-amber-300 shrink-0">
-                <i data-lucide="trophy" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <h3 class="text-sm font-bold text-slate-900 dark:text-white">
-                  Runner-Up at the WSIS Forum (World Summit on the Information Society)
-                </h3>
-                <p class="text-xs text-slate-600 dark:text-slate-300 font-mono">
-                  Challenge Area: Bone Frailty • Recognition for Applied Healthcare & Assistive Innovation
-                </p>
-              </div>
+            <div class="p-3 rounded-lg bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
+              <div class="text-blue-600 dark:text-blue-400 font-bold text-lg">13+</div>
+              <div class="text-slate-600 dark:text-slate-400">Intelligent NLP/AutoML Bots Deployed in Production</div>
             </div>
-            <span class="px-2.5 py-1 text-[11px] font-mono rounded bg-white dark:bg-slate-900 border border-amber-300 dark:border-amber-700 text-amber-800 dark:text-amber-300 shrink-0">
-              Global Honour
-            </span>
-          </div>
-
-          <!-- 6 Publications Grid -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-            <!-- Paper 1 -->
-            <article class="p-5 rounded-xl bg-[#F3EFE6]/90 dark:bg-[#151C28]/90 border border-dashed border-blue-400/70 dark:border-blue-800/80 flex flex-col justify-between hover:border-blue-600 transition">
-              <div>
-                <div class="flex items-center justify-between gap-2 mb-2">
-                  <span class="font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 font-semibold">
-                    Sociotechnical HCI & XAI
-                  </span>
-                  <span class="font-mono text-[11px] text-slate-400">Zenodo</span>
-                </div>
-                <h3 class="font-serif text-xl text-slate-900 dark:text-white leading-snug">
-                  A Sociotechnical Cognitive Middleware for Countering Coordinated Inauthentic Behavior
-                </h3>
-              </div>
-              <div class="mt-4 pt-3 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
-                <span class="font-mono text-[11px] text-slate-500">DOI: 10.5281/zenodo.17677083</span>
-                <a href="https://doi.org/10.5281/zenodo.17677083" target="_blank" class="inline-flex items-center gap-1 text-xs font-mono text-blue-600 dark:text-blue-400 hover:underline">
-                  Read <i data-lucide="external-link" class="w-3 h-3"></i>
-                </a>
-              </div>
-            </article>
-
-            <!-- Paper 2 -->
-            <article class="p-5 rounded-xl bg-[#F3EFE6]/90 dark:bg-[#151C28]/90 border border-dashed border-blue-400/70 dark:border-blue-800/80 flex flex-col justify-between hover:border-blue-600 transition">
-              <div>
-                <div class="flex items-center justify-between gap-2 mb-2">
-                  <span class="font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 font-semibold">
-                    Agentic Systems
-                  </span>
-                  <span class="font-mono text-[11px] text-slate-400">Zenodo</span>
-                </div>
-                <h3 class="font-serif text-xl text-slate-900 dark:text-white leading-snug">
-                  InventoryGPT: An LLM-Powered Agentic Framework for Real-Time Retail Inventory Optimization & Management
-                </h3>
-              </div>
-              <div class="mt-4 pt-3 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
-                <span class="font-mono text-[11px] text-slate-500">DOI: 10.5281/ZENODO.17394355</span>
-                <a href="https://doi.org/10.5281/ZENODO.17394355" target="_blank" class="inline-flex items-center gap-1 text-xs font-mono text-blue-600 dark:text-blue-400 hover:underline">
-                  Read <i data-lucide="external-link" class="w-3 h-3"></i>
-                </a>
-              </div>
-            </article>
-
-            <!-- Paper 3 -->
-            <article class="p-5 rounded-xl bg-[#F3EFE6]/90 dark:bg-[#151C28]/90 border border-dashed border-blue-400/70 dark:border-blue-800/80 flex flex-col justify-between hover:border-blue-600 transition">
-              <div>
-                <div class="flex items-center justify-between gap-2 mb-2">
-                  <span class="font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300 font-semibold">
-                    IEEE Conference
-                  </span>
-                  <span class="font-mono text-[11px] text-slate-400">ICICCS 2020</span>
-                </div>
-                <h3 class="font-serif text-xl text-slate-900 dark:text-white leading-snug">
-                  Recommender System with RPA Bots and Intelligent Automation
-                </h3>
-              </div>
-              <div class="mt-4 pt-3 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
-                <span class="font-mono text-[11px] text-slate-500">DOI: 10.1109/iciccs48265.2020.9121120</span>
-                <a href="https://doi.org/10.1109/iciccs48265.2020.9121120" target="_blank" class="inline-flex items-center gap-1 text-xs font-mono text-blue-600 dark:text-blue-400 hover:underline">
-                  Read <i data-lucide="external-link" class="w-3 h-3"></i>
-                </a>
-              </div>
-            </article>
-
-            <!-- Paper 4 -->
-            <article class="p-5 rounded-xl bg-[#F3EFE6]/90 dark:bg-[#151C28]/90 border border-dashed border-blue-400/70 dark:border-blue-800/80 flex flex-col justify-between hover:border-blue-600 transition">
-              <div>
-                <div class="flex items-center justify-between gap-2 mb-2">
-                  <span class="font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-purple-100 text-purple-800 dark:bg-purple-950 dark:text-purple-300 font-semibold">
-                    Federated AI Governance
-                  </span>
-                  <span class="font-mono text-[11px] text-slate-400">Zenodo</span>
-                </div>
-                <h3 class="font-serif text-xl text-slate-900 dark:text-white leading-snug">
-                  A Federated Organizational Model for Scaling Artificial Intelligence in the Pharmaceutical Industry
-                </h3>
-              </div>
-              <div class="mt-4 pt-3 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
-                <span class="font-mono text-[11px] text-slate-500">DOI: 10.5281/ZENODO.17460226</span>
-                <a href="https://doi.org/10.5281/ZENODO.17460226" target="_blank" class="inline-flex items-center gap-1 text-xs font-mono text-blue-600 dark:text-blue-400 hover:underline">
-                  Read <i data-lucide="external-link" class="w-3 h-3"></i>
-                </a>
-              </div>
-            </article>
-
-            <!-- Paper 5 -->
-            <article class="p-5 rounded-xl bg-[#F3EFE6]/90 dark:bg-[#151C28]/90 border border-dashed border-blue-400/70 dark:border-blue-800/80 flex flex-col justify-between hover:border-blue-600 transition">
-              <div>
-                <div class="flex items-center justify-between gap-2 mb-2">
-                  <span class="font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300 font-semibold">
-                    Privacy & Cryptographic Systems
-                  </span>
-                  <span class="font-mono text-[11px] text-slate-400">Zenodo</span>
-                </div>
-                <h3 class="font-serif text-xl text-slate-900 dark:text-white leading-snug">
-                  Anonymous User Registration in Online Forums Using Advanced Cryptographic Tumbling Inspired by Bitcoin Mixers and Server-Hosted Mnemonics: A Self-Hosted Implementation on Raspberry-Pi
-                </h3>
-              </div>
-              <div class="mt-4 pt-3 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
-                <span class="font-mono text-[11px] text-slate-500">DOI: 10.5281/ZENODO.17389090</span>
-                <a href="https://doi.org/10.5281/ZENODO.17389090" target="_blank" class="inline-flex items-center gap-1 text-xs font-mono text-blue-600 dark:text-blue-400 hover:underline">
-                  Read <i data-lucide="external-link" class="w-3 h-3"></i>
-                </a>
-              </div>
-            </article>
-
-            <!-- Paper 6 -->
-            <article class="p-5 rounded-xl bg-[#F3EFE6]/90 dark:bg-[#151C28]/90 border border-dashed border-blue-400/70 dark:border-blue-800/80 flex flex-col justify-between hover:border-blue-600 transition">
-              <div>
-                <div class="flex items-center justify-between gap-2 mb-2">
-                  <span class="font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 font-semibold">
-                    Algorithmic Discovery
-                  </span>
-                  <span class="font-mono text-[11px] text-slate-400">Zenodo</span>
-                </div>
-                <h3 class="font-serif text-xl text-slate-900 dark:text-white leading-snug">
-                  Music Buckets: A Novelty-Centric Recommendation Architecture for Infinite Music Discovery
-                </h3>
-              </div>
-              <div class="mt-4 pt-3 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
-                <span class="font-mono text-[11px] text-slate-500">DOI: 10.5281/ZENODO.17393961</span>
-                <a href="https://doi.org/10.5281/ZENODO.17393961" target="_blank" class="inline-flex items-center gap-1 text-xs font-mono text-blue-600 dark:text-blue-400 hover:underline">
-                  Read <i data-lucide="external-link" class="w-3 h-3"></i>
-                </a>
-              </div>
-            </article>
-
+            <div class="p-3 rounded-lg bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
+              <div class="text-blue-600 dark:text-blue-400 font-bold text-lg">3 Pillars</div>
+              <div class="text-slate-600 dark:text-slate-400">Agentic Systems • Seamful XAI • Data Architecture</div>
+            </div>
           </div>
         </section>
 
-        <!-- SECTION 3: WORK EXPERIENCE (WELLS FARGO + UNABRIDGED SSGA, GPC, GSK) -->
+        <!-- SECTION 2: PROFESSIONAL EXPERIENCE (WITH NEW WELLS FARGO BULLETS) -->
         <section id="experience" class="space-y-6">
           <div class="flex items-end justify-between pb-3 dashed-divider">
             <div>
-              <span class="font-mono text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400">02 / Industry R&D</span>
-              <h2 class="font-serif text-3xl text-slate-900 dark:text-white mt-0.5">Work Experience</h2>
+              <span class="font-mono text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400">01 / Trajectory</span>
+              <h2 class="font-serif text-3xl text-slate-900 dark:text-white mt-0.5">Professional & Research Engineering Experience</h2>
             </div>
-            <span class="font-mono text-xs text-slate-500 hidden sm:inline">4 Enterprise Roles</span>
+            <span class="font-mono text-xs text-slate-500 hidden sm:inline">Industry R&D</span>
           </div>
 
-          <div class="space-y-6">
+          <div class="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-blue-600 before:via-blue-400/40 before:to-transparent">
 
-            <!-- 1. WELLS FARGO -->
-            <article class="p-6 rounded-xl bg-[#F3EFE6]/95 dark:bg-[#151C28]/95 border-2 border-blue-600/80 dark:border-blue-500/80 shadow-md">
+            <!-- 1. WELLS FARGO (NEWLY ADDED) -->
+            <article class="relative p-6 rounded-xl bg-[#F3EFE6]/90 dark:bg-[#151C28]/95 border-2 border-blue-600/80 dark:border-blue-500/80 shadow-md transition hover:shadow-lg">
               <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
                 <div>
                   <div class="flex items-center gap-2">
-                    <span class="px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider bg-blue-600 text-white rounded font-semibold">Latest</span>
+                    <span class="px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider bg-blue-600 text-white rounded font-semibold">Current</span>
                     <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
-                      Wells Fargo — AI Engineer
+                      AI Engineer — Wealth & Brokerage Data Modernization
                     </h3>
                   </div>
                   <p class="font-mono text-xs sm:text-sm text-blue-700 dark:text-blue-400 font-medium mt-1">
-                    Wealth Management & Brokerage Data Modernization • Charlotte, NC
+                    Wells Fargo • Charlotte, NC
                   </p>
                 </div>
                 <span class="font-mono text-xs px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300">
-                  Oct 2026 – Present
+                  2026 – Present
                 </span>
+              </div>
+
+              <!-- Architecture Highlights Pill Bar -->
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-blue-100/90 dark:bg-blue-950 text-blue-800 dark:text-blue-300">xCompanion Agentic Accelerator</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-blue-100/90 dark:bg-blue-950 text-blue-800 dark:text-blue-300">Planner–Builder–Critic Agents</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-blue-100/90 dark:bg-blue-950 text-blue-800 dark:text-blue-300">xRecon Feedback Loop</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-blue-100/90 dark:bg-blue-950 text-blue-800 dark:text-blue-300">PySpark / DBT / Lakehouse</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-blue-100/90 dark:bg-blue-950 text-blue-800 dark:text-blue-300">Vector Search & Hosted LLMs</span>
               </div>
 
               <ul class="space-y-2.5 text-sm text-slate-700 dark:text-slate-300 list-disc list-outside ml-5 leading-relaxed">
                 <li>
-                  <strong>Multi-Agent ETL Modernization (<code>xCompanion</code>):</strong> Architected and recreated the <strong>xCompanion</strong> agentic AI code-acceleration platform using Wells Fargo-approved hosted LLMs, embedding endpoints, and vector search to automate the migration of <strong>~6,200+ legacy Informatica mappings</strong> (spanning 285 Brokerage ODS/Exadata folders and 73 Wealth Data Mart/SQL Server 2019 folders) into open-source, high-performance <strong>PySpark, DBT, and Lakehouse</strong> pipelines.
+                  <strong>Multi-Agent Program Synthesis & Reverse Engineering:</strong> Architected and rebuilt the <strong>xCompanion</strong> agentic AI code-acceleration platform from the ground up using enterprise-approved hosted LLMs, embedding endpoints, and vector search to automate the translation of <strong>6,200+ legacy Informatica ETL mappings</strong> (spanning 358 subject-area folders across Brokerage ODS/Exadata and Wealth Data Mart/SQL Server) into high-performance <strong>PySpark, DBT, and Lakehouse</strong> pipelines.
                 </li>
                 <li>
-                  <strong>Planner–Code Builder–Critic Agent Architecture:</strong> Built the <strong>Reverse Engineering, Jira, and Forward Engineering agents</strong>—incorporating a collaborative <strong>Planner, Code Builder, and Critic agent</strong> workflow—to ingest repository XML, mappings, workflows, and connection metadata and autonomously synthesize standards-compliant PySpark jobs.
+                  <strong>Planner–Builder–Critic Agent Orchestration:</strong> Engineered a specialized multi-agent system comprising <strong>Reverse Engineering, Jira, and Forward Engineering agents</strong>—incorporating a collaborative <strong>Planner, Code Builder, and Critic agent</strong> architecture—to ingest repository XML, workflows, and connection metadata and synthesize standards-compliant PySpark code.
                 </li>
                 <li>
-                  <strong>Closed-Loop Reconciliation & Verification (<code>xRecon</code>):</strong> Established a three-step sprint-based execution engine (<em>Envision, Engineer, Evolve</em>) with an automated feedback loop between the <strong>xRecon</strong> reconciliation tool and critic agents, executing parallel UAT/PROD runs to iteratively tune agents and verify data parity.
+                  <strong>Closed-Loop Reconciliation & Self-Refinement (<code>xRecon</code>):</strong> Designed a sprint-based iterative execution engine that couples <strong>xCompanion</strong> agent tuning with the <strong>xRecon</strong> reconciliation framework, creating an automated feedback loop between parallel UAT/PROD runs and critic agents to iteratively verify and reconcile output parity.
                 </li>
                 <li>
-                  <strong>Enterprise Agent Infrastructure & Pilot Delivery:</strong> Configured containerized UI, API, and agent microservices alongside managed vector search, job queues, and audit history stores to deliver the initial <strong>5-dataflow / ~50-mapping pilot</strong> and define the enterprise-wide Informatica exit roadmap across WDM and ODS workloads.
+                  <strong>Enterprise Agent Infrastructure & Pilot Execution:</strong> Deployed containerized agent services, REST APIs, and managed vector/audit data stores (persisting domain knowledge, job states, and audit trails) to deliver an initial <strong>5-workflow / 50-mapping pilot</strong> and establish the holistic Informatica exit roadmap across Wealth and Brokerage workloads.
                 </li>
               </ul>
             </article>
 
-            <!-- 2. STATE STREET GLOBAL ADVISORS (SSGA) — COMPLETE & UNABRIDGED -->
-            <article class="p-6 rounded-xl bg-[#F3EFE6]/85 dark:bg-[#151C28]/90 border border-slate-300 dark:border-slate-800 shadow-sm hover:border-blue-500 transition">
+            <!-- 2. MANULIFE (JOHN HANCOCK) -->
+            <article class="relative p-6 rounded-xl bg-[#F3EFE6]/70 dark:bg-[#151C28]/80 border border-slate-300/80 dark:border-slate-800 shadow-sm hover:border-blue-400 transition">
               <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
                 <div>
-                  <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
-                    State Street Global Advisors (SSGA) — AI Engineer | Contract (Onsite)
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                    Data Engineer
                   </h3>
-                  <p class="font-mono text-xs sm:text-sm text-blue-700 dark:text-blue-400 font-medium mt-0.5">
-                    Boston, MA
+                  <p class="font-mono text-xs sm:text-sm text-blue-700 dark:text-blue-400 font-medium">
+                    Manulife (John Hancock) • Boston, MA
                   </p>
                 </div>
-                <span class="font-mono text-xs px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300">
-                  Dec 2025 – Oct 2026
+                <span class="font-mono text-xs px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400">
+                  2025
                 </span>
               </div>
-
-              <ul class="space-y-2.5 text-sm text-slate-700 dark:text-slate-300 list-disc list-outside ml-5 leading-relaxed">
-                <li>
-                  Contributed to the development of a multi-agent <strong>Digital Worker</strong> system using <strong>LangGraph (on AWS AgentCore)</strong> to automate Infrastructure as Code (IaC) generation — effectively replacing manual SRE oversight to accelerate deployment cycles from over three weeks to under a day for <strong>~400 application teams</strong>.
-                </li>
-                <li>
-                  Engineered a dual-agent architecture (<strong>agent A & agent P</strong>) to autonomously generate, validate, and deploy foundational L1 Terraform modules and application-specific L2 infrastructure natively on AWS.
-                </li>
-                <li>
-                  Integrated <strong>AWS Bedrock and Claude foundation models</strong> to implement a Retrieval-Augmented Generation (RAG) architecture, leveraging vector embeddings to ground AI code generation in Confluence security policies and AWS Well-Architected Framework standards.
-                </li>
-                <li>
-                  Implemented <strong>AgentCore Observability</strong> to manage multi-account telemetry and session tracking, utilizing the <strong>AgentCore Identity</strong> architecture to maintain a unified audit trail and session persistence across federated AWS environments.
-                </li>
-                <li>
-                  Orchestrated seamless enterprise integrations across <strong>Jira, GitHub, Harness CI/CD, and Terraform Enterprise</strong> to establish an automated pipeline, featuring human-in-the-loop review and multi-stage compliance validation using <strong>Checkov and OPA (Open Policy Agent)</strong>.
-                </li>
-                <li>
-                  Collaborated with the SSGA deployment team and <strong>Strategic Initiative Office</strong> to scale the IaC assistant across 400 application teams, enforcing strict multi-tenancy models and secure credential management.
-                </li>
+              <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300 list-disc list-outside ml-5 leading-relaxed">
+                <li>Designed enterprise data architecture, canonical relational schemas, and standardized data dictionaries to streamline cross-domain analytics and governance.</li>
+                <li>Engineered and deployed automated RPA validation workflows for high-volume insurance policy processing, reducing manual verification bottlenecks and improving auditability.</li>
               </ul>
             </article>
 
-            <!-- 3. GENUINE PARTS COMPANY (GPC) — COMPLETE & UNABRIDGED -->
-            <article class="p-6 rounded-xl bg-[#F3EFE6]/85 dark:bg-[#151C28]/90 border border-slate-300 dark:border-slate-800 shadow-sm hover:border-blue-500 transition">
+            <!-- 3. GENUINE PARTS COMPANY (GPC) -->
+            <article class="relative p-6 rounded-xl bg-[#F3EFE6]/70 dark:bg-[#151C28]/80 border border-slate-300/80 dark:border-slate-800 shadow-sm hover:border-blue-400 transition">
               <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
                 <div>
-                  <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
-                    Genuine Parts Company (GPC) — Full-Stack Developer | Contract (Onsite)
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                    Full-Stack Developer & Data Engineer
                   </h3>
-                  <p class="font-mono text-xs sm:text-sm text-blue-700 dark:text-blue-400 font-medium mt-0.5">
-                    Motion Industries & NAPA Auto Parts • Atlanta, GA | Dallas, TX
+                  <p class="font-mono text-xs sm:text-sm text-blue-700 dark:text-blue-400 font-medium">
+                    Genuine Parts Company (Motion Industries & NAPA Auto Parts) • Atlanta, GA & Dallas, TX
                   </p>
                 </div>
-                <span class="font-mono text-xs px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300">
-                  Jun 2024 – Nov 2025 (1 Yr 5 Mos)
+                <span class="font-mono text-xs px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400">
+                  2024 – 2025
                 </span>
               </div>
-
-              <ul class="space-y-2.5 text-sm text-slate-700 dark:text-slate-300 list-disc list-outside ml-5 leading-relaxed">
-                <li>
-                  Contributed to the platform and technology vision for modernization, reliability, cloud and edge computing scenarios at <strong>Motion Industries and NAPA Auto Parts</strong>.
-                </li>
-                <li>
-                  <strong>Dev-Zero of Pipeline Migration/Modernization team:</strong> Configured custom build-agents (Linux/Windows) and architected the new deployment/data pipelines for <strong>NAPAOnline, PROLink™, and PartsProSE™</strong> (B2B/B2C applications), restructuring monolithic CI/CD to non-monolithic triggers where applicable, reducing processing times by <strong>70%</strong>. Simplified infra-wide deployments by decommissioning AzureDevOps, GitLab, and Jenkins (leading the migration initiative to <strong>GCP/GitHub</strong>).
-                </li>
-                <li>
-                  Collaborated with <strong>Search, Discovery, and One-UI</strong> teams to drive analytics modernization, delivering actionable insights for loyalty and marketing initiatives. Streamlined BI infrastructure implementing best practices in data cleansing, database design, ETL, and version control for scalable reporting using <strong>BigQuery</strong>.
-                </li>
-                <li>
-                  Optimized deployment triggers to reduce the overall run-time (on average) from <strong>51 minutes per deployment on 6 nodes to 2 minutes per node (i.e., 12 minutes/deployment)</strong> — reduced average run-time across microservices to a third with new, more modular scripts.
-                </li>
-                <li>
-                  Developed and maintained high-performance RESTful APIs and microservices in <strong>GoLang/ReactJS for RE-Ops*</strong>, facilitating secure data exchange, traffic management endpoints, and integration with GCP services via service accounts.
-                </li>
-                <li>
-                  Engineered <strong>RE-Ops' CI/CD pipelines</strong> for backend and <strong>Terraform IaC</strong>, seamlessly integrating with GCP resources like Cloud Run service accounts and GAR repositories. Devised observability logger for RE-Ops with 4 info levels.
-                </li>
-                <li>
-                  Spearheaded initiatives and contributed significantly to the development and deployment of <strong>Chat-GPC</strong>, a proprietary LLM-based AI solution at GPC, implementing advanced agentic workflows utilizing <strong>LangChain, vector databases (such as Pinecone), Retrieval-Augmented Generation (RAG), and prompt chaining</strong>.
-                </li>
+              <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300 list-disc list-outside ml-5 leading-relaxed">
+                <li>Architected <strong>Chat-GPC</strong>, an internal enterprise Retrieval-Augmented Generation (RAG) platform built with <strong>LangChain, Pinecone, and GCP Vertex AI</strong> for semantic search and operational knowledge retrieval.</li>
+                <li>Developed <strong>Jarvis</strong>, a cloud infrastructure provisioning application in <strong>Java and Spring Boot</strong>, alongside high-throughput RESTful microservices in <strong>GoLang</strong> and modernized CI/CD data pipelines.</li>
               </ul>
-
-              <!-- Footnote preserved verbatim -->
-              <div class="mt-4 p-3 rounded-lg bg-white/70 dark:bg-slate-900/70 border border-dashed border-blue-400/60 dark:border-blue-800 text-xs font-mono text-slate-600 dark:text-slate-400">
-                <strong>*RE-Ops Internal Ops Console:</strong> Intuitive interface for internal teams and C-Level Execs to manage cloud and reliability at scale—e.g., throttling traffic between revisions, a control-room interface to perform Cloud Run health checks, JIRA automation workflows, etc. (Stack: GoLang, IaC Terraform, and NodeJS/React).
-              </div>
             </article>
 
-            <!-- 4. GLAXOSMITHKLINE PHARMACEUTICALS (GSK) — COMPLETE & UNABRIDGED -->
-            <article class="p-6 rounded-xl bg-[#F3EFE6]/85 dark:bg-[#151C28]/90 border border-slate-300 dark:border-slate-800 shadow-sm hover:border-blue-500 transition">
+            <!-- 4. GLAXOSMITHKLINE (GSK) -->
+            <article class="relative p-6 rounded-xl bg-[#F3EFE6]/70 dark:bg-[#151C28]/80 border border-slate-300/80 dark:border-slate-800 shadow-sm hover:border-blue-400 transition">
               <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
                 <div>
-                  <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
-                    GlaxoSmithKline Pharmaceuticals (GSK) — Data (Systems) Engineer / RPA Developer
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                    Data Systems Engineer & RPA Developer
                   </h3>
-                  <p class="font-mono text-xs sm:text-sm text-blue-700 dark:text-blue-400 font-medium mt-0.5">
-                    EIA/AI Unit (GSK × UNICEF Initiative) • Brussels, Belgium (Contract, Remote)
+                  <p class="font-mono text-xs sm:text-sm text-blue-700 dark:text-blue-400 font-medium">
+                    GlaxoSmithKline Pharmaceuticals (GSK) • Brussels, Belgium
                   </p>
                 </div>
-                <span class="font-mono text-xs px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300">
-                  Sep 2019 – May 2022 (2 Yrs 8 Mos)
+                <span class="font-mono text-xs px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400">
+                  Prior Experience
                 </span>
               </div>
-
-              <ul class="space-y-2.5 text-sm text-slate-700 dark:text-slate-300 list-disc list-outside ml-5 leading-relaxed">
-                <li>
-                  Worked for the <strong>EIA/AI (Enterprise Intelligent Automation/Artificial Intelligence)</strong> unit in the <strong>GSK × UNICEF initiative</strong>, developing multi-functional IQ bots and ETL/ELT pipelines that leveraged <strong>fuzzy logic, De-skewing, AutoML, & NLP</strong> for a critical UNICEF vaccine supply chain. Saved an estimated <strong>250 work-hours/mo</strong> and improved data processing speeds by <strong>~40%</strong> across logistics, finance, clinical research, and inventory.
-                </li>
-                <li>
-                  Processed/implemented scripts (SQL-Server) & converted safety/efficacy TLFs into dynamic <strong>Tableau and Power BI</strong> visualizations; facilitated intricate trend analysis, patient response profiling, and predictive modeling.
-                </li>
-                <li>
-                  Optimized/fine-tuned queries in SQL/NoSQL databases reducing network traffic (improved query response rates by <strong>30 milliseconds, 30–45%</strong>) complying with <strong>TPC-DS standards</strong>. Integrated <strong>AWS QuickSight</strong> for analytics.
-                </li>
-                <li>
-                  Spearheaded document overhaul, inventoried gaps, and authored functional/technical design documents (<strong>FDDs/TDDs</strong>) for business improvements.
-                </li>
-                <li>
-                  Mentored <strong>8+ devs/trainees</strong> and contributed significantly to R&D in TCS' life sciences unit, aiding in the development of TCS' advanced AI and analytics solutions — <strong>Cognix™ and MFDM™</strong>.
-                </li>
+              <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300 list-disc list-outside ml-5 leading-relaxed">
+                <li>Architected and deployed a fleet of <strong>13 intelligent automation bots</strong> (including <em>Trina, Sofia, RMC050, CATI1/2, Greenwich, IRMA, Ludo, Hyperion, and Felicia 1–X</em>) leveraging <strong>fuzzy logic, NLP, and AutoML</strong>.</li>
+                <li>Engineered mission-critical ETL/ELT data pipelines supporting global <strong>UNICEF vaccine supply chain</strong> logistics, inventory forecasting, and cold-chain compliance.</li>
               </ul>
             </article>
 
           </div>
         </section>
 
-        <!-- SECTION 4: EDUCATION & GRADUATE COURSEWORK -->
+        <!-- SECTION 3: RESEARCH & SYSTEMS ARTIFACTS (TARGETED AT PHD ADVISORS) -->
+        <section id="projects" class="space-y-6">
+          <div class="flex items-end justify-between pb-3 dashed-divider">
+            <div>
+              <span class="font-mono text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400">02 / Research & Systems</span>
+              <h2 class="font-serif text-3xl text-slate-900 dark:text-white mt-0.5">Selected Research Concepts & Agentic Artifacts</h2>
+            </div>
+            <span class="font-mono text-xs text-slate-500 hidden sm:inline">HCI • XAI • Multi-Agent</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+            <!-- Research Card 1: MindWare -->
+            <div class="p-6 rounded-xl bg-[#F3EFE6]/90 dark:bg-[#151C28]/90 border border-dashed border-blue-400/70 dark:border-blue-800/80 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <span class="font-mono text-[11px] uppercase px-2 py-0.5 rounded bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 font-medium">
+                    Seamful XAI & Sociotechnical HCI
+                  </span>
+                  <i data-lucide="brain-circuit" class="w-4 h-4 text-blue-600 dark:text-blue-400"></i>
+                </div>
+                <h3 class="font-serif text-2xl text-slate-900 dark:text-white">
+                  MindWare: Cognitive Middleware for Seamful XAI
+                </h3>
+                <p class="mt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  A sociotechnical cognitive middleware framework that deliberately surfaces ("seamful design") model uncertainty, provenance seams, and coordination anomalies to help users detect coordinated inauthentic behavior and bot-farm narratives.
+                </p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-500">
+                <span>#ExplainableAI</span>
+                <span>#SeamfulDesign</span>
+                <span>#HumanAICollaboration</span>
+              </div>
+            </div>
+
+            <!-- Research Card 2: GOLEM AI -->
+            <div class="p-6 rounded-xl bg-[#F3EFE6]/90 dark:bg-[#151C28]/90 border border-dashed border-blue-400/70 dark:border-blue-800/80 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <span class="font-mono text-[11px] uppercase px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 font-medium">
+                    Live-Learning Agentic Copilot
+                  </span>
+                  <i data-lucide="bot" class="w-4 h-4 text-blue-600 dark:text-blue-400"></i>
+                </div>
+                <h3 class="font-serif text-2xl text-slate-900 dark:text-white">
+                  GOLEM AI: Real-Time Retail & Inventory Copilot
+                </h3>
+                <p class="mt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  An autonomous, live-learning agentic analytics platform integrating directly with point-of-sale telemetry (Dutchie POS) to perform continuous demand forecasting, anomaly detection, and natural-language inventory optimization.
+                </p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-500">
+                <span>#AgenticWorkflows</span>
+                <span>#StreamingRAG</span>
+                <span>#DecisionSupport</span>
+              </div>
+            </div>
+
+            <!-- Research Card 3: xCompanion & xRecon -->
+            <div class="p-6 rounded-xl bg-[#F3EFE6]/90 dark:bg-[#151C28]/90 border border-dashed border-blue-400/70 dark:border-blue-800/80 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <span class="font-mono text-[11px] uppercase px-2 py-0.5 rounded bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300 font-medium">
+                    Multi-Agent Code Synthesis
+                  </span>
+                  <i data-lucide="git-compare" class="w-4 h-4 text-blue-600 dark:text-blue-400"></i>
+                </div>
+                <h3 class="font-serif text-2xl text-slate-900 dark:text-white">
+                  Planner–Builder–Critic ETL Modernization Engine
+                </h3>
+                <p class="mt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Neuro-symbolic multi-agent architecture combining Reverse Engineering, Forward Engineering, and Critic agents with an automated reconciliation loop (<code>xRecon</code>) to migrate ribuan of legacy XML dataflows into verified PySpark pipelines.
+                </p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-500">
+                <span>#ProgramSynthesis</span>
+                <span>#MultiAgentCritic</span>
+                <span>#PySpark</span>
+              </div>
+            </div>
+
+            <!-- Research Card 4: Ecological Telemetry & Algorithmic Curation -->
+            <div class="p-6 rounded-xl bg-[#F3EFE6]/90 dark:bg-[#151C28]/90 border border-dashed border-blue-400/70 dark:border-blue-800/80 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <span class="font-mono text-[11px] uppercase px-2 py-0.5 rounded bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 font-medium">
+                    Spatiotemporal & Algorithmic Modeling
+                  </span>
+                  <i data-lucide="activity" class="w-4 h-4 text-blue-600 dark:text-blue-400"></i>
+                </div>
+                <h3 class="font-serif text-2xl text-slate-900 dark:text-white">
+                  Marine Telemetry & Non-Repetitive Set Optimization
+                </h3>
+                <p class="mt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Exploratory modeling of acoustic/satellite telemetry for predicting great white shark movement corridors off Cape Cod, alongside <em>Music Buckets</em>—a stateful dataset partitioning algorithm guaranteeing zero-repeat media scheduling.
+                </p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-500">
+                <span>#SpatiotemporalML</span>
+                <span>#Telemetry</span>
+                <span>#DataStructures</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- SECTION 4: EDUCATION -->
         <section id="education" class="space-y-4">
           <div class="flex items-end justify-between pb-3 dashed-divider">
             <div>
-              <span class="font-mono text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400">03 / Academic Pedigree</span>
+              <span class="font-mono text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400">03 / Academic Foundation</span>
               <h2 class="font-serif text-3xl text-slate-900 dark:text-white mt-0.5">Education</h2>
             </div>
           </div>
 
-          <div class="space-y-4">
-            <!-- Northeastern University -->
-            <div class="p-6 rounded-xl bg-[#F3EFE6]/85 dark:bg-[#151C28]/90 border border-slate-300 dark:border-slate-800">
-              <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-                <div>
-                  <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                    Northeastern University — Boston, MA
-                  </h3>
-                  <p class="font-mono text-sm text-blue-700 dark:text-blue-400">
-                    Master of Science (M.S.), Data Architecture and Management
-                  </p>
-                </div>
-                <span class="font-mono text-xs px-3 py-1 rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 shrink-0">
-                  2022 – 2024
-                </span>
-              </div>
-
-              <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800">
-                <p class="font-mono text-[11px] uppercase text-slate-500 dark:text-slate-400 mb-2">Graduate Coursework:</p>
-                <div class="flex flex-wrap gap-1.5 text-xs font-mono">
-                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">DAMG7370: Advanced Data Architectures for BI</span>
-                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">DAMG7250: Big Data Architecture & Governance</span>
-                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">DAMG6210: Database Management & Design</span>
-                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">DAMG6105: Data Science Engineering with Python</span>
-                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">INFO7374: Algorithmic Marketing</span>
-                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">CSYE6200: Object-Oriented Programming & Design</span>
-                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">CSYE7280: User Experience Design & Testing (HCI)</span>
-                  <span class="px-2.5 py-1 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">INFO6150: Web Design & User Experience</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- JNTU -->
-            <div class="p-6 rounded-xl bg-[#F3EFE6]/85 dark:bg-[#151C28]/90 border border-slate-300 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-              <div>
-                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                  Jawaharlal Nehru Technological University (JNTU) — India
-                </h3>
-                <p class="font-mono text-sm text-blue-700 dark:text-blue-400">
-                  Bachelor of Technology (B.Tech), Computer Science
-                </p>
-              </div>
-              <span class="font-mono text-xs px-3 py-1 rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 shrink-0">
-                2016 – 2020
-              </span>
-            </div>
-          </div>
-        </section>
-
-        <!-- SECTION 5: ACADEMIC & EXECUTIVE REFERENCES -->
-        <section id="references" class="space-y-4">
-          <div class="flex items-end justify-between pb-3 dashed-divider">
+          <div class="p-6 rounded-xl bg-[#F3EFE6]/80 dark:bg-[#151C28]/90 border border-slate-300/80 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <span class="font-mono text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400">04 / Endorsements</span>
-              <h2 class="font-serif text-3xl text-slate-900 dark:text-white mt-0.5">Academic & Industry References</h2>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                Northeastern University — College of Engineering
+              </h3>
+              <p class="font-mono text-sm text-blue-700 dark:text-blue-400">
+                Master of Science in Data Architecture and Management
+              </p>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+                Focus: Distributed Data Systems, Cloud Architecture, Big Data Engineering & Machine Learning Pipelines
+              </p>
             </div>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-            <!-- Northeastern References -->
-            <div class="p-5 rounded-xl bg-[#F3EFE6]/85 dark:bg-[#151C28]/90 border border-dashed border-blue-400/70 dark:border-blue-800">
-              <div class="font-mono uppercase text-[11px] text-blue-700 dark:text-blue-400 font-semibold mb-2">
-                Northeastern University • Boston, MA
-              </div>
-              <ul class="space-y-1.5 text-slate-700 dark:text-slate-300">
-                <li><strong>Dr. Yu Jones</strong> — Professor, College of Engineering</li>
-                <li><strong>Dr. Vishal Chawla</strong> — Professor, College of Engineering</li>
-              </ul>
-            </div>
-
-            <!-- State Street References -->
-            <div class="p-5 rounded-xl bg-[#F3EFE6]/85 dark:bg-[#151C28]/90 border border-dashed border-blue-400/70 dark:border-blue-800">
-              <div class="font-mono uppercase text-[11px] text-blue-700 dark:text-blue-400 font-semibold mb-2">
-                State Street Corporation • Boston, MA
-              </div>
-              <ul class="space-y-1.5 text-slate-700 dark:text-slate-300">
-                <li><strong>Ata Turk</strong> — SVP, Strategic Initiative Office</li>
-                <li><strong>Mitrava Sarkar</strong> — VP, Strategic Initiative Office</li>
-                <li><strong>Vignesh Ashokkumar</strong> — VP, Strategic Initiative Office</li>
-              </ul>
-            </div>
-
-            <!-- GPC References -->
-            <div class="p-5 rounded-xl bg-[#F3EFE6]/85 dark:bg-[#151C28]/90 border border-dashed border-blue-400/70 dark:border-blue-800">
-              <div class="font-mono uppercase text-[11px] text-blue-700 dark:text-blue-400 font-semibold mb-2">
-                Genuine Parts Company • Atlanta, GA
-              </div>
-              <ul class="space-y-1.5 text-slate-700 dark:text-slate-300">
-                <li><strong>Naveen Krishna</strong> — Former GPC Exec (Curr: CIO, Jaguar Land Rover Group)</li>
-                <li><strong>Shashi Mannepalli</strong> — VP, Global Technology/AI</li>
-                <li><strong>Manoj Kumar Dobbala</strong> — Director of Engineering</li>
-                <li><strong>Pavan Autapally</strong> — Director, Network Engineering & Data Center Ops</li>
-              </ul>
-            </div>
-
-            <!-- GSK Reference -->
-            <div class="p-5 rounded-xl bg-[#F3EFE6]/85 dark:bg-[#151C28]/90 border border-dashed border-blue-400/70 dark:border-blue-800">
-              <div class="font-mono uppercase text-[11px] text-blue-700 dark:text-blue-400 font-semibold mb-2">
-                GlaxoSmithKline Pharmaceuticals • Brussels, Belgium
-              </div>
-              <ul class="space-y-1.5 text-slate-700 dark:text-slate-300">
-                <li><strong>Prageet Kumar Dak</strong> — EIA/AI Leadership (Curr: TCS)</li>
-              </ul>
+            <div class="font-mono text-xs px-3 py-1.5 rounded bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 shrink-0">
+              Boston, MA • Graduated May 2024
             </div>
           </div>
         </section>
 
-        <!-- SECTION 6: "everyday in .jpg's" SLIDESHOW (WITH 1000047985.png + imgg02/03/04 + EXISTING) -->
+        <!-- SECTION 5: "everyday in .jpg's" PHOTO CAROUSEL (USING UPLOADED ASSETS) -->
         <section id="gallery" class="space-y-4 pt-2">
           <div class="flex items-end justify-between pb-3 dashed-divider">
             <div>
-              <span class="font-mono text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400">05 / Visual Log</span>
-              <h2 class="font-serif text-3xl text-slate-900 dark:text-white mt-0.5">
-                everyday in <span class="font-mono text-xl text-blue-600 dark:text-blue-400">.jpg's</span>
-              </h2>
+              <span class="font-mono text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400">04 / Visual Log</span>
+              <h2 class="font-serif text-3xl text-slate-900 dark:text-white mt-0.5">everyday in <span class="font-mono text-xl text-blue-600 dark:text-blue-400">.jpg's</span></h2>
             </div>
             <span class="font-mono text-xs text-slate-500">Hover to pause</span>
           </div>
 
           <div class="relative overflow-hidden rounded-xl border border-dashed border-blue-400/70 dark:border-blue-800/80 bg-[#F3EFE6]/60 dark:bg-[#151C28]/60 p-4">
             <div class="carousel-track gap-4">
-              <!-- Set 1: Previous DP + Newly Added Assets + Existing Assets -->
-              <img src="assets/1000047985.png" alt="Gallery Photo 1" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/imgg02.jpeg" alt="Gallery Photo 2" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/imgg03.jpeg" alt="Gallery Photo 3" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/imgg04.jpeg" alt="Gallery Photo 4" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/dc1.jpeg" alt="Gallery Photo 5" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/dc3.jpeg" alt="Gallery Photo 6" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/imgbdg.jpeg" alt="Gallery Photo 7" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/imgg1.jpeg" alt="Gallery Photo 8" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/imgg2.jpeg" alt="Gallery Photo 9" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/imgg3.jpeg" alt="Gallery Photo 10" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/imgg4.jpeg" alt="Gallery Photo 11" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-
-              <!-- Set 2: Duplicated for Seamless Infinite Scroll -->
-              <img src="assets/1000047985.png" alt="Gallery Photo 1" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/imgg02.jpeg" alt="Gallery Photo 2" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/imgg03.jpeg" alt="Gallery Photo 3" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/imgg04.jpeg" alt="Gallery Photo 4" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/dc1.jpeg" alt="Gallery Photo 5" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/dc3.jpeg" alt="Gallery Photo 6" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/imgbdg.jpeg" alt="Gallery Photo 7" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/imgg1.jpeg" alt="Gallery Photo 8" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/imgg2.jpeg" alt="Gallery Photo 9" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/imgg3.jpeg" alt="Gallery Photo 10" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
-              <img src="assets/imgg4.jpeg" alt="Gallery Photo 11" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
+              <!-- First Set of Assets from portfolio.github.io-main/assets/ -->
+              <img src="assets/dc1.jpeg" alt="Snapshot 1" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
+              <img src="assets/dc3.jpeg" alt="Snapshot 2" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
+              <img src="assets/imgbdg.jpeg" alt="Snapshot 3" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
+              <img src="assets/imgg1.jpeg" alt="Snapshot 4" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
+              <img src="assets/imgg2.jpeg" alt="Snapshot 5" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
+              <img src="assets/imgg3.jpeg" alt="Snapshot 6" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
+              <img src="assets/imgg4.jpeg" alt="Snapshot 7" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
+              <!-- Duplicated Set for Seamless Infinite Loop -->
+              <img src="assets/dc1.jpeg" alt="Snapshot 1" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
+              <img src="assets/dc3.jpeg" alt="Snapshot 2" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
+              <img src="assets/imgbdg.jpeg" alt="Snapshot 3" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
+              <img src="assets/imgg1.jpeg" alt="Snapshot 4" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
+              <img src="assets/imgg2.jpeg" alt="Snapshot 5" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
+              <img src="assets/imgg3.jpeg" alt="Snapshot 6" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
+              <img src="assets/imgg4.jpeg" alt="Snapshot 7" class="h-48 w-64 object-cover rounded-lg shadow-sm border border-slate-300 dark:border-slate-700" />
             </div>
           </div>
         </section>
@@ -809,18 +571,18 @@
   <!-- FOOTER -->
   <footer class="mt-16 border-t border-dashed border-blue-400/60 dark:border-blue-800/70 py-8 text-center font-mono text-xs text-slate-500 dark:text-slate-400">
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p>© 2026 Prithvi Vasireddy • Explainable, Accountable & Dignified AI</p>
+      <p>© 2026 Prithvi Vasireddy • Built for Research & Systems Inquiry</p>
       <div class="flex items-center gap-4">
-        <a href="mailto:Prithvivasireddy@gmail.com" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Prithvivasireddy@gmail.com</a>
+        <a href="mailto:vasireddy.p@northeastern.edu" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Email</a>
         <span>•</span>
-        <a href="#publications" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Publications</a>
+        <a href="#research" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Research Statement</a>
         <span>•</span>
         <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Experience</a>
       </div>
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
+  <!-- SCRIPTS: LUCIDE ICONS & THEME TOGGLE -->
   <script>
     lucide.createIcons();
 
